@@ -1,0 +1,31 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  publisher_id: 1
+  description: MyText
+  generation: 1
+  controller_ports: 1
+  online_connectivity: false
+  precursor_id: 1
+  platform_market_id: 1
+  overall_sales: 1.5
+  logo: MyString
+  picture: MyString
+  addon_id: 1
+  storage: MyString
+
+two:
+  name: MyString
+  publisher_id: 1
+  description: MyText
+  generation: 1
+  controller_ports: 1
+  online_connectivity: false
+  precursor_id: 1
+  platform_market_id: 1
+  overall_sales: 1.5
+  logo: MyString
+  picture: MyString
+  addon_id: 1
+  storage: MyString

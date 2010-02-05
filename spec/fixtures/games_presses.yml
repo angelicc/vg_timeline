@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  game_id: 1
+  press_id: 1
+  score: MyString
+  review_link: MyString
+
+two:
+  game_id: 1
+  press_id: 1
+  score: MyString
+  review_link: MyString

@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  platform_id: 1
+  market_id: 1
+  market_sales: 1.5
+  release_date: 2010-02-05
+  final_date: 2010-02-05
+
+two:
+  platform_id: 1
+  market_id: 1
+  market_sales: 1.5
+  release_date: 2010-02-05
+  final_date: 2010-02-05
