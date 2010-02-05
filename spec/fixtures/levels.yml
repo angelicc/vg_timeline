@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  id: 
+  name: MyString
+  new_games: 
+  modifications: 
+  delete_games: 
+  add_categories: 
+  manage_users: 
+
+two:
+  id: 
+  name: MyString
+  new_games: 
+  modifications: 
+  delete_games: 
+  add_categories: 
+  manage_users: 
