@@ -1,0 +1,10 @@
+//$("<% @div_id %>").update("<% escape_javascript(render 'game_info') %>");
+//Effect.Appear("<% @div_id%>", { duration: 0.5 });
+
+Element.removeClassName('<%= @div_id %>','box_img');
+if (<%= @right %> == true) {
+  $("<%= @div_id %>").update("<%= escape_javascript(render 'game_info') %>").addClassName('box_img_right');
+} else {
+  $("<%= @div_id %>").update("<%= escape_javascript(render 'game_info') %>").addClassName('box_img_left');
+}
+Effect.Appear("<%= @div_id%>", { duration: 0.3 });

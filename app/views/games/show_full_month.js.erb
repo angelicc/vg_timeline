@@ -1,0 +1,9 @@
+var desc = $('current_month').descendants();
+desc.each(function(item){
+  var id = item.identify();
+  Effect.Appear(id);
+});
+//new Effect.Highlight('current_month');
+
+$('show').update('Hide');
+$('show').writeAttribute('href', '/hide_month');

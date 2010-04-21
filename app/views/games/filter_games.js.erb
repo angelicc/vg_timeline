@@ -1,0 +1,10 @@
+$("<%= @month_id %>").update("<%= escape_javascript(render 'month_view') %>");
+<% if @check_all_month %>
+  $('show_all_games<%= @check_all_month %>').checked = 1;
+<% end %>
+//Effect.Highlight("<%= @month_id %>");
+Element.hide("<%= 'spinner'+@month_number %>");
+
+<% if @show_hide %>
+  $('<%= @show_hide %>').update('<%= link_to "Hide", { :action => 'filter_games', :div => @month_id, :y => @year, :m => @month_number }, :remote => true, :id => "hide#{@month_number}" %>');
+<% end %>

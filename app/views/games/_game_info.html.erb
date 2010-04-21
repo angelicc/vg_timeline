@@ -1,0 +1,35 @@
+<div class="game_pop">
+  <div class="pop_box">
+    <div class="boxart_inside_block"><%= box_logo(@game) %></div>
+  </div>
+  <div class="window_close_block">
+    <%= link_to close_button, { :action => 'close_info_window', :id => @div_id }, :remote => true %>
+  </div>
+  <div class="pop_text"> 
+    <strong>Name</strong>: <%= @game.full_title %><br />
+    <strong>Platform</strong>: <%= @game.platform.name %><br />
+    <strong>Release Date</strong>: <%= @game.release_date %><br />
+    <strong>Developer</strong>:
+    <% @game.developers.each do |d| %>
+      <%= d.name + (d == @game.developers.last ? "" : ", ") %>
+    <% end %><br />
+    <strong>Publisher</strong>:
+    <% @game.publishers.each do |p| %>
+      <%= p.name + (p == @game.publishers.last ? "" : ", ") %>
+    <% end %><br />
+    <strong>Scores:</strong><br />
+    <% unless @scores.empty? %>
+      <table>
+        <% for score in @scores %>
+          <tr>
+            <td><%= link_to score.press.name, score.press.url %></td>
+            <td><%= link_to score.score, score.url %></td>
+          </tr>
+        <% end %>
+      </table>
+    <% else %>
+      No scores.
+    <% end %>
+  </div>
+  <%= pop_up "Edit game", '/edit?id=' + @game.id.to_s %>
+</div>

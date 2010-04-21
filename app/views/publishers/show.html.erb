@@ -1,0 +1,5 @@
+<h3>Games published by <%= @publisher.name %></h3>
+<% for game in @games %>
+    <%= game.full_title %><br />
+<% end %>
+<%= link_to "Back", publishers_path %>

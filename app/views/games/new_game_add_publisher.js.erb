@@ -1,0 +1,4 @@
+var dev = $("publishers");
+var newSelect = document.createElement("div");
+newSelect.innerHTML = "<%= escape_javascript(text_field_with_auto_complete :game, :publisher_names, {}, { :url => publishers_path(), :method => :get, :param_name => 'search' }) %>";
+dev.appendChild(newSelect);

@@ -1,0 +1,20 @@
+<div class="tooltip_game_info <%= @pos %>">
+  <div class="tooltip_boxart <%= @pos %>">
+    <%= box_logo(@game_info) %>
+  </div>
+  <div class="tooltip_text <%= @pos %>">
+    <strong>Platform</strong>: <%= @game_info.platform.name %><br />
+    <strong>Release Date</strong>: <%= @game_info.release_date %><br />
+    <strong>Developer</strong>:
+    <% @game_info.developers.each do |d| %>
+      <%= d.name + (d == @game_info.developers.last ? "" : ", ") %>
+    <% end %><br />
+    <strong>Publisher</strong>:
+    <% @game_info.publishers.each do |p| %>
+      <%= p.name + (p == @game_info.publishers.last ? "" : ", ") %>
+    <% end %><br />
+    <%= pop_up "Edit game", '/edit?id=' + @game_info.id.to_s if user_signed_in? %>
+    <%= link_to "More Info", game_path(@game_info) %>
+  </div>
+  
+</div>

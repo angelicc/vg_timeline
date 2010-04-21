@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user_id: 1
+  description: MyString
+  remove: false
+  new: false
+  modified: false
+  table_id: 1
+  modified_id: 1
+
+two:
+  user_id: 1
+  description: MyString
+  remove: false
+  new: false
+  modified: false
+  table_id: 1
+  modified_id: 1

@@ -1,0 +1,13 @@
+<% if @games.empty? %>
+  $("<%= "month"+@m %>").update("No Games with these filters.");
+<% else %>
+  <% if @limit > 0 %>
+    $("<%= "month"+@m %>").update("<%= escape_javascript(render 'month_view') %>");
+  <% else %>
+    $("<%= "month"+@m %>").update("<%= escape_javascript(render 'month_view_all') %>");
+  <% end %>
+<% end %>
+//<% if @check_all_month %>
+//  $('month_filter_all<% @check_all_month %>').checked = 1;
+//<% end %>
+Element.hide("<%= 'spinner'+@m %>");

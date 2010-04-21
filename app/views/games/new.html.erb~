@@ -1,0 +1,23 @@
+<h2>New Game</h2>
+
+<% form_for(@game) do |f| %>
+  <div class="field">
+    <%= f.label :main_title %><br />
+    <%= f.text_field :main_title %>
+  </div>
+  <div class="field">
+    <%= f.label :sub_title %><br />
+    <%= f.text_field :sub_title %>
+  </div>
+  <div class="field">
+    <%= f.label :release_date %><br />
+    <%= f.date_select :release_date %>
+  </div>
+  <div class="field">
+    <%= f.label :platform_id %><br />
+    <%= f.select(:platform_id, @platforms.collect { |p| [p.name, p.id] }) %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Submit" %>
+  </div>
+<% end %>

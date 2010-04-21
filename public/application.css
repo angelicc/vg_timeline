@@ -1,0 +1,271 @@
+body {
+    background-color: #C3D9FF;
+    background-image: url("/images/lbluegraygrad.png");
+    background-repeat: repeat-x;
+    font-family: "DejaVu Sans", "Arial";
+}
+
+img {
+    border: none;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+h4, h5 {
+    margin: 4px 0;
+}
+
+h4 {
+    font-size: 1.25em;
+}
+
+a {
+    font-size: 12px;
+}
+
+a:link, a:visited {
+    color: #616c7e;
+    text-decoration: none;
+}
+
+a:hover, a:visited:hover {
+    color: black;
+    text-decoration: underline overline;
+}
+
+#container {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+#display_tab {
+    padding:0px;
+}
+
+#display_tab a:link, #display_tab a:visited {
+    color: silver;
+}
+
+#display_tab a:hover {
+    color: #E5E5E5;
+    text-decoration: underline overline;
+}
+
+#display_tab ul {
+    float:left;
+    padding:0px;
+    margin:0px;
+    list-style:none;
+}
+
+#display_tab li {
+    width:125px;
+    float:left;
+    text-align: center;
+    border-right:1px solid black;
+    border-top:2px solid black;
+    border-left:1px solid black;
+    background-color:silver;
+    position:relative;
+    top:2px;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    -moz-border-radius-topright: 7px;
+    -moz-border-radius-topleft: 7px;
+    -webkit-border-top-right-radius: 7px;
+    -webkit-border-top-left-radius: 7px;
+}
+
+#display_tab li.current {
+    background-color: #E5E5E5;
+    padding-top:2px;
+}
+
+#display_tab li.first {
+    border-left:2px solid black;
+}
+
+#display_tab li.last {
+    border-right:2px solid black;
+}
+
+#display_tab a {
+    font-weight:bold;
+}
+
+.round {
+    border-radius: 7px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+}
+
+.round_bottom {
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    -moz-border-radius-bottomright: 7px;
+    -moz-border-radius-bottomleft: 7px;
+    -webkit-border-bottom-right-radius: 7px;
+    -webkit-border-bottom-left-radius: 7px;
+}
+
+.round_top {
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    -moz-border-radius-topright: 7px;
+    -moz-border-radius-topleft: 7px;
+    -webkit-border-top-right-radius: 7px;
+    -webkit-border-top-left-radius: 7px;
+}
+
+div.pop_up {
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    border-radius: 7px;
+    background-color: white;
+    border: 2px solid black;
+    left: 30%;
+    max-height: 500px;
+    overflow: auto;
+    padding: 20px;
+    position: fixed;
+    top: 100px;
+}
+
+div.fade_back {
+    background-color: black;
+    height: 100%;
+    left: 0;
+    opacity: 0.5;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+#lev1 {
+    z-index: 21
+}
+
+#lev2 {
+    z-index: 23
+}
+
+#lev3 {
+    z-index: 25
+}
+
+#lev4 {
+    z-index: 27
+}
+
+#trans1 {
+    z-index: 20
+}
+
+#trans2 {
+    z-index: 22
+}
+
+#trans3 {
+    z-index: 24
+}
+
+#trans4 {
+    z-index: 26
+}
+
+div.window_close_block {
+    bottom:8px;
+    float:right;
+    left:5px;
+    position:relative;
+}
+
+img.window_close {
+    width: 15px;
+    height: 15px;
+}
+
+#top_nav {
+    font-size: 13px;
+    width: 1200px;
+    margin: 0 auto;
+    height: 50px;
+    border: 1px solid transparent;
+    background-color: transparent; /*#E5E5E5;
+    -moz-border-radius: 7px;
+    border-radius: 7px;*/
+}
+
+#top_nav a:link, a:visited {
+    color: #616c7e;
+    text-decoration: none;
+}
+
+#top_nav a:hover {
+    color: black;
+    text-decoration: underline overline;
+}
+
+#user_info {
+    float:right;
+    padding: 3px 5px;
+    background-color: #E5E5E5;
+    border: 2px solid black;
+    border-radius: 7px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+}
+
+#flash_info {
+    width: 600px;
+    margin: 0 auto;
+    margin-top: 13px;
+    text-align: center;
+}
+
+#page_title {
+    width: 40%;
+    float: left;
+}
+
+#main_title {
+    margin-left: 40px;
+    font-size: 32px;
+    font-weight: 900;
+    color: white;
+    text-shadow:#000 1px 1px 6px;
+}
+
+span.notice {
+    padding: 3px;
+    border: 2px solid #008C00;
+    color: #008C00;
+    background-color: #e0ffd5;
+}
+
+span.alert {
+    padding: 3px;
+    border: 2px solid #B02B2C;
+    color: #B02B2C;
+    background-color: #f8dde1;
+}
+
+span.logged_user {
+    float:left;
+    margin-right: 10px;
+}
+
+#user_info label {
+    font-weight: bold;
+}
+
+#user_info .user_avatar {
+    float:left;
+}
+
+.user_avatar img {
+    max-width: 30px;
+    max-height: 30px;
+}

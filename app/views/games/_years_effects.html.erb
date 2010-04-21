@@ -1,0 +1,34 @@
+<% if @enter_year %>
+  <% if @year < (last_year - 19) %>
+    <% @lshown = @year + 19 %>
+  <% else %>
+    <% @lshown = last_year - 1 %>
+  <% end %>
+<% end %>
+<% i = @lshown; %>
+<% if (i - 19) >= 1975 then first_year = (i - 19) else first_year = 1975 end %>
+<span class="left_arrow_year"><%= link_to_unless((i + 1 == last_year), "<-", {:action=> 'change_year', :to => @lshown + 5, :year => @year}, :remote => true) %></span>
+<% while i >= first_year %>
+  <% if i == first_year %>
+    <% if i == @year %>
+      <span><%= i %></span>
+    <% else %>
+      <span id="year_effect2" style="display:none"><%= link_to i, year_path(i) %></span>
+    <% end %>
+  <% elsif i == @lshown %>
+    <% if i == @year %>
+      <span id="year_effect" style="display:none"><%= i %></span> -
+    <% else %>
+      <span id="year_effect" style="display:none"><%= link_to i, year_path(i) %></span> -
+    <% end %>
+  <% else %>
+    <% if i == @year %>
+      <span><%= i %> - </span>
+    <% else %>
+      <span><%= link_to i, year_path(i) %> - </span>
+    <% end %>
+  <% end %>
+  <% i -= 1 %>
+<% end %>
+<span class="right_arrow_year"><%= link_to_unless((first_year == 1975), "->", {:action=> 'change_year', :to => @lshown - 5, :year => @year}, :remote => true) %></span>
+<br /><%= @year.to_s + " - " + @lshown.to_s + " - " + last_year.to_s %>

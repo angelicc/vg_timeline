@@ -1,0 +1,19 @@
+class GamesController < ApplicationController
+
+  def new
+    @title = "Add New Game"
+    @game = Game.new
+    @platforms = Platform.all
+  end
+
+  def create
+    @game = Game.new(params[:game])
+    if @game.save
+      redirect_to games_path
+    else
+      @title = "Add New Game"
+      @platforms = Platform.all
+      render 'new'
+    end
+  end
+end

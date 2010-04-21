@@ -1,0 +1,4 @@
+var dev = $("developers");
+var newSelect = document.createElement("div");
+newSelect.innerHTML = "<%= escape_javascript(text_field_with_auto_complete :game, :developer_names, {}, { :url => developers_path(), :method => :get, :param_name => 'search' }) %>";
+dev.appendChild(newSelect);

@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  new_games: 1
+  modifications: 1
+  delete_dames: false
+  add_categories: false
+  manage_users: false
+
+two:
+  name: MyString
+  new_games: 1
+  modifications: 1
+  delete_dames: false
+  add_categories: false
+  manage_users: false

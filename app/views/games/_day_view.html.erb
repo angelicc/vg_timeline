@@ -1,0 +1,22 @@
+<% sh = 0 %>
+<% if sh == 0 and not @sh %>
+  <% sh = @day.length - 1 %>
+<% else %>
+  <% sh = @sh %>
+<% end %>
+<span class="day_text"><strong><%= @day_text.to_i.to_s %></strong> <%= " ("+@day.first.to_s+")" %></span>
+
+<div class="table_div">
+  <table>
+    <tr>
+      <% for game in @day %>
+        <% unless game.class == Fixnum %>
+          <td class="boxart_block">
+            <%= box_logo(game, :thumb, :prototip => true, :tooltip => true, :hover => true) %>
+            </td>
+          <% end %>
+        <% end %>
+      </tr>
+    </table>
+  </div>
+

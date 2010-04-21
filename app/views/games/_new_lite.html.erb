@@ -1,0 +1,35 @@
+<h2>Multiplatform</h2>
+
+<%= form_for(@game, :url => { :diff_platform_id => @diff_platform_id }, :html => { :multipart => true }) do |f| %>
+  <%= f.error_messages %>
+  <div class="field">
+    <%= f.label :main_title %><br />
+    <%= text_field_with_auto_complete :game, :main_title, {}, { :url => games_path(), :method => :get, :param_name => 'search' } %>
+  </div>
+  <div class="field">
+    <%= f.label :sub_title %><br />
+    <%= f.text_field :sub_title %>
+  </div>
+  <div class="field">
+    <%= f.label :release_date %><br />
+    <%= f.date_select :release_date, { :default => @date, :start_year => 1975, :end_year => last_year } %>
+  </div>
+  <div class="field">
+    <%= f.label :platform_name, "Platform" %><br />
+    <%= text_field_with_auto_complete :game, :platform_name, {}, { :url => platforms_path(), :method => :get, :param_name => 'search' } %>
+  </div>
+  <div id="publishers">
+    <div class="field">
+      <%= f.label :publisher_names, "Publisher" %>
+      <span class="add_another"><%= link_to "Another Publisher", { :action => 'new_game_add_publisher' }, :remote => true %></span><br />
+      <%= text_field_with_auto_complete :game, :publisher_names, {}, { :url => publishers_path(), :method => :get, :param_name => 'search' } %>
+    </div>
+  </div>
+  <div class="field">
+    <%= f.label :boxart, "Boxart" %><br />
+    <%= f.file_field :boxart %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Submit" %>
+  </div>
+<% end %>

@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  main_title: MyString
+  sub_title: MyString
+  release_date: 2010-03-21
+  platform_id: 
+  boxart: MyString
+  game_type_id: 
+
+two:
+  main_title: MyString
+  sub_title: MyString
+  release_date: 2010-03-21
+  platform_id: 
+  boxart: MyString
+  game_type_id: 

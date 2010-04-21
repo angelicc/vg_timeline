@@ -1,0 +1,4 @@
+$('pop_new_game').writeAttribute('style', 'display: block !important');
+$('pop_new_game').update("<%= escape_javascript(render 'edit') %>");
+Effect.Appear('pop_new_game', { duration: 0.5 });
+Effect.Appear('transparent_new_game', { duration: 0.5, to: 0.7 });

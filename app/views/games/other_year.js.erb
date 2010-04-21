@@ -1,0 +1,9 @@
+<%#*var desc = $$('.check_platform');%>
+  <%#*desc.each(function(item) {%>
+    <%#*Element.observe(item.identify(), 'click', function() {%>
+      <%#*alert(item.id);%>
+    <%#*});%>
+  <%#*})%>
+$('flash_info').update("");
+$('year_text').update('<%= escape_javascript(render 'years') %>');
+$('year_view').update('<%= escape_javascript(render 'year_view') %>');

@@ -1,0 +1,76 @@
+<div id="year_filter">
+  <span class="year_display"><%= @year %></span>
+  <span class="view_month">
+    <%= check_box_tag "year_show_all"+@year.to_s, 1, false, :class => @year.to_s, :onclick => "yearShowAll(this, 0)"  %>
+    <%= "Show All" %>
+  </span>
+  <span class="platforms_month">
+    Only:
+    <span class="platforms">
+      <% for platform_year in @platforms_year %>
+        <span class="platform">
+          <%= check_box_tag platform_year.id, 1, false, :class => @year.to_s, :onclick => "yearFilterPlatform(this, 3)" %>
+          <%= platform_year.name %>
+        </span>
+      <% end if @platforms_year %>
+    </span>
+    <span class="platform_extra">
+      <%= check_box_tag "year_filter_all"+@year.to_s, 1, true, :class => @year.to_s, :onclick => "yearFilterAll(this, 3)"  %>
+      <%= "All" %>
+    </span>
+  </span>
+  <span id="spinner<%= @year.to_s %>" class="spinner" style="display:none;">
+    <img alt="Spinner" src="/images/spinner.gif" />
+  </span>
+</div>
+<% unless @games.empty? %>
+  <% @m = 0; m2 = "" %>
+  <% for @month in @months %>
+    <% if @month.class == Array %>
+      <div id="month<%= m2 %>" class="month_display<%= ' current_month' if cur_date_year_month(@year, @m) == Date.today %>">
+        <%= render 'month_view' %>
+      </div>
+    <% else %>
+      <% @m = @month.to_i; m2 = @month %>
+      <div>
+        <% current = true if cur_date_year_month(@year, @m) == Date.today %>
+        <div class="month_cont<%= ' current_month' if current %>">
+          <span class="month_text"><%= month_name(@month.to_i) %>
+            <span class="day_text_current_month"><%= "#{Date.today.day}" if current %></span>
+          </span>
+          <% current = false %>
+          <span class="new_game"><%= pop_up "Add Game", new_game_path(:year => @year, :month => @m) if user_signed_in? %></span>
+          <span class="view_month">
+            <%= check_box_tag "month_show_all"+@month.to_s, 1, false, :class => @month.to_s, :onclick => "monthShowAll(this, #{@year.to_s}, 0)"  %>
+            <%= "Show All" %>
+          </span>
+          <span class="platforms_month">
+            <% p_m = (@platforms_month.rindex(@month) + 1) %>
+            Only:
+            <span class="platforms">
+              <% for platform in @platforms_month[p_m] %>
+                <span class="platform">
+                  <%= check_box_tag platform.id, 1, false, :class => @month.to_s, :onclick => "monthFilterPlatform(this, #{@year.to_s}, 3)" %>
+                  <%= platform.name %>
+                </span>
+              <% end %>
+            </span>
+            <span class="platform_extra">
+              <%= check_box_tag "month_filter_all"+@month.to_s, 1, false, :class => @month.to_s, :onclick => "monthFilterAll(this, #{@year.to_s}, 3)"  %>
+              <%= "All" %>
+            </span>
+          </span>
+          <span id="spinner<%= @month.to_s %>" class="spinner" style="display:none;">
+            <img alt="Spinner" src="/images/spinner.gif" />
+          </span>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+<% else %>
+  <%= flash[:notice] %>
+  <div class="message">No games have been added yet for this year</div>
+  <div id="add_game_button">
+    <%= link_to "Add Game", new_game_path(:year => @year, :month => 1), :remote => true %>
+  </div>
+<% end %>

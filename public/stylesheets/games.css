@@ -1,0 +1,548 @@
+#year_display {
+    clear:both;
+    padding-bottom:7px;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+    background-color: #e5e5e5;
+}
+
+#year_text {
+    text-align: center;
+    border-top: 2px solid black;
+    padding: 5px 0px 5px 0px;
+    height:25px;
+}
+
+#year_text span a {
+
+}
+
+#year_text span.left_arrow_year {
+    float:left;
+    padding-left: 10px;
+    padding-top: 5px;
+}
+
+#year_text span.right_arrow_year {
+    float:right;
+    padding-right: 10px;
+    padding-top: 5px;
+}
+
+#year_text span.no_link {
+    opacity: 0.5;
+}
+
+#year_text span.current_year {
+    padding-top:0;
+    position:relative;
+    bottom:0%;
+    top:5%;
+    font-size:20px;
+}
+
+#pop_new_game {
+    background-color: white;
+    border: 3px solid black;
+    left: 25%;
+    padding: 20px;
+    position: fixed;
+    top: 25%;
+    z-index: 4;
+}
+
+#transparent_new_game {
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 3;
+}
+
+#pop_dev_pub {
+    background-color:white;
+    border:2px solid black;
+    left:30%;
+    max-height:500px;
+    overflow:scroll;
+    padding:25px;
+    position:fixed;
+    top:10%;
+    z-index:6;
+}
+
+#transparent_dev_pub {
+    background-color:black;
+    height:100%;
+    left: 0;
+    position:fixed;
+    top: 0;
+    width:100%;
+    z-index:5;
+}
+
+img.boxart.thumb {
+    max-height:100px;
+    max-width:100px;
+}
+
+img.boxart.medium {
+    max-height:200px;
+    max-width:200px;
+}
+
+img.boxart.mini {
+    max-height:50px;
+    max-width:50px;
+}
+
+img.hover:hover {
+    max-height:100px;
+    max-width:100px;
+    opacity: 0.7;
+}
+
+td.boxart_block  {
+    min-width: 101px;
+    height: 108px;
+    text-align: center;
+}
+
+span.boxart_block img  {
+    cursor: pointer;
+}
+
+td.boxart_block img  {
+    cursor: pointer;
+}
+
+div.month_cont {
+    border-top: 1px solid black;
+    margin-bottom: 0px;
+}
+
+span.month_text {
+    font-size: 18px;
+    padding-left: 10px;
+    padding-right: 15px;
+}
+
+span.day_text_current_month {
+    font-size: 14px;
+    color: gray;
+    font-weight: normal;
+}
+
+div.month_display {
+    /*padding-top: 3px;*/
+    /*padding-bottom:5px;*/
+    /*display: table;*/
+    /*clear: both;*/
+    width: 100%;
+    overflow: auto;
+}
+
+td.day_display {
+    border: 1px solid gray;
+    padding-top: 3px;
+    margin-right:10px;
+    /*float: left;*/
+    background-color: #c9ced7;
+    color: black;
+    max-width: 318px;
+    overflow-x: hidden;
+}
+
+span.view_month, span.new_game {
+    padding-top: 4px;
+    font-size: 12px;
+}
+
+span.platforms_month {
+    font-size:13px;
+    float:right;
+    padding-right:4px;
+    padding-top:0px;
+    margin:0;
+}
+
+span.platforms {
+    border: 1px solid black;
+    border-top: none;
+    display: inline-block;
+    padding-right: 4px;
+}
+
+div.message {
+    text-align: center;
+    padding: 20px;
+    font-weight: bold;
+}
+
+#add_game_button {
+    text-align: center;
+    padding: 18px 0;
+}
+
+#add_game_button a {
+    background-color: green;
+    color: white;
+    font-size: 28px;
+    margin: 10px 18px;
+    padding: 10px 18px;
+    text-decoration: none;
+}
+
+#add_game_button a:hover {
+    text-decoration: underline;
+}
+
+div.box_img  {
+    background-color:white;
+    left:-17px;
+    padding:15px;
+    position:absolute;
+    top:-18px;
+    z-index:2;
+    width: 450px;
+    border: 2px solid black;
+    border-radius: 7px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+}
+
+div.pop_box {
+    float: left;
+    margin-right: 10px;
+    width: 100px;
+    text-align: center;
+}
+
+div.pop_text {
+    border: 1px solid gray;
+    float: left;
+    width: 305px;
+    padding: 5px 8px;
+}
+
+div.game_pop {
+    font-size: 12px;
+    text-align: left;
+}
+
+div.window_close_add_edit  {
+    bottom:10px;
+    float:right;
+    left:5px;
+    position:relative;
+}
+
+span.add_another  {
+    display:block;
+    float:right;
+    text-align:left;
+    width:150px;
+}
+
+div.boxart_inside_block {
+    height: 106px;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+#change_boxart {
+    z-index: 6;
+}
+
+span.left_day_arrow {
+    text-align:left;
+    width:20%;
+    float:left;
+    font-size:12px;
+}
+
+span.left_day_arrow img {
+    opacity: 0.3;
+}
+
+span.left_day_arrow a img {
+    opacity: 1;
+}
+
+span.right_day_arrow {
+    text-align:right;
+    width:20%;
+    float:left;
+    font-size:12px;
+}
+
+span.right_day_arrow img {
+    opacity: 0.3;
+}
+
+span.right_day_arrow a img {
+    opacity: 1;
+}
+
+span.day_text  {
+    font-size:14px;
+    text-align:center;
+    display: block;
+    margin: 0 auto;
+}
+
+#day_bottom {
+
+}
+
+span.left_day_arrow {
+    text-align:left;
+    width:20%;
+    float:left;
+    font-size:12px;
+}
+
+span.left_day_arrow img {
+    opacity: 0.3;
+}
+
+span.left_day_arrow a img {
+    opacity: 1;
+}
+
+span.right_day_arrow {
+    text-align:right;
+    width:20%;
+    float:left;
+    font-size:12px;
+}
+
+span.right_day_arrow img {
+    opacity: 0.3;
+}
+
+span.right_day_arrow a img {
+    opacity: 1;
+}
+
+span.left_month_arrow {
+    padding-top:50px;
+    padding-right:5px;
+    padding-left:5px;
+    float:left;
+}
+
+span.left_month_arrow img {
+    opacity: 0.3;
+}
+
+span.right_month_arrow img {
+    opacity: 0.3;
+}
+
+span.left_month_arrow a img {
+    opacity: 1;
+}
+
+span.right_month_arrow a img {
+    opacity: 1;
+}
+
+span.right_month_arrow {
+    padding-top: 50px;
+    padding-left: 5px;
+    padding-right: 5px;
+    float:right;
+}
+
+span.spinner {
+    float:right;
+    padding-right:15px;
+}
+
+td.unreleased {
+    opacity: 0.7;
+    background-color: #DBDBDB;
+}
+
+div.current_month {
+    background-color: #eeffcf;
+}
+
+div.box_img_right, div.box_img_left {
+    background-color:white;
+    margin-right: 20px;
+    padding:15px;
+    position:absolute;
+    top:-18px;
+    z-index:2;
+    width:450px;
+    opacity: 1;
+    border: 2px solid black;
+    border-radius: 7px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+}
+
+div.box_img_left {
+    left: -17px;
+}
+
+div.box_img_right {
+    right: -50px;
+}
+
+#year_filter {
+    width:100%;
+    height: 25px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+span.year_display {
+    padding-left: 10px;
+    font-size: 20px;
+}
+
+div.table_div {
+    overflow: auto;
+}
+
+div.tooltip_boxart.left {
+    float:right;
+    margin-left: 5px;
+}
+
+div.tooltip_boxart.right {
+    float:left;
+    margin-right: 5px;
+}
+
+#month_view_all {
+    padding: 10px;
+}
+
+/* GAME INFO VIEW */
+
+#left_column, #right_column,
+#boxart_medium_container,
+#basic_info_container {
+    /*border: 1px solid black;*/
+}
+
+#game_display {
+    background-color: #E5E5E5;
+    border: 2px solid black;
+    display: table;
+    width: 99.6%;
+    margin: 0 auto;
+}
+
+/* Columns */
+
+#left_column {
+    border-right: 2px solid black;
+    width: 75%;
+    float: left;
+    clear: both;
+}
+
+#right_column {
+    width: 24%;
+    float: right;
+}
+
+#left_column, #right_column {
+    font-size: 13px;
+}
+
+/* Boxart */
+
+#boxart_medium_container {
+    float: left;
+    padding: 5px;
+    text-align: center;
+    width: 24%;
+}
+
+/* Game Info */
+
+#basic_info_container {
+    padding: 7px 8px 10px 10px;
+    width: 72%;
+    float: left;
+    font-size: 13px;
+}
+
+#game_show_title {
+    margin: 0 0 5px;
+    font-size: 1.6em;
+    font-weight: normal;
+}
+
+td.label {
+    font-weight: bold;
+}
+
+/* Description */
+
+#game_description {
+    padding: 10px 14px 10px 13px;
+    text-align: justify;
+    width: 97%;
+    float: left;
+}
+
+/* Series */
+
+#game_series {
+    float: left;
+    padding: 10px 14px 10px 13px;
+    width: 47%;
+}
+
+span.showing {
+    font-style: italic;
+}
+
+#sequel {
+    float: left;
+    text-align: right;
+    width: 25%;
+}
+
+#prequel {
+    float: left;
+    text-align: left;
+    width: 25%;
+}
+
+#prequel_sequel_cont {
+    width: 100%;
+    float: left;
+}
+
+#series_list {
+    float: left;
+}
+
+/* Scores */
+
+#game_scores {
+    float: left;
+    padding: 10px 14px 10px 13px;
+    width: 46%;
+}
+
+/* Specs & Features */
+
+img.rating_logo {
+    max-width: 100px;
+    max-height: 100px;
+}
+
+/* END GAME INFO VIEW */

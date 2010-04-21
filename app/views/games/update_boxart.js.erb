@@ -1,0 +1,3 @@
+$('boxart_image').update("<%= escape_javascript(link_to box_logo(@game), { :action => 'change_boxart', :id => @game }, :remote => true) %>
+$('change_boxart_bg').writeAttribute('style', 'display: none;');
+$('change_boxart').writeAttribute('style', 'display: none;');

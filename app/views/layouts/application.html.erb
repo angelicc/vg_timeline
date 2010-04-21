@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title><%= @title %></title>
+    <%= stylesheet_tag 'application', {} %>
+    <%= stylesheet_tag 'games', {} %>
+    <%= stylesheet_tag 'prototip', {} %>
+    <%= javascript_include_tag :defaults %>
+    <%= javascript_include_tag "prototip" %>
+    <%= csrf_meta_tag %>
+  </head>
+  <body>
+    <%= javascript_include_tag "wz_tooltip" %>
+    <div id="top_nav">
+      <div id="page_title">
+        <%= link_to "VG Timeline", root_path %>
+      </div>
+      <span id="user_info">
+        <% if user_signed_in? %>
+          <span class="user_avatar"><%= image_tag current_user.gravatar_url(:rating => 'PG', :secure => true) %></span>
+          <span class="logged_user">
+            <label>User: </label><%= current_user.username %><br />
+            <label>Level: </label><%= current_user.level.level.to_s + " (" + current_user.level.name + ") " %>
+            - <label>Exp: </label><%= current_user.exp %>
+          </span>
+          <%= link_to "Sign out", destroy_user_session_path %>
+        <% else %>
+          <%= link_to "Sign up", new_user_registration_path %>
+          or <%= link_to "sign in", new_user_session_path %>
+        <% end %>
+      </span>
+      <div id="flash_info">
+        <% flash.each do |name, msg| %>
+          <%= content_tag :span, msg, :class => "#{name}" %>
+        <% end %>
+      </div>
+    </div>
+    <div id="container">
+      <%= yield %>
+    </div>
+    <div id="view_filters">
+      <div id="show_view_filters">
+        View Filters >
+      </div>
+    </div>
+<%# debug(params) if Rails.env.development? %>
+    <div id="lev1" class="pop_up" style="display: none;"></div>
+    <div id="trans1" class="fade_back" style="display: none;"></div>
+    <div id="lev2" class="pop_up" style="display: none;"></div>
+    <div id="trans2" class="fade_back" style="display: none;"></div>
+    <div id="lev3" class="pop_up" style="display: none;"></div>
+    <div id="trans3" class="fade_back" style="display: none;"></div>
+    <div id="lev4" class="pop_up" style="display: none;"></div>
+    <div id="trans4" class="fade_back" style="display: none;"></div>
+  </body>
+</html>

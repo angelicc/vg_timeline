@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  game_id: 1
+  boxart_filename: MyString
+  release_date: 2010-04-11
+
+two:
+  game_id: 1
+  boxart_filename: MyString
+  release_date: 2010-04-11

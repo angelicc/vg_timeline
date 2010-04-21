@@ -1,0 +1,39 @@
+<% ignore = false %>
+<% for @month in @months %>
+  <% if @month.class == Array and ignore == false %>
+    <% if @limit > 0 %>
+      $('<%= 'month'+@m %>').update("<%= escape_javascript(render 'month_view') %>");
+    <% else %>
+      $('<%= 'month'+@m %>').update("<%= escape_javascript(render 'month_view_all') %>");
+    <% end %>
+  <% else %>
+    <% @m = @month %>
+    <% if @ignore_months.include?(@m) %>
+      <% ignore = true %>
+    <% else %>
+      <% ignore = false %>
+    <% end %>
+  <% end %>
+<% end %>
+<% for no_game in @no_games %>
+  <% if !@ignore_months.include?(no_game) %>
+    if($('<%= 'month'+no_game %>') != null) {
+      $('<%= 'month'+no_game %>').update("No Games with these filters.");
+    }
+  <% end %>
+<% end %>
+function checked() {
+  var desc = $$('<%= '.'+@year %>');
+  var check = false;
+  desc.each(function(item) {
+      if (item.checked == true) {
+          check = true;
+          throw $break;
+      } 
+   });
+   return check;
+}
+if (checked() == false) {
+  $('year_filter_all<%= @year %>').checked = true;
+}
+Element.hide("<%= 'spinner'+@year %>");

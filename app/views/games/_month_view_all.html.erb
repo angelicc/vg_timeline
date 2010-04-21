@@ -1,0 +1,15 @@
+<div id="month_view_all">
+  <% for day in @month %>
+    <% if day.class == Array %>
+      <% for game in day %>
+        <% unless game.class == Fixnum %>
+          <span class="boxart_block">
+            <%= box_logo(game, :thumb, :prototip => true, :tooltip => true, :hover => true) %>
+          </span>
+        <% end %>
+      <% end %>
+    <% else %>
+      <% day_text = day %>
+    <% end %>
+  <% end %>
+</div>

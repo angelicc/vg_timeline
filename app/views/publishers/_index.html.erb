@@ -1,0 +1,11 @@
+<div><%= flash[:notice] %></div>
+<div><%= flash[:error] %></div>
+<h2>Publishers</h2>
+<% for publisher in @publishers %>
+  <%= publisher.name %>
+  <%= link_to "Games", publisher_path(publisher) %>
+  <%= link_to "Edit", edit_publisher_path(publisher) %>
+  <%= link_to "Delete", publisher_path(publisher), :method => :delete %><br />
+<% end %>
+<div><%= link_to "Add Publisher", new_publisher_path %></div>
+<div><%= link_to "Back to Year View", "/#{cur_year}" if @format == "html" %></div>

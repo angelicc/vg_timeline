@@ -1,0 +1,1329 @@
+DEPRECATION WARNING: ActionController::Base.cookie_verifier_secret= is deprecated. Please configure it on your application with config.cookie_secret=. (called from /home/valencia/NetBeansProjects/vg_timeline_dev_bck/config/initializers/cookie_verification_secret.rb:7)
+DEPRECATION WARNING: ActionController::Base.session= is deprecated. Please configure it on your application with config.session_store :cookie_store, :key => '....'. (called from /home/valencia/NetBeansProjects/vg_timeline_dev_bck/config/initializers/session_store.rb:7)
+
+
+Started GET "/" for 127.0.0.1 at 2010-04-20 17:26:02
+  Processing by GamesController#index as HTML
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `achievements_games`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `developers_games`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `games_publishers`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `features_games`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `games_genres`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `games_peripherals`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `games_specifications`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `games_types`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `different_markets_games`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `different_platforms_games`
+  [1m[36mSQL (150.7ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mGame Load (0.2ms)[0m  SELECT `games`.* FROM `games` WHERE (release_date >= '2010-01-01' and release_date <= '2010-12-31') ORDER BY release_date asc, hits desc, main_title asc
+  [1m[36mPlatform Load (0.2ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1[0m
+  [1m[35mPlatform Load (0.1ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 1) LIMIT 1
+  [1m[36mPlatform Load (0.2ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 4) LIMIT 1[0m
+  [1m[35mPlatform Load (0.1ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 4) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 4) LIMIT 1[0m
+  [1m[35mPlatform Load (0.1ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 5) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 5) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1
+  [1m[36mPlatform Load (0.1ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 5) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 5) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 4) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 4) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 4) LIMIT 1
+Rendered games/_years.html.erb (29.0ms)
+Rendered games/_day_view.html.erb (4.1ms)
+Rendered games/_day_view.html.erb (9.6ms)
+Rendered games/_month_view.html.erb (18.2ms)
+Rendered games/_day_view.html.erb (12.3ms)
+Rendered games/_day_view.html.erb (3.9ms)
+Rendered games/_month_view.html.erb (20.7ms)
+Rendered games/_day_view.html.erb (9.4ms)
+Rendered games/_day_view.html.erb (12.2ms)
+Rendered games/_day_view.html.erb (2.7ms)
+Rendered games/_day_view.html.erb (6.2ms)
+Rendered games/_day_view.html.erb (2.7ms)
+Rendered games/_day_view.html.erb (2.6ms)
+Rendered games/_month_view.html.erb (44.7ms)
+Rendered games/_day_view.html.erb (3.2ms)
+Rendered games/_day_view.html.erb (2.8ms)
+Rendered games/_day_view.html.erb (2.6ms)
+Rendered games/_day_view.html.erb (4.2ms)
+Rendered games/_day_view.html.erb (4.7ms)
+Rendered games/_day_view.html.erb (2.8ms)
+Rendered games/_month_view.html.erb (28.0ms)
+Rendered games/_day_view.html.erb (2.8ms)
+Rendered games/_day_view.html.erb (2.7ms)
+Rendered games/_month_view.html.erb (8.5ms)
+Rendered games/_day_view.html.erb (91.1ms)
+Rendered games/_month_view.html.erb (93.1ms)
+Rendered games/_day_view.html.erb (7.3ms)
+Rendered games/_month_view.html.erb (9.6ms)
+Rendered games/_year_view.html.erb (264.9ms)
+Rendered games/index.html.erb within layouts/application (308.6ms)
+Completed 200 OK in 748ms (Views: 315.1ms | ActiveRecord: 154.4ms)
+
+
+Started GET "/images/2010/03/thumb/final_fantasy_xiii_x360" for 127.0.0.1 at 2010-04-20 17:26:04
+
+ActionController::RoutingError (No route matches "/images/2010/03/thumb/final_fantasy_xiii_x360"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-04-20 17:27:11
+  Processing by GamesController#index as HTML
+  [1m[36mSQL (0.7ms)[0m  [1mdescribe `achievements_games`[0m
+  [1m[35mSQL (0.5ms)[0m  describe `developers_games`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `games_publishers`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `features_games`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `games_genres`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `games_peripherals`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `games_specifications`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `games_types`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `different_markets_games`[0m
+  [1m[35mSQL (0.5ms)[0m  describe `different_platforms_games`
+  [1m[36mGame Load (0.2ms)[0m  [1mSELECT `games`.* FROM `games` WHERE (release_date >= '2010-01-01' and release_date <= '2010-12-31') ORDER BY release_date asc, hits desc, main_title asc[0m
+  [1m[35mPlatform Load (0.2ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1
+  [1m[36mPlatform Load (0.2ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 1) LIMIT 1[0m
+  [1m[35mPlatform Load (0.2ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 4) LIMIT 1
+  [1m[36mPlatform Load (0.1ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 4) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 4) LIMIT 1
+  [1m[36mPlatform Load (0.2ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 5) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 5) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1[0m
+  [1m[35mPlatform Load (0.2ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 5) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 5) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 4) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 4) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 4) LIMIT 1[0m
+Rendered games/_years.html.erb (20.1ms)
+Rendered games/_day_view.html.erb (2.9ms)
+Rendered games/_day_view.html.erb (6.7ms)
+Rendered games/_month_view.html.erb (12.8ms)
+Rendered games/_day_view.html.erb (8.3ms)
+Rendered games/_day_view.html.erb (2.7ms)
+Rendered games/_month_view.html.erb (14.1ms)
+Rendered games/_day_view.html.erb (6.5ms)
+Rendered games/_day_view.html.erb (10.6ms)
+Rendered games/_day_view.html.erb (2.7ms)
+Rendered games/_day_view.html.erb (6.4ms)
+Rendered games/_day_view.html.erb (2.8ms)
+Rendered games/_day_view.html.erb (2.7ms)
+Rendered games/_month_view.html.erb (39.5ms)
+Rendered games/_day_view.html.erb (3.1ms)
+Rendered games/_day_view.html.erb (2.9ms)
+Rendered games/_day_view.html.erb (2.6ms)
+Rendered games/_day_view.html.erb (4.2ms)
+Rendered games/_day_view.html.erb (4.8ms)
+Rendered games/_day_view.html.erb (2.9ms)
+Rendered games/_month_view.html.erb (28.3ms)
+Rendered games/_day_view.html.erb (2.7ms)
+Rendered games/_day_view.html.erb (2.7ms)
+Rendered games/_month_view.html.erb (8.6ms)
+Rendered games/_day_view.html.erb (2.6ms)
+Rendered games/_month_view.html.erb (4.5ms)
+Rendered games/_day_view.html.erb (6.8ms)
+Rendered games/_month_view.html.erb (8.7ms)
+Rendered games/_year_view.html.erb (150.1ms)
+Rendered games/index.html.erb within layouts/application (197.9ms)
+Completed 200 OK in 507ms (Views: 202.6ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/images/2010/03/thumb/final_fantasy_xiii_x360" for 127.0.0.1 at 2010-04-20 17:27:12
+
+ActionController::RoutingError (No route matches "/images/2010/03/thumb/final_fantasy_xiii_x360"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+DEPRECATION WARNING: ActionController::Base.cookie_verifier_secret= is deprecated. Please configure it on your application with config.cookie_secret=. (called from /home/valencia/NetBeansProjects/vg_timeline_dev_bck/config/initializers/cookie_verification_secret.rb:7)
+DEPRECATION WARNING: ActionController::Base.session= is deprecated. Please configure it on your application with config.session_store :cookie_store, :key => '....'. (called from /home/valencia/NetBeansProjects/vg_timeline_dev_bck/config/initializers/session_store.rb:7)
+
+
+Started GET "/" for 127.0.0.1 at 2010-04-20 17:27:26
+  Processing by GamesController#index as HTML
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `achievements_games`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `developers_games`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `games_publishers`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `features_games`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `games_genres`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `games_peripherals`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `games_specifications`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `games_types`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `different_markets_games`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `different_platforms_games`
+  [1m[36mSQL (21.5ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mGame Load (0.2ms)[0m  SELECT `games`.* FROM `games` WHERE (release_date >= '2010-01-01' and release_date <= '2010-12-31') ORDER BY release_date asc, hits desc, main_title asc
+  [1m[36mPlatform Load (0.1ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1[0m
+  [1m[35mPlatform Load (0.1ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 1) LIMIT 1
+  [1m[36mPlatform Load (0.1ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 4) LIMIT 1[0m
+  [1m[35mPlatform Load (0.1ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 4) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 4) LIMIT 1[0m
+  [1m[35mPlatform Load (0.1ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 5) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 5) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1
+  [1m[36mPlatform Load (0.1ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 5) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 5) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 4) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 4) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 4) LIMIT 1
+Rendered games/_years.html.erb (19.5ms)
+Rendered games/_day_view.html.erb (2.7ms)
+Rendered games/_day_view.html.erb (6.3ms)
+Rendered games/_month_view.html.erb (12.0ms)
+Rendered games/_day_view.html.erb (7.9ms)
+Rendered games/_day_view.html.erb (2.6ms)
+Rendered games/_month_view.html.erb (13.5ms)
+Rendered games/_day_view.html.erb (6.2ms)
+Rendered games/_day_view.html.erb (10.3ms)
+Rendered games/_day_view.html.erb (2.6ms)
+Rendered games/_day_view.html.erb (6.0ms)
+Rendered games/_day_view.html.erb (2.7ms)
+Rendered games/_day_view.html.erb (2.6ms)
+Rendered games/_month_view.html.erb (38.1ms)
+Rendered games/_day_view.html.erb (3.0ms)
+Rendered games/_day_view.html.erb (2.7ms)
+Rendered games/_day_view.html.erb (2.5ms)
+Rendered games/_day_view.html.erb (4.1ms)
+Rendered games/_day_view.html.erb (4.5ms)
+Rendered games/_day_view.html.erb (2.7ms)
+Rendered games/_month_view.html.erb (27.1ms)
+Rendered games/_day_view.html.erb (2.6ms)
+Rendered games/_day_view.html.erb (2.6ms)
+Rendered games/_month_view.html.erb (8.3ms)
+Rendered games/_day_view.html.erb (2.6ms)
+Rendered games/_month_view.html.erb (4.5ms)
+Rendered games/_day_view.html.erb (7.9ms)
+Rendered games/_month_view.html.erb (94.9ms)
+Rendered games/_year_view.html.erb (232.1ms)
+Rendered games/index.html.erb within layouts/application (264.2ms)
+Completed 200 OK in 494ms (Views: 268.6ms | ActiveRecord: 25.0ms)
+
+
+Started GET "/images/2010/01/thumb/bayonetta_ps3e" for 127.0.0.1 at 2010-04-20 17:27:27
+
+ActionController::RoutingError (No route matches "/images/2010/01/thumb/bayonetta_ps3e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/images/2010/01/thumb/no_more_heroes_2_desperate_struggle_wiie" for 127.0.0.1 at 2010-04-20 17:27:27
+
+ActionController::RoutingError (No route matches "/images/2010/01/thumb/no_more_heroes_2_desperate_struggle_wiie"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/2010/01/thumb/mass_effect_2_wine" for 127.0.0.1 at 2010-04-20 17:27:27
+
+ActionController::RoutingError (No route matches "/images/2010/01/thumb/mass_effect_2_wine"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/2010/01/thumb/mass_effect_2_x360e" for 127.0.0.1 at 2010-04-20 17:27:28
+
+ActionController::RoutingError (No route matches "/images/2010/01/thumb/mass_effect_2_x360e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/2010/02/thumb/dantes_inferno_x360e" for 127.0.0.1 at 2010-04-20 17:27:28
+
+ActionController::RoutingError (No route matches "/images/2010/02/thumb/dantes_inferno_x360e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/2010/02/thumb/bioshock_2_ps3e" for 127.0.0.1 at 2010-04-20 17:27:28
+
+ActionController::RoutingError (No route matches "/images/2010/02/thumb/bioshock_2_ps3e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/2010/02/thumb/bioshock_2_x360e" for 127.0.0.1 at 2010-04-20 17:27:28
+
+ActionController::RoutingError (No route matches "/images/2010/02/thumb/bioshock_2_x360e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/2010/02/thumb/bioshock_2_wine" for 127.0.0.1 at 2010-04-20 17:27:28
+
+ActionController::RoutingError (No route matches "/images/2010/02/thumb/bioshock_2_wine"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/2010/02/thumb/heavy_rain_ps3e" for 127.0.0.1 at 2010-04-20 17:27:28
+
+ActionController::RoutingError (No route matches "/images/2010/02/thumb/heavy_rain_ps3e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/2010/03/thumb/final_fantasy_xiii_ps3e" for 127.0.0.1 at 2010-04-20 17:27:28
+
+ActionController::RoutingError (No route matches "/images/2010/03/thumb/final_fantasy_xiii_ps3e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/2010/03/thumb/final_fantasy_xiii_x360e" for 127.0.0.1 at 2010-04-20 17:27:28
+
+ActionController::RoutingError (No route matches "/images/2010/03/thumb/final_fantasy_xiii_x360e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/images/2010/03/thumb/yakuza_3_ps3e" for 127.0.0.1 at 2010-04-20 17:27:28
+
+ActionController::RoutingError (No route matches "/images/2010/03/thumb/yakuza_3_ps3e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/images/2010/03/thumb/dragon_age_origins_awakening_wine" for 127.0.0.1 at 2010-04-20 17:27:28
+
+ActionController::RoutingError (No route matches "/images/2010/03/thumb/dragon_age_origins_awakening_wine"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/2010/03/thumb/pokemon_heartgold_version_ndse" for 127.0.0.1 at 2010-04-20 17:27:28
+
+ActionController::RoutingError (No route matches "/images/2010/03/thumb/pokemon_heartgold_version_ndse"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/2010/03/thumb/pokemon_soulsilver_version_ndse" for 127.0.0.1 at 2010-04-20 17:27:28
+
+ActionController::RoutingError (No route matches "/images/2010/03/thumb/pokemon_soulsilver_version_ndse"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/2010/03/thumb/god_of_war_iii_ps3e" for 127.0.0.1 at 2010-04-20 17:27:28
+
+ActionController::RoutingError (No route matches "/images/2010/03/thumb/god_of_war_iii_ps3e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/2010/03/thumb/dead_or_alive_paradise_pspe" for 127.0.0.1 at 2010-04-20 17:27:28
+
+ActionController::RoutingError (No route matches "/images/2010/03/thumb/dead_or_alive_paradise_pspe"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/2010/03/thumb/resonance_of_fate_ps3e" for 127.0.0.1 at 2010-04-20 17:27:28
+
+ActionController::RoutingError (No route matches "/images/2010/03/thumb/resonance_of_fate_ps3e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/2010/03/thumb/red_steel_2_wiie" for 127.0.0.1 at 2010-04-20 17:27:28
+
+ActionController::RoutingError (No route matches "/images/2010/03/thumb/red_steel_2_wiie"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/2010/03/thumb/just_cause_2_ps3e" for 127.0.0.1 at 2010-04-20 17:27:28
+
+ActionController::RoutingError (No route matches "/images/2010/03/thumb/just_cause_2_ps3e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/2010/03/thumb/just_cause_2_x360e" for 127.0.0.1 at 2010-04-20 17:27:28
+
+ActionController::RoutingError (No route matches "/images/2010/03/thumb/just_cause_2_x360e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/2010/03/thumb/shin_megami_tensei_strange_journey_ndse" for 127.0.0.1 at 2010-04-20 17:27:28
+
+ActionController::RoutingError (No route matches "/images/2010/03/thumb/shin_megami_tensei_strange_journey_ndse"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/2010/03/thumb/warioware_d_i_y_ndse" for 127.0.0.1 at 2010-04-20 17:27:28
+
+ActionController::RoutingError (No route matches "/images/2010/03/thumb/warioware_d_i_y_ndse"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/2010/04/thumb/borderlands_double_game_add-on_pack_the_zombie_island_of_dr_ned_/_mad_moxxis_underdome_riot_x360e" for 127.0.0.1 at 2010-04-20 17:27:28
+
+ActionController::RoutingError (No route matches "/images/2010/04/thumb/borderlands_double_game_add-on_pack_the_zombie_island_of_dr_ned_/_mad_moxxis_underdome_riot_x360e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/images/2010/04/thumb/tom_clancys_splinter_cell_conviction_x360e" for 127.0.0.1 at 2010-04-20 17:27:29
+
+ActionController::RoutingError (No route matches "/images/2010/04/thumb/tom_clancys_splinter_cell_conviction_x360e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/images/2010/04/thumb/rig_n_roll_wine" for 127.0.0.1 at 2010-04-20 17:27:29
+
+ActionController::RoutingError (No route matches "/images/2010/04/thumb/rig_n_roll_wine"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/images/2010/04/thumb/monster_hunter_tri_wiie" for 127.0.0.1 at 2010-04-20 17:27:29
+
+ActionController::RoutingError (No route matches "/images/2010/04/thumb/monster_hunter_tri_wiie"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/images/2010/04/thumb/super_street_fighter_iv_x360e" for 127.0.0.1 at 2010-04-20 17:27:29
+
+ActionController::RoutingError (No route matches "/images/2010/04/thumb/super_street_fighter_iv_x360e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/2010/04/thumb/super_street_fighter_iv_ps3e" for 127.0.0.1 at 2010-04-20 17:27:29
+
+ActionController::RoutingError (No route matches "/images/2010/04/thumb/super_street_fighter_iv_ps3e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/images/2010/04/thumb/tom_clancys_splinter_cell_conviction_wine" for 127.0.0.1 at 2010-04-20 17:27:29
+
+ActionController::RoutingError (No route matches "/images/2010/04/thumb/tom_clancys_splinter_cell_conviction_wine"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/images/2010/05/thumb/red_dead_redemption_ps3e" for 127.0.0.1 at 2010-04-20 17:27:29
+
+ActionController::RoutingError (No route matches "/images/2010/05/thumb/red_dead_redemption_ps3e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/2010/05/thumb/super_mario_galaxy_2_wiie" for 127.0.0.1 at 2010-04-20 17:27:29
+
+ActionController::RoutingError (No route matches "/images/2010/05/thumb/super_mario_galaxy_2_wiie"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/2010/06/thumb/metroid_other_m_wiie" for 127.0.0.1 at 2010-04-20 17:27:29
+
+ActionController::RoutingError (No route matches "/images/2010/06/thumb/metroid_other_m_wiie"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-04-20 17:27:38
+  Processing by GamesController#index as HTML
+  [1m[36mSQL (0.8ms)[0m  [1mdescribe `achievements_games`[0m
+  [1m[35mSQL (0.5ms)[0m  describe `developers_games`
+  [1m[36mSQL (0.7ms)[0m  [1mdescribe `games_publishers`[0m
+  [1m[35mSQL (0.5ms)[0m  describe `features_games`
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `games_genres`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `games_peripherals`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `games_specifications`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `games_types`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `different_markets_games`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `different_platforms_games`
+  [1m[36mGame Load (0.2ms)[0m  [1mSELECT `games`.* FROM `games` WHERE (release_date >= '2010-01-01' and release_date <= '2010-12-31') ORDER BY release_date asc, hits desc, main_title asc[0m
+  [1m[35mPlatform Load (0.1ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1
+  [1m[36mPlatform Load (0.1ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 1) LIMIT 1[0m
+  [1m[35mPlatform Load (0.1ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 4) LIMIT 1
+  [1m[36mPlatform Load (0.1ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 4) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 4) LIMIT 1
+  [1m[36mPlatform Load (0.1ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 5) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 5) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1[0m
+  [1m[35mPlatform Load (0.1ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 5) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 5) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 4) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 4) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 4) LIMIT 1[0m
+Rendered games/_years.html.erb (31.8ms)
+Rendered games/_day_view.html.erb (4.0ms)
+Rendered games/_day_view.html.erb (9.9ms)
+Rendered games/_month_view.html.erb (18.6ms)
+Rendered games/_day_view.html.erb (12.1ms)
+Rendered games/_day_view.html.erb (3.9ms)
+Rendered games/_month_view.html.erb (20.5ms)
+Rendered games/_day_view.html.erb (9.4ms)
+Rendered games/_day_view.html.erb (15.2ms)
+Rendered games/_day_view.html.erb (3.9ms)
+Rendered games/_day_view.html.erb (9.1ms)
+Rendered games/_day_view.html.erb (4.1ms)
+Rendered games/_day_view.html.erb (3.8ms)
+Rendered games/_month_view.html.erb (57.0ms)
+Rendered games/_day_view.html.erb (4.7ms)
+Rendered games/_day_view.html.erb (4.1ms)
+Rendered games/_day_view.html.erb (3.8ms)
+Rendered games/_day_view.html.erb (6.2ms)
+Rendered games/_day_view.html.erb (6.8ms)
+Rendered games/_day_view.html.erb (4.2ms)
+Rendered games/_month_view.html.erb (41.0ms)
+Rendered games/_day_view.html.erb (3.9ms)
+Rendered games/_day_view.html.erb (4.0ms)
+Rendered games/_month_view.html.erb (12.5ms)
+Rendered games/_day_view.html.erb (107.7ms)
+Rendered games/_month_view.html.erb (110.6ms)
+Rendered games/_day_view.html.erb (10.8ms)
+Rendered games/_month_view.html.erb (13.9ms)
+Rendered games/_year_view.html.erb (324.8ms)
+Rendered games/index.html.erb within layouts/application (386.6ms)
+Completed 200 OK in 656ms (Views: 391.1ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/images/2010/01/thumb/bayonetta_ps3e" for 127.0.0.1 at 2010-04-20 17:27:39
+
+ActionController::RoutingError (No route matches "/images/2010/01/thumb/bayonetta_ps3e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/images/2010/01/thumb/no_more_heroes_2_desperate_struggle_wiie" for 127.0.0.1 at 2010-04-20 17:27:39
+
+ActionController::RoutingError (No route matches "/images/2010/01/thumb/no_more_heroes_2_desperate_struggle_wiie"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.9ms)
+
+
+Started GET "/images/2010/01/thumb/mass_effect_2_wine" for 127.0.0.1 at 2010-04-20 17:27:39
+
+ActionController::RoutingError (No route matches "/images/2010/01/thumb/mass_effect_2_wine"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/2010/01/thumb/mass_effect_2_x360e" for 127.0.0.1 at 2010-04-20 17:27:39
+
+ActionController::RoutingError (No route matches "/images/2010/01/thumb/mass_effect_2_x360e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/2010/02/thumb/dantes_inferno_x360e" for 127.0.0.1 at 2010-04-20 17:27:39
+
+ActionController::RoutingError (No route matches "/images/2010/02/thumb/dantes_inferno_x360e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/2010/02/thumb/bioshock_2_ps3e" for 127.0.0.1 at 2010-04-20 17:27:39
+
+ActionController::RoutingError (No route matches "/images/2010/02/thumb/bioshock_2_ps3e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/2010/02/thumb/bioshock_2_x360e" for 127.0.0.1 at 2010-04-20 17:27:39
+
+ActionController::RoutingError (No route matches "/images/2010/02/thumb/bioshock_2_x360e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/images/2010/02/thumb/bioshock_2_wine" for 127.0.0.1 at 2010-04-20 17:27:39
+
+ActionController::RoutingError (No route matches "/images/2010/02/thumb/bioshock_2_wine"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/2010/02/thumb/heavy_rain_ps3e" for 127.0.0.1 at 2010-04-20 17:27:39
+
+ActionController::RoutingError (No route matches "/images/2010/02/thumb/heavy_rain_ps3e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.3ms)
+
+
+Started GET "/images/2010/03/thumb/final_fantasy_xiii_ps3e" for 127.0.0.1 at 2010-04-20 17:27:39
+
+ActionController::RoutingError (No route matches "/images/2010/03/thumb/final_fantasy_xiii_ps3e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/images/2010/03/thumb/final_fantasy_xiii_x360e" for 127.0.0.1 at 2010-04-20 17:27:39
+
+ActionController::RoutingError (No route matches "/images/2010/03/thumb/final_fantasy_xiii_x360e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/images/2010/03/thumb/yakuza_3_ps3e" for 127.0.0.1 at 2010-04-20 17:27:39
+
+ActionController::RoutingError (No route matches "/images/2010/03/thumb/yakuza_3_ps3e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/images/2010/03/thumb/dragon_age_origins_awakening_wine" for 127.0.0.1 at 2010-04-20 17:27:39
+
+ActionController::RoutingError (No route matches "/images/2010/03/thumb/dragon_age_origins_awakening_wine"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/images/2010/03/thumb/pokemon_heartgold_version_ndse" for 127.0.0.1 at 2010-04-20 17:27:39
+
+ActionController::RoutingError (No route matches "/images/2010/03/thumb/pokemon_heartgold_version_ndse"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/images/2010/03/thumb/pokemon_soulsilver_version_ndse" for 127.0.0.1 at 2010-04-20 17:27:39
+
+ActionController::RoutingError (No route matches "/images/2010/03/thumb/pokemon_soulsilver_version_ndse"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/2010/03/thumb/god_of_war_iii_ps3e" for 127.0.0.1 at 2010-04-20 17:27:39
+
+ActionController::RoutingError (No route matches "/images/2010/03/thumb/god_of_war_iii_ps3e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/images/2010/03/thumb/dead_or_alive_paradise_pspe" for 127.0.0.1 at 2010-04-20 17:27:39
+
+ActionController::RoutingError (No route matches "/images/2010/03/thumb/dead_or_alive_paradise_pspe"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/images/2010/03/thumb/resonance_of_fate_ps3e" for 127.0.0.1 at 2010-04-20 17:27:40
+
+ActionController::RoutingError (No route matches "/images/2010/03/thumb/resonance_of_fate_ps3e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/images/2010/03/thumb/red_steel_2_wiie" for 127.0.0.1 at 2010-04-20 17:27:40
+
+ActionController::RoutingError (No route matches "/images/2010/03/thumb/red_steel_2_wiie"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/images/2010/03/thumb/just_cause_2_ps3e" for 127.0.0.1 at 2010-04-20 17:27:40
+
+ActionController::RoutingError (No route matches "/images/2010/03/thumb/just_cause_2_ps3e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/images/2010/03/thumb/just_cause_2_x360e" for 127.0.0.1 at 2010-04-20 17:27:40
+
+ActionController::RoutingError (No route matches "/images/2010/03/thumb/just_cause_2_x360e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/images/2010/03/thumb/shin_megami_tensei_strange_journey_ndse" for 127.0.0.1 at 2010-04-20 17:27:40
+
+ActionController::RoutingError (No route matches "/images/2010/03/thumb/shin_megami_tensei_strange_journey_ndse"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/images/2010/03/thumb/warioware_d_i_y_ndse" for 127.0.0.1 at 2010-04-20 17:27:40
+
+ActionController::RoutingError (No route matches "/images/2010/03/thumb/warioware_d_i_y_ndse"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/images/2010/04/thumb/borderlands_double_game_add-on_pack_the_zombie_island_of_dr_ned_/_mad_moxxis_underdome_riot_x360e" for 127.0.0.1 at 2010-04-20 17:27:40
+
+ActionController::RoutingError (No route matches "/images/2010/04/thumb/borderlands_double_game_add-on_pack_the_zombie_island_of_dr_ned_/_mad_moxxis_underdome_riot_x360e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/images/2010/04/thumb/tom_clancys_splinter_cell_conviction_x360e" for 127.0.0.1 at 2010-04-20 17:27:40
+
+ActionController::RoutingError (No route matches "/images/2010/04/thumb/tom_clancys_splinter_cell_conviction_x360e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/2010/04/thumb/rig_n_roll_wine" for 127.0.0.1 at 2010-04-20 17:27:40
+
+ActionController::RoutingError (No route matches "/images/2010/04/thumb/rig_n_roll_wine"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/images/2010/04/thumb/monster_hunter_tri_wiie" for 127.0.0.1 at 2010-04-20 17:27:40
+
+ActionController::RoutingError (No route matches "/images/2010/04/thumb/monster_hunter_tri_wiie"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/images/2010/04/thumb/super_street_fighter_iv_x360e" for 127.0.0.1 at 2010-04-20 17:27:40
+
+ActionController::RoutingError (No route matches "/images/2010/04/thumb/super_street_fighter_iv_x360e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/images/2010/04/thumb/super_street_fighter_iv_ps3e" for 127.0.0.1 at 2010-04-20 17:27:40
+
+ActionController::RoutingError (No route matches "/images/2010/04/thumb/super_street_fighter_iv_ps3e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/images/2010/04/thumb/tom_clancys_splinter_cell_conviction_wine" for 127.0.0.1 at 2010-04-20 17:27:40
+
+ActionController::RoutingError (No route matches "/images/2010/04/thumb/tom_clancys_splinter_cell_conviction_wine"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/2010/05/thumb/red_dead_redemption_ps3e" for 127.0.0.1 at 2010-04-20 17:27:40
+
+ActionController::RoutingError (No route matches "/images/2010/05/thumb/red_dead_redemption_ps3e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/2010/05/thumb/super_mario_galaxy_2_wiie" for 127.0.0.1 at 2010-04-20 17:27:40
+
+ActionController::RoutingError (No route matches "/images/2010/05/thumb/super_mario_galaxy_2_wiie"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/images/2010/06/thumb/metroid_other_m_wiie" for 127.0.0.1 at 2010-04-20 17:27:40
+
+ActionController::RoutingError (No route matches "/images/2010/06/thumb/metroid_other_m_wiie"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-04-20 17:27:42
+  Processing by GamesController#index as HTML
+  [1m[35mSQL (0.7ms)[0m  describe `achievements_games`
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `developers_games`[0m
+  [1m[35mSQL (0.5ms)[0m  describe `games_publishers`
+  [1m[36mSQL (1.4ms)[0m  [1mdescribe `features_games`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `games_genres`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `games_peripherals`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `games_specifications`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `games_types`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `different_markets_games`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `different_platforms_games`[0m
+  [1m[35mGame Load (0.2ms)[0m  SELECT `games`.* FROM `games` WHERE (release_date >= '2010-01-01' and release_date <= '2010-12-31') ORDER BY release_date asc, hits desc, main_title asc
+  [1m[36mPlatform Load (0.1ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1[0m
+  [1m[35mPlatform Load (0.1ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 1) LIMIT 1
+  [1m[36mPlatform Load (0.1ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 4) LIMIT 1[0m
+  [1m[35mPlatform Load (0.1ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 4) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 4) LIMIT 1[0m
+  [1m[35mPlatform Load (0.7ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 5) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 5) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1
+  [1m[36mPlatform Load (0.1ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 5) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 5) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 4) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 4) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 4) LIMIT 1
+Rendered games/_years.html.erb (19.9ms)
+Rendered games/_day_view.html.erb (2.8ms)
+Rendered games/_day_view.html.erb (6.5ms)
+Rendered games/_month_view.html.erb (12.4ms)
+Rendered games/_day_view.html.erb (8.2ms)
+Rendered games/_day_view.html.erb (2.7ms)
+Rendered games/_month_view.html.erb (14.0ms)
+Rendered games/_day_view.html.erb (6.3ms)
+Rendered games/_day_view.html.erb (10.2ms)
+Rendered games/_day_view.html.erb (2.6ms)
+Rendered games/_day_view.html.erb (6.1ms)
+Rendered games/_day_view.html.erb (2.8ms)
+Rendered games/_day_view.html.erb (2.6ms)
+Rendered games/_month_view.html.erb (38.3ms)
+Rendered games/_day_view.html.erb (3.1ms)
+Rendered games/_day_view.html.erb (2.7ms)
+Rendered games/_day_view.html.erb (2.6ms)
+Rendered games/_day_view.html.erb (4.1ms)
+Rendered games/_day_view.html.erb (4.5ms)
+Rendered games/_day_view.html.erb (2.7ms)
+Rendered games/_month_view.html.erb (27.4ms)
+Rendered games/_day_view.html.erb (2.7ms)
+Rendered games/_day_view.html.erb (2.6ms)
+Rendered games/_month_view.html.erb (8.3ms)
+Rendered games/_day_view.html.erb (2.7ms)
+Rendered games/_month_view.html.erb (4.5ms)
+Rendered games/_day_view.html.erb (6.6ms)
+Rendered games/_month_view.html.erb (8.5ms)
+Rendered games/_year_view.html.erb (147.1ms)
+Rendered games/index.html.erb within layouts/application (194.1ms)
+Completed 200 OK in 464ms (Views: 198.7ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/images/2010/01/thumb/bayonetta_ps3e" for 127.0.0.1 at 2010-04-20 17:27:43
+
+ActionController::RoutingError (No route matches "/images/2010/01/thumb/bayonetta_ps3e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/2010/01/thumb/no_more_heroes_2_desperate_struggle_wiie" for 127.0.0.1 at 2010-04-20 17:27:43
+
+ActionController::RoutingError (No route matches "/images/2010/01/thumb/no_more_heroes_2_desperate_struggle_wiie"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/images/2010/01/thumb/mass_effect_2_wine" for 127.0.0.1 at 2010-04-20 17:27:43
+
+ActionController::RoutingError (No route matches "/images/2010/01/thumb/mass_effect_2_wine"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/2010/01/thumb/mass_effect_2_x360e" for 127.0.0.1 at 2010-04-20 17:27:43
+
+ActionController::RoutingError (No route matches "/images/2010/01/thumb/mass_effect_2_x360e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/2010/02/thumb/dantes_inferno_x360e" for 127.0.0.1 at 2010-04-20 17:27:43
+
+ActionController::RoutingError (No route matches "/images/2010/02/thumb/dantes_inferno_x360e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/2010/02/thumb/bioshock_2_ps3e" for 127.0.0.1 at 2010-04-20 17:27:43
+
+ActionController::RoutingError (No route matches "/images/2010/02/thumb/bioshock_2_ps3e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/images/2010/02/thumb/bioshock_2_x360e" for 127.0.0.1 at 2010-04-20 17:27:43
+
+ActionController::RoutingError (No route matches "/images/2010/02/thumb/bioshock_2_x360e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/2010/02/thumb/bioshock_2_wine" for 127.0.0.1 at 2010-04-20 17:27:43
+
+ActionController::RoutingError (No route matches "/images/2010/02/thumb/bioshock_2_wine"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/images/2010/02/thumb/heavy_rain_ps3e" for 127.0.0.1 at 2010-04-20 17:27:43
+
+ActionController::RoutingError (No route matches "/images/2010/02/thumb/heavy_rain_ps3e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/images/2010/03/thumb/final_fantasy_xiii_ps3e" for 127.0.0.1 at 2010-04-20 17:27:43
+
+ActionController::RoutingError (No route matches "/images/2010/03/thumb/final_fantasy_xiii_ps3e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/images/2010/03/thumb/final_fantasy_xiii_x360e" for 127.0.0.1 at 2010-04-20 17:27:43
+
+ActionController::RoutingError (No route matches "/images/2010/03/thumb/final_fantasy_xiii_x360e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/images/2010/03/thumb/yakuza_3_ps3e" for 127.0.0.1 at 2010-04-20 17:27:43
+
+ActionController::RoutingError (No route matches "/images/2010/03/thumb/yakuza_3_ps3e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/images/2010/03/thumb/dragon_age_origins_awakening_wine" for 127.0.0.1 at 2010-04-20 17:27:43
+
+ActionController::RoutingError (No route matches "/images/2010/03/thumb/dragon_age_origins_awakening_wine"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/images/2010/03/thumb/pokemon_heartgold_version_ndse" for 127.0.0.1 at 2010-04-20 17:27:43
+
+ActionController::RoutingError (No route matches "/images/2010/03/thumb/pokemon_heartgold_version_ndse"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/images/2010/03/thumb/pokemon_soulsilver_version_ndse" for 127.0.0.1 at 2010-04-20 17:27:43
+
+ActionController::RoutingError (No route matches "/images/2010/03/thumb/pokemon_soulsilver_version_ndse"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/images/2010/03/thumb/god_of_war_iii_ps3e" for 127.0.0.1 at 2010-04-20 17:27:43
+
+ActionController::RoutingError (No route matches "/images/2010/03/thumb/god_of_war_iii_ps3e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/images/2010/03/thumb/dead_or_alive_paradise_pspe" for 127.0.0.1 at 2010-04-20 17:27:43
+
+ActionController::RoutingError (No route matches "/images/2010/03/thumb/dead_or_alive_paradise_pspe"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/images/2010/03/thumb/resonance_of_fate_ps3e" for 127.0.0.1 at 2010-04-20 17:27:44
+
+ActionController::RoutingError (No route matches "/images/2010/03/thumb/resonance_of_fate_ps3e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/images/2010/03/thumb/red_steel_2_wiie" for 127.0.0.1 at 2010-04-20 17:27:44
+
+ActionController::RoutingError (No route matches "/images/2010/03/thumb/red_steel_2_wiie"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/images/2010/03/thumb/just_cause_2_ps3e" for 127.0.0.1 at 2010-04-20 17:27:44
+
+ActionController::RoutingError (No route matches "/images/2010/03/thumb/just_cause_2_ps3e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/images/2010/03/thumb/just_cause_2_x360e" for 127.0.0.1 at 2010-04-20 17:27:44
+
+ActionController::RoutingError (No route matches "/images/2010/03/thumb/just_cause_2_x360e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/images/2010/03/thumb/shin_megami_tensei_strange_journey_ndse" for 127.0.0.1 at 2010-04-20 17:27:44
+
+ActionController::RoutingError (No route matches "/images/2010/03/thumb/shin_megami_tensei_strange_journey_ndse"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/images/2010/03/thumb/warioware_d_i_y_ndse" for 127.0.0.1 at 2010-04-20 17:27:44
+
+ActionController::RoutingError (No route matches "/images/2010/03/thumb/warioware_d_i_y_ndse"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/images/2010/04/thumb/borderlands_double_game_add-on_pack_the_zombie_island_of_dr_ned_/_mad_moxxis_underdome_riot_x360e" for 127.0.0.1 at 2010-04-20 17:27:44
+
+ActionController::RoutingError (No route matches "/images/2010/04/thumb/borderlands_double_game_add-on_pack_the_zombie_island_of_dr_ned_/_mad_moxxis_underdome_riot_x360e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/images/2010/04/thumb/tom_clancys_splinter_cell_conviction_x360e" for 127.0.0.1 at 2010-04-20 17:27:44
+
+ActionController::RoutingError (No route matches "/images/2010/04/thumb/tom_clancys_splinter_cell_conviction_x360e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/images/2010/04/thumb/rig_n_roll_wine" for 127.0.0.1 at 2010-04-20 17:27:44
+
+ActionController::RoutingError (No route matches "/images/2010/04/thumb/rig_n_roll_wine"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/images/2010/04/thumb/monster_hunter_tri_wiie" for 127.0.0.1 at 2010-04-20 17:27:44
+
+ActionController::RoutingError (No route matches "/images/2010/04/thumb/monster_hunter_tri_wiie"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/images/2010/04/thumb/super_street_fighter_iv_x360e" for 127.0.0.1 at 2010-04-20 17:27:44
+
+ActionController::RoutingError (No route matches "/images/2010/04/thumb/super_street_fighter_iv_x360e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/images/2010/04/thumb/super_street_fighter_iv_ps3e" for 127.0.0.1 at 2010-04-20 17:27:44
+
+ActionController::RoutingError (No route matches "/images/2010/04/thumb/super_street_fighter_iv_ps3e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/images/2010/04/thumb/tom_clancys_splinter_cell_conviction_wine" for 127.0.0.1 at 2010-04-20 17:27:44
+
+ActionController::RoutingError (No route matches "/images/2010/04/thumb/tom_clancys_splinter_cell_conviction_wine"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/images/2010/05/thumb/red_dead_redemption_ps3e" for 127.0.0.1 at 2010-04-20 17:27:44
+
+ActionController::RoutingError (No route matches "/images/2010/05/thumb/red_dead_redemption_ps3e"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/images/2010/05/thumb/super_mario_galaxy_2_wiie" for 127.0.0.1 at 2010-04-20 17:27:44
+
+ActionController::RoutingError (No route matches "/images/2010/05/thumb/super_mario_galaxy_2_wiie"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/images/2010/06/thumb/metroid_other_m_wiie" for 127.0.0.1 at 2010-04-20 17:27:44
+
+ActionController::RoutingError (No route matches "/images/2010/06/thumb/metroid_other_m_wiie"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+DEPRECATION WARNING: ActionController::Base.cookie_verifier_secret= is deprecated. Please configure it on your application with config.cookie_secret=. (called from /home/valencia/NetBeansProjects/vg_timeline_dev_bck/config/initializers/cookie_verification_secret.rb:7)
+DEPRECATION WARNING: ActionController::Base.session= is deprecated. Please configure it on your application with config.session_store :cookie_store, :key => '....'. (called from /home/valencia/NetBeansProjects/vg_timeline_dev_bck/config/initializers/session_store.rb:7)
+
+
+Started GET "/" for 127.0.0.1 at 2010-04-20 17:27:58
+  Processing by GamesController#index as HTML
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `achievements_games`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `developers_games`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `games_publishers`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `features_games`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `games_genres`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `games_peripherals`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `games_specifications`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `games_types`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `different_markets_games`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `different_platforms_games`
+  [1m[36mSQL (10.7ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mGame Load (0.2ms)[0m  SELECT `games`.* FROM `games` WHERE (release_date >= '2010-01-01' and release_date <= '2010-12-31') ORDER BY release_date asc, hits desc, main_title asc
+  [1m[36mPlatform Load (0.1ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1[0m
+  [1m[35mPlatform Load (0.1ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 1) LIMIT 1
+  [1m[36mPlatform Load (0.1ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 4) LIMIT 1[0m
+  [1m[35mPlatform Load (0.1ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 4) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 4) LIMIT 1[0m
+  [1m[35mPlatform Load (0.1ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 5) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 5) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1
+  [1m[36mPlatform Load (0.1ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 5) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 5) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 4) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 4) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 4) LIMIT 1
+Rendered games/_years.html.erb (20.5ms)
+Rendered games/_day_view.html.erb (2.7ms)
+Rendered games/_day_view.html.erb (6.4ms)
+Rendered games/_month_view.html.erb (12.1ms)
+Rendered games/_day_view.html.erb (8.0ms)
+Rendered games/_day_view.html.erb (2.6ms)
+Rendered games/_month_view.html.erb (13.6ms)
+Rendered games/_day_view.html.erb (6.3ms)
+Rendered games/_day_view.html.erb (10.2ms)
+Rendered games/_day_view.html.erb (2.6ms)
+Rendered games/_day_view.html.erb (6.1ms)
+Rendered games/_day_view.html.erb (2.7ms)
+Rendered games/_day_view.html.erb (2.6ms)
+Rendered games/_month_view.html.erb (38.1ms)
+Rendered games/_day_view.html.erb (3.0ms)
+Rendered games/_day_view.html.erb (2.8ms)
+Rendered games/_day_view.html.erb (2.8ms)
+Rendered games/_day_view.html.erb (7.2ms)
+Rendered games/_day_view.html.erb (7.8ms)
+Rendered games/_day_view.html.erb (4.3ms)
+Rendered games/_month_view.html.erb (37.1ms)
+Rendered games/_day_view.html.erb (4.0ms)
+Rendered games/_day_view.html.erb (4.0ms)
+Rendered games/_month_view.html.erb (12.5ms)
+Rendered games/_day_view.html.erb (3.9ms)
+Rendered games/_month_view.html.erb (6.7ms)
+Rendered games/_day_view.html.erb (10.4ms)
+Rendered games/_month_view.html.erb (14.2ms)
+Rendered games/_year_view.html.erb (287.8ms)
+Rendered games/index.html.erb within layouts/application (323.4ms)
+Completed 200 OK in 537ms (Views: 328.0ms | ActiveRecord: 14.2ms)
+
+
+Started GET "/images/2010/03/thumb/final_fantasy_xiii_x360" for 127.0.0.1 at 2010-04-20 17:27:59
+
+ActionController::RoutingError (No route matches "/images/2010/03/thumb/final_fantasy_xiii_x360"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
