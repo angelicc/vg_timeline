@@ -5,7 +5,7 @@ class GamesController < ApplicationController
 
   def index
     if params[:search]
-      @games = Game.where("main_title LIKE ?", "%#{params[:search]}%")
+      @games = Game.where("LOWER(main_title) LIKE ?", "%#{params[:search].downcase}%")
       respond_to do |format|
         format.js
       end
