@@ -11,6 +11,14 @@
     <tr>
       <% for game in @day %>
         <% unless game.class == Fixnum %>
+          <% if @publishers_year and @developers_year %>
+            <% for publisher in game.publishers %>
+              <% @publishers_year << publisher unless @publishers_year.include?(publisher) %>
+            <% end %>
+            <% for developer in game.developers %>
+              <% @developers_year << developer unless @developers_year.include?(developer) %>
+            <% end %>
+          <% end %>
           <td class="boxart_block">
             <%= box_logo(game, :thumb, :prototip => true, :tooltip => true, :hover => true) %>
             </td>

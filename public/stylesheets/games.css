@@ -440,20 +440,33 @@ div.tooltip_boxart.right {
     display: table;
     width: 99.6%;
     margin: 0 auto;
+    height: 100%;
 }
 
 /* Columns */
 
 #left_column {
-    border-right: 2px solid black;
+    border-right: 0px solid black;
     width: 75%;
     float: left;
     clear: both;
 }
 
 #right_column {
-    width: 24%;
+    width: 15%;
+    height: 93%;
+    display: table;
+    margin: 10px 55px 10px 10px;
+    background-color: white;
+    border: 2px solid white;
     float: right;
+}
+
+#right_column img {
+    display: block;
+    padding-top: 10px;
+    margin-left: auto;
+    margin-right: auto
 }
 
 #left_column, #right_column {
@@ -473,7 +486,7 @@ div.tooltip_boxart.right {
 
 #basic_info_container {
     padding: 7px 8px 10px 10px;
-    width: 72%;
+    width: 40%;
     float: left;
     font-size: 13px;
 }
@@ -486,11 +499,25 @@ div.tooltip_boxart.right {
 
 td.label {
     font-weight: bold;
+    padding-right: 10px;
+}
+
+#diff_platforms {
+    margin-top: 40px;
+    width: 32%;
+    float: left;
+    border: 1px solid gray;
+    background-color: #c9ced7;
+}
+
+td.subtitle {
+    font-weight: 600;
+    font-size: 12px;
 }
 
 /* Description */
 
-#game_description {
+#game_info_description {
     padding: 10px 14px 10px 13px;
     text-align: justify;
     width: 97%;
@@ -500,9 +527,13 @@ td.label {
 /* Series */
 
 #game_series {
+    margin-left: 10px;
+    margin-bottom: 10px;
     float: left;
     padding: 10px 14px 10px 13px;
     width: 47%;
+    background-color: #c9ced7;
+    border: 1px solid gray;
 }
 
 span.showing {
@@ -533,9 +564,13 @@ span.showing {
 /* Scores */
 
 #game_scores {
+    margin-left: 10px;
+    margin-bottom: 10px;
     float: left;
     padding: 10px 14px 10px 13px;
-    width: 46%;
+    width: 44%;
+    background-color: #c9ced7;
+    border: 1px solid gray;
 }
 
 /* Specs & Features */

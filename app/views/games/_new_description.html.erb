@@ -1,0 +1,8 @@
+<h2>Description</h2>
+
+<%= form_for @game do |f| %>
+<div class="field">
+  <%= f.text_area :description, :rows => '10', :cols => '30' %>
+</div>
+<%= f.submit "Submit" %>
+<% end %>

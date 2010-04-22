@@ -34,6 +34,24 @@ class Game < ActiveRecord::Base
     main_title + " " + sub_title
   end
 
+  def full_title_colon
+    f_t = main_title
+    if sub_title.empty?
+      f_t
+    else
+      f_t = "#{f_t}:" if main_title.rindex(':').nil? and sub_title.rindex(':').nil?
+      f_t = "#{f_t} #{sub_title}"
+    end
+  end
+
+  def full_title_colon_limit
+    if full_title_colon.length > 50
+      "#{full_title_colon.slice(0, 49)}..."
+    else
+      full_title_colon
+    end
+  end
+
   def full_title_limit
     if full_title.length > 50
       "#{full_title.slice(0,49)}..."
@@ -87,13 +105,21 @@ class Game < ActiveRecord::Base
     self.platform = Platform.find_or_create_by_name(name) unless name.blank? # TODO cannot create platform if not assigned a short_name
   end
 
-#  def different_platforms
-#    different_platforms
-#  end
-#
-#  def different_platforms=(game)
-#    self.different_platforms << game
-#  end
+  def series_name
+    series.name if series
+  end
+
+  def series_name=(name)
+    self.series = Series.find_or_create_by_name(name) unless name.blank?
+  end
+
+  #  def different_platforms
+  #    different_platforms
+  #  end
+  #
+  #  def different_platforms=(game)
+  #    self.different_platforms << game
+  #  end
 
   def developer_names
     devs = []
@@ -142,7 +168,7 @@ class Game < ActiveRecord::Base
     box_name = box_name.tr("\'\"", "")
     box_name = box_name.tr('.:;-/\\', " ")
     box_name = box_name.split.join('_')
-#    self.boxart = "#{box_name}_#{platform.short_name}"
+    #    self.boxart = "#{box_name}_#{platform.short_name}"
   end
 
   private

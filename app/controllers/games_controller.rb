@@ -16,6 +16,9 @@ class GamesController < ApplicationController
       @id = params[:game_id] if params[:game_id]
       @enter_year = true
       @games = Game.where('release_date >= ? and release_date <= ?', "#{@year}-01-01", "#{@year}-12-31").order("release_date asc, hits desc, main_title asc").all
+      @platforms = Platform.order("name asc")
+      @publishers = Publisher.order("name asc")
+      @developers = Developer.order("name asc")
       if not @games.empty?
         games = make_games_array(@games, Limit, true)
         @months = games['games']
@@ -117,11 +120,19 @@ class GamesController < ApplicationController
     @game_exists = Game.where("main_title = ? and sub_title = ? and platform_id = ?", params[:game][:main_title], params[:game][:sub_title], platform.id).first if platform
     @game_diff = Game.find(params[:diff_platform_id]) if params[:diff_platform_id]
     if @game_exists and @game_diff
-      @game_exists.different_platforms << @game_diff unless @game_exists.different_platforms.exists?(@game_diff) or @game_exists == @game_diff
       for game in @game_exists.different_platforms
         game.different_platforms << @game_diff unless game.different_platforms.exists?(@game_diff) or game == @game_diff
         @game_diff.different_platforms << game unless @game_diff.different_platforms.exists?(game) or @game_diff == game
       end
+      for game2 in @game_diff.different_platforms
+        game2.different_platforms << @game_exists unless game2.different_platforms.exists?(@game_exists) or game2 == @game_exists
+        @game_exists.different_platforms << game2 unless @game_exists.different_platforms.exists?(game2) or @game_exists == game2
+        for game3 in @game_exists.different_platforms
+          game2.different_platforms << game3 unless game2.different_platforms.exists?(game3) or game2 == game3
+          game3.different_platforms << game2 unless game3.different_platforms.exists?(game2) or game3 == game2
+        end
+      end
+      @game_exists.different_platforms << @game_diff unless @game_exists.different_platforms.exists?(@game_diff) or @game_exists == @game_diff
       @game_diff.different_platforms << @game_exists unless @game_diff.different_platforms.exists?(@game_exists) or @game_diff == @game_exists
       flash[:notice] = "Games linked succesfully."
       redirect_to game_path(@game_exists)
@@ -154,9 +165,11 @@ class GamesController < ApplicationController
       end
       @developers = []; @publishers = []
       if @game.save
-        @game_diff.different_platforms << @game
-        for game in @game_diff.different_platforms
-          game.different_platforms << @game unless (game.different_platforms.exists?(@game) or game == @game)
+        if @game_diff
+          @game_diff.different_platforms << @game
+          for game in @game_diff.different_platforms
+            game.different_platforms << @game unless (game.different_platforms.exists?(@game) or game == @game)
+          end
         end
         add_flash = experience_user(10)
         flash[:notice] = "Game succesfully created." + add_flash
@@ -174,9 +187,11 @@ class GamesController < ApplicationController
   def edit
     @level = params[:lv] + "&"
     index = @level.index("id")
-    id = @level.slice(@level.index("=", index) + 1, @level.index("&", index) - @level.index("=", index) - 1)
+    id = @level.slice(@level.index("=", index) + 1, @level.index("&", index) - @level.index("=", index) - 1) if index
+    index = @level.index("view")
+    view = @level.slice(@level.index("=", index) + 1, @level.index("&", index) - @level.index("=", index) - 1) if index
     @level = @level.slice(0,1) if @level.length > 1
-    @view = params[:action]
+    @view = view ? view : params[:action]
     @title = "Edit Game"
     @game = Game.find(id)
     @date = @game.release_date
@@ -196,6 +211,9 @@ class GamesController < ApplicationController
     @old = @game
     styles = %w(thumb mini medium original)
     if @game.update_attributes(params[:game])
+      for game in @game.different_platforms
+        game.update_attribute('series_id', @game.series_id)
+      end
       for style in styles
         FileUtils.mkdir "#{Rails.root}/public/images/#{@game.r_y}" unless File.exist?("#{Rails.root}/public/images/#{@game.r_y}")
         FileUtils.mkdir "#{Rails.root}/public/images/#{@game.r_y}/#{@game.r_m}" unless File.exist?("#{Rails.root}/public/images/#{@game.r_y}/#{@game.r_m}")

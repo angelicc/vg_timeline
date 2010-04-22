@@ -10,14 +10,6 @@
           <td class="label">Platform:</td>
           <td>
             <%= link_to @game.platform.name, '#' %>
-            <% unless @game.different_platforms.empty? %>
-              (Also on
-              <% for diff_platform in @game.different_platforms %>
-                <%= link_to diff_platform.platform.name, game_path(diff_platform) %>
-              <% end %>
-              )
-            <% end %>
-            (<%= pop_up "Add to another platform", new_game_path(:id_diff => @game.id) %>)
           </td>
         </tr>
         <tr>
@@ -44,16 +36,39 @@
       <span class="new_game"><%= pop_up "Add Game", new_game_path(:year => @year, :month => @m) if user_signed_in? %></span>
       <%= pop_up "Edit game", '/edit?id=' + @game.id.to_s if user_signed_in? %>
     </div>
-    <div id="game_description">
+     <div id="diff_platforms" class="round">
+      <table>
+        <tr>
+          <td class="subtitle">
+              Also on:
+          </td>
+        </tr>
+        <% unless @game.different_platforms.empty? %>
+          <% for diff_platform in @game.different_platforms %>
+        <tr>
+          <td class="platforms">
+             <%= link_to diff_platform.platform.name, game_path(diff_platform) %>
+          </td>
+        </tr>
+          <% end %>
+        <% end %>
+        <tr>
+          <td>
+            <%= pop_up "Add to another platform", new_game_path(:id_diff => @game.id) %>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div id="game_info_description">
       <h4>Description</h4>
       <% if @game.description %>
         <%= @game.description %>
       <% else %>
         No description has been added for this game.
-        <%= link_to "Add Description", "#" %>
+        <%= pop_up "Add Description", '/edit?id=' + @game.id.to_s + '&view=new_description' if user_signed_in? %>
       <% end %>
     </div>
-    <div id="game_series">
+    <div id="game_series" class="round">
       <% series = @game.series %>
       <% unless series.nil? %>
         <% games_in_series = series.games.sort { |a,b| a.release_date <=> b.release_date } %>
@@ -76,27 +91,29 @@
           <h5>Full List:</h5>
           <% for game in games_in_series %>
             <%= game.r_y %> -
-            <span<%= " class=showing" if game == @game %>><%= link_to_unless(game == @game, game.full_title_limit, game_path(game)) %></span><br />
+            <span<%= " class=showing" if game == @game %>><%= link_to_unless(game == @game, game.full_title_limit, game_path(game)) %></span>
+            <%= "(#{game.platform.short_name.upcase})" %><br />
           <% end %>
         </div>
       <% else %>
-        <%= link_to "Add series", '#' %>
+        <h4>Series</h4>
+        <%= pop_up "Add Series", '/edit?id=' + @game.id.to_s + '&view=add_series' if user_signed_in? %>
       <% end %>
     </div>
-    <div id="game_scores">
+    <div id="game_scores" class="round">
       <h4>Scores</h4>
       <% scores = @game.scores %>
       <% unless scores.empty? %>
         <table cellspacing="0">
           <% for score in scores %>
             <tr>
-              <td><%= link_to score.press.name, score.press.url %></td>
-              <td><%= link_to score.score, score.url %></td>
+              <td><%= link_to score.press.name, score.press.url, :target => '_blank' %></td>
+              <td><%= link_to score.score, score.url, :target => '_blank' %></td>
             </tr>
           <% end %>
         </table>
       <% else %>
-        <%= link_to "Add scores", '#' %>
+        <%= link_to "Add scores", '#' if user_signed_in?%>
       <% end %>
       <br />
       <h4>Awards</h4>
@@ -111,12 +128,12 @@
           <% end %>
         </table>
       <% else %>
-        <%= link_to "Add awards", '#' %>
+        <%= link_to "Add awards", '#' if user_signed_in? %>
       <% end %>
     </div>
   </div>
 
-  <div id="right_column">
+  <div id="right_column" class="round">
     <% if @game.rating %>
       <%= rating_logo(@game.rating) %><br />
     <% end %>

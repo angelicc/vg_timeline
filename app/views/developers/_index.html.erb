@@ -2,11 +2,13 @@
 <div><%= flash[:notice] %></div>
 <div><%= flash[:error] %></div>
 <h2>Developers</h2>
-<% for developer in @developers %>
-  <%= developer.name %>
-  <%= link_to "Games", developer_path(developer) %>
-  <%= link_to "Edit", edit_developer_path(developer) %>
-  <%= link_to "Delete", developer_path(developer), :method => :delete %><br />
-<% end %>
-<div><%= link_to "Add Developer", new_developer_path %></div>
-<div><%= link_to "Back to Year View", "/#{cur_year}" if @format == "html" %></div>
+<div class="inner_scroll">
+  <% for developer in @developers %>
+    <%= developer.name %>
+    <%= link_to "Games", developer_path(developer) %>
+    <%= link_to "Edit", edit_developer_path(developer) %>
+    <%= link_to "Delete", developer_path(developer), :method => :delete %><br />
+  <% end %>
+  <div><%= link_to "Add Developer", new_developer_path %></div>
+  <div><%= link_to "Back to Year View", "/#{cur_year}" if @format == "html" %></div>
+</div>

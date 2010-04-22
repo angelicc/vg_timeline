@@ -21,15 +21,13 @@ gem "mysql"
 #   gem "webrat"
 # end
 
-gem "pg"
-
 gem "cgi_multipart_eof_fix"
 gem "fastthread"
 gem "mongrel_experimental"
 gem "devise", "1.1.rc0"
 gem 'gravtastic', :branch => 'master'
 
-#gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git', :branch => 'rails3'
+gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git', :branch => 'rails3'
 #gem 'fleximage', :git => 'git://github.com/Squeegy/fleximage.git', :branch => 'master'
 #install rmagick libmagick9-dev
 

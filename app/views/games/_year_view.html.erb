@@ -5,24 +5,13 @@
     <%= "Show All" %>
   </span>
   <span class="platforms_month">
-    Only:
-    <span class="platforms">
-      <% for platform_year in @platforms_year %>
-        <span class="platform">
-          <%= check_box_tag platform_year.id, 1, false, :class => @year.to_s, :onclick => "yearFilterPlatform(this, 3)" %>
-          <%= platform_year.name %>
-        </span>
-      <% end if @platforms_year %>
-    </span>
-    <span class="platform_extra">
-      <%= check_box_tag "year_filter_all"+@year.to_s, 1, true, :class => @year.to_s, :onclick => "yearFilterAll(this, 3)"  %>
-      <%= "All" %>
-    </span>
+    <%= link_to 'Year Filters', "#general_filters" %>
   </span>
   <span id="spinner<%= @year.to_s %>" class="spinner" style="display:none;">
     <img alt="Spinner" src="/images/spinner.gif" />
   </span>
 </div>
+<% @developers_year = []; @publishers_year = [] %>
 <% unless @games.empty? %>
   <% @m = 0; m2 = "" %>
   <% for @month in @months %>
@@ -74,3 +63,47 @@
     <%= link_to "Add Game", new_game_path(:year => @year, :month => 1), :remote => true %>
   </div>
 <% end %>
+
+<%#*<div id="show_view_filters">%>
+<%# link_to "View Filters >", "#", :onclick => "Effect.toggle('general_filters', 'slide');" %>
+<%#*</div><br />%>
+<div id="general_filters">
+  <span class="go_up"><%= link_to 'Go Up', "#top_nav" %></span>
+  <div id="first_filter_cat">
+    <ul id="tabcontrol1">
+      <li class="current_show_filter" id="platforms_tab"><%= link_to_function('Platforms', "tabselect1($('platforms_tab')); paneselect1('platforms_general_filters')") %></li>
+      <li id="publishers_tab"><%= link_to_function('Publishers', "tabselect1($('publishers_tab')); paneselect1('publishers_general_filters')") %></li>
+      <li id="developers_tab"><%= link_to_function('Developers', "tabselect1($('developers_tab')); paneselect1('developers_general_filters')") %></li>
+    </ul>
+  </div>
+  <div id="platforms_general_filters">
+    <span class="title_top_filter"><%= "Current Year" %></span>
+    <span class="check_top_filter"><%= check_box_tag "year_filter_all"+@year.to_s, 1, true, :class => @year.to_s, :onclick => "yearFilterAll(this, 3)" %>All</span>
+    <br />
+    <% @platforms_year.sort! { |a,b| a.name <=> b.name } %>
+    <% for platform in @platforms_year %>
+      <%= check_box_tag platform.id, 1, false, :class => @year.to_s, :onclick => "yearFilterPlatform(this, 3)" %>
+      <%= platform.name %><br />
+    <% end %>
+  </div>
+  <div id="publishers_general_filters" style="display:none">
+    <span class="title_top_filter"><%= "Current Year" %></span>
+    <span class="check_top_filter"><%= check_box_tag 'gpublishersall', 1, true  %>All</span>
+    <br />
+    <% @publishers_year.sort! { |a,b| a.name <=> b.name } %>
+    <% for publisher in @publishers_year %>
+      <%= check_box_tag 'gpublisher'+publisher.id.to_s, 1, false %>
+      <%= publisher.name %><br />
+    <% end %>
+  </div>
+  <div id="developers_general_filters" style="display:none">
+    <span class="title_top_filter"><%= "Current Year" %></span>
+    <span class="check_top_filter"><%= check_box_tag 'gdevelopersall', 1, true  %>All</span>
+    <br />
+    <% @developers_year.sort! { |a,b| a.name <=> b.name } %>
+    <% for developer in @developers_year %>
+      <%= check_box_tag 'gdeveloper'+developer.id.to_s, 1, false %>
+      <%= developer.name %><br />
+    <% end %>
+  </div>
+</div>

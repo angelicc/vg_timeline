@@ -1,8 +1,12 @@
 VgTimeline::Application.routes.draw do |map|
+  get "series/index"
+
+  get "seires/index"
+
   devise_for :users
 
   #  constraints :host => /localhost/ do
-  resources :games, :platforms, :developers, :publishers
+  resources :games, :platforms, :developers, :publishers, :series
   match "/:year" => "games#index", :as => :year, :constraints => { :year => /\d{4}/ }
   match "/list" => "games#list", :as => :games_list
   match ":action" => "games#index"

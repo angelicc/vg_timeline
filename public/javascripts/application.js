@@ -272,5 +272,38 @@ function tooltipAjax(e, element, id) {
             }
         }
     });
+}
 
+function tabselect1(tab) {
+  var tablist = $('tabcontrol1').getElementsByTagName('li');
+  var nodes = $A(tablist);
+
+  nodes.each(function(node){
+    if (node.id == tab.id) {
+      tab.className='current_show_filter';
+    } else {
+      node.className='';
+    }
+  });
+}
+
+function paneselect1(div) {
+  var hidden_div;
+  var nh_div1; var nh_div2;
+  if(div == 'platforms_general_filters') {
+      nh_div1 = document.getElementById('developers_general_filters');
+      nh_div2 = document.getElementById('publishers_general_filters');
+  } else if(div == 'publishers_general_filters') {
+      nh_div1 = document.getElementById('developers_general_filters');
+      nh_div2 = document.getElementById('platforms_general_filters');
+  } else if(div == 'developers_general_filters') {
+      nh_div1 = document.getElementById('publishers_general_filters');
+      nh_div2 = document.getElementById('platforms_general_filters');
+  } else {
+
+  }
+  hidden_div = document.getElementById(div);
+  nh_div1.style.display = "none";
+  nh_div2.style.display = "none";
+  hidden_div.style.display = "block";
 }
