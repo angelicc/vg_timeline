@@ -13,7 +13,7 @@ gem "mysql"
 # gem "bj"
 # gem "hpricot", "0.6"
 # gem "sqlite3-ruby", :require => "sqlite3"
-# gem "aws-s3", :require => "aws/s3"
+gem "aws-s3", :require => "aws/s3"
 
 ## Bundle gems used only in certain environments:
 # gem "rspec", :group => :test
@@ -28,7 +28,5 @@ gem "devise", "1.1.rc0"
 gem "gravtastic", :branch => 'master'
 gem "pg"
 
-# gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git', :branch => 'rails3'
-#gem 'fleximage', :git => 'git://github.com/Squeegy/fleximage.git', :branch => 'master'
-#install rmagick libmagick9-dev
+gem "paperclip", :git => 'git://github.com/thoughtbot/paperclip.git', :branch => 'rails3'
 

@@ -452,6 +452,12 @@ div.tooltip_boxart.right {
     clear: both;
 }
 
+#top_info_container {
+    margin-bottom: 5px;
+    float:left;
+    width: 100%;
+}
+
 #right_column {
     width: 15%;
     height: 93%;

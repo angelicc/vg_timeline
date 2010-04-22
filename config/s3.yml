@@ -1,0 +1,14 @@
+development:
+  bucket: vg-timeline
+  access_key_id: AKIAIMXJ77QKTJ3QN27Q
+  secret_access_key: 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
+
+test:
+  bucket: vg-timeline
+  access_key_id: AKIAIMXJ77QKTJ3QN27Q
+  secret_access_key: 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
+
+production:
+  bucket: vg-timeline
+  access_key_id: AKIAIMXJ77QKTJ3QN27Q
+  secret_access_key: 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

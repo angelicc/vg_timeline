@@ -17,5 +17,5 @@ VgTimeline::Application.configure do
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = true
   config.secret_token = 'edf9587f45b37ad3748ddcf56145c741c8d7bfb268337829458937aa026a388f22d812104b4941a18539982ae3ef48a081fdcba6b60a2649f4414f44bf26a7ca'
-  config.action_mailer.default_url_options = { :host => '187.158.52.100:3001' }
+  config.action_mailer.default_url_options = { :host => '187.158.54.235:3000' }
 end

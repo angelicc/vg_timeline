@@ -28,7 +28,7 @@ class Game < ActiveRecord::Base
   has_many :awards
 
   validates_presence_of :main_title, :release_date
-  has_attached_file :boxart, :url => "/images/:release_year/:release_month/:style/:title", :styles => { :medium => "400x400>", :thumb => "120x120>", :mini => "50x50>" }, :path => ":rails_root/public/images/:release_year/:release_month/:style/:title"
+  has_attached_file :boxart, :storage => :s3, :s3_credentials => "#{RAILS_ROOT}/config/s3.yml", :url => "/images/:release_year/:release_month/:style/:title", :styles => { :medium => "400x400>", :thumb => "120x120>", :mini => "50x50>" }, :path => "/images/:release_year/:release_month/:style/:title"
 
   def full_title
     main_title + " " + sub_title
