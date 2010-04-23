@@ -13336,3 +13336,269 @@ Started GET "/games/682" for 127.0.0.1 at 2010-04-23 12:59:10
   [1m[36mLevel Load (0.1ms)[0m  [1mSELECT `levels`.* FROM `levels` WHERE (`levels`.`id` = 2) LIMIT 1[0m
 Rendered games/show.html.erb within layouts/application (327.3ms)
 Completed 200 OK in 418ms (Views: 330.2ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-04-23 13:11:07
+  Processing by GamesController#index as HTML
+  [1m[35mSQL (0.6ms)[0m  describe `achievements_games`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `developers_games`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `games_publishers`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `features_games`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `games_genres`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `games_peripherals`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `games_specifications`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `games_types`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `different_markets_games`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `different_platforms_games`[0m
+  [1m[35mGame Load (1.7ms)[0m  SELECT `games`.* FROM `games` WHERE (release_date >= '2010-01-01' and release_date <= '2010-12-31') ORDER BY release_date asc, hits desc, main_title asc
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `games_publishers`[0m
+  [1m[35mSQL (0.5ms)[0m  describe `developers_games`
+  [1m[36mPlatform Load (0.1ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1[0m
+  [1m[35mPlatform Load (0.1ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1
+  [1m[36mPlatform Load (0.1ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 1) LIMIT 1[0m
+  [1m[35mPlatform Load (0.1ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 4) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 4) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 4) LIMIT 1
+  [1m[36mPlatform Load (0.1ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 5) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 5) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1[0m
+  [1m[35mPlatform Load (0.1ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 5) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 5) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 4) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 4) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 5) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 3) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 4) LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 30) LIMIT 1[0m
+Rendered games/_years.html.erb (20.8ms)
+  [1m[35mPublisher Load (0.2ms)[0m  SELECT * FROM `publishers` INNER JOIN `games_publishers` ON `publishers`.id = `games_publishers`.publisher_id WHERE (`games_publishers`.game_id = 27 )
+  [1m[36mDeveloper Load (0.2ms)[0m  [1mSELECT * FROM `developers` INNER JOIN `developers_games` ON `developers`.id = `developers_games`.developer_id WHERE (`developers_games`.game_id = 27 )[0m
+  [1m[35mPublisher Load (0.2ms)[0m  SELECT * FROM `publishers` INNER JOIN `games_publishers` ON `publishers`.id = `games_publishers`.publisher_id WHERE (`games_publishers`.game_id = 633 )
+  [1m[36mDeveloper Load (0.2ms)[0m  [1mSELECT * FROM `developers` INNER JOIN `developers_games` ON `developers`.id = `developers_games`.developer_id WHERE (`developers_games`.game_id = 633 )[0m
+Rendered games/_day_view.html.erb (37.5ms)
+  [1m[35mPublisher Load (0.3ms)[0m  SELECT * FROM `publishers` INNER JOIN `games_publishers` ON `publishers`.id = `games_publishers`.publisher_id WHERE (`games_publishers`.game_id = 13 )
+  [1m[36mDeveloper Load (0.3ms)[0m  [1mSELECT * FROM `developers` INNER JOIN `developers_games` ON `developers`.id = `developers_games`.developer_id WHERE (`developers_games`.game_id = 13 )[0m
+  [1m[35mPublisher Load (0.3ms)[0m  SELECT * FROM `publishers` INNER JOIN `games_publishers` ON `publishers`.id = `games_publishers`.publisher_id WHERE (`games_publishers`.game_id = 11 )
+  [1m[36mDeveloper Load (0.3ms)[0m  [1mSELECT * FROM `developers` INNER JOIN `developers_games` ON `developers`.id = `developers_games`.developer_id WHERE (`developers_games`.game_id = 11 )[0m
+  [1m[35mPublisher Load (0.3ms)[0m  SELECT * FROM `publishers` INNER JOIN `games_publishers` ON `publishers`.id = `games_publishers`.publisher_id WHERE (`games_publishers`.game_id = 616 )
+  [1m[36mDeveloper Load (0.3ms)[0m  [1mSELECT * FROM `developers` INNER JOIN `developers_games` ON `developers`.id = `developers_games`.developer_id WHERE (`developers_games`.game_id = 616 )[0m
+Rendered games/_day_view.html.erb (47.0ms)
+Rendered games/_month_view.html.erb (88.1ms)
+  [1m[35mPublisher Load (0.3ms)[0m  SELECT * FROM `publishers` INNER JOIN `games_publishers` ON `publishers`.id = `games_publishers`.publisher_id WHERE (`games_publishers`.game_id = 15 )
+  [1m[36mDeveloper Load (0.3ms)[0m  [1mSELECT * FROM `developers` INNER JOIN `developers_games` ON `developers`.id = `developers_games`.developer_id WHERE (`developers_games`.game_id = 15 )[0m
+  [1m[35mPublisher Load (0.3ms)[0m  SELECT * FROM `publishers` INNER JOIN `games_publishers` ON `publishers`.id = `games_publishers`.publisher_id WHERE (`games_publishers`.game_id = 78 )
+  [1m[36mDeveloper Load (0.3ms)[0m  [1mSELECT * FROM `developers` INNER JOIN `developers_games` ON `developers`.id = `developers_games`.developer_id WHERE (`developers_games`.game_id = 78 )[0m
+  [1m[35mPublisher Load (0.3ms)[0m  SELECT * FROM `publishers` INNER JOIN `games_publishers` ON `publishers`.id = `games_publishers`.publisher_id WHERE (`games_publishers`.game_id = 620 )
+  [1m[36mDeveloper Load (0.3ms)[0m  [1mSELECT * FROM `developers` INNER JOIN `developers_games` ON `developers`.id = `developers_games`.developer_id WHERE (`developers_games`.game_id = 620 )[0m
+  [1m[35mPublisher Load (0.3ms)[0m  SELECT * FROM `publishers` INNER JOIN `games_publishers` ON `publishers`.id = `games_publishers`.publisher_id WHERE (`games_publishers`.game_id = 621 )
+  [1m[36mDeveloper Load (0.3ms)[0m  [1mSELECT * FROM `developers` INNER JOIN `developers_games` ON `developers`.id = `developers_games`.developer_id WHERE (`developers_games`.game_id = 621 )[0m
+Rendered games/_day_view.html.erb (64.2ms)
+  [1m[35mPublisher Load (0.3ms)[0m  SELECT * FROM `publishers` INNER JOIN `games_publishers` ON `publishers`.id = `games_publishers`.publisher_id WHERE (`games_publishers`.game_id = 14 )
+  [1m[36mDeveloper Load (0.3ms)[0m  [1mSELECT * FROM `developers` INNER JOIN `developers_games` ON `developers`.id = `developers_games`.developer_id WHERE (`developers_games`.game_id = 14 )[0m
+Rendered games/_day_view.html.erb (15.9ms)
+Rendered games/_month_view.html.erb (85.2ms)
+  [1m[35mPublisher Load (0.3ms)[0m  SELECT * FROM `publishers` INNER JOIN `games_publishers` ON `publishers`.id = `games_publishers`.publisher_id WHERE (`games_publishers`.game_id = 9 )
+  [1m[36mDeveloper Load (0.3ms)[0m  [1mSELECT * FROM `developers` INNER JOIN `developers_games` ON `developers`.id = `developers_games`.developer_id WHERE (`developers_games`.game_id = 9 )[0m
+  [1m[35mPublisher Load (0.3ms)[0m  SELECT * FROM `publishers` INNER JOIN `games_publishers` ON `publishers`.id = `games_publishers`.publisher_id WHERE (`games_publishers`.game_id = 622 )
+  [1m[36mDeveloper Load (0.3ms)[0m  [1mSELECT * FROM `developers` INNER JOIN `developers_games` ON `developers`.id = `developers_games`.developer_id WHERE (`developers_games`.game_id = 622 )[0m
+  [1m[35mPublisher Load (0.3ms)[0m  SELECT * FROM `publishers` INNER JOIN `games_publishers` ON `publishers`.id = `games_publishers`.publisher_id WHERE (`games_publishers`.game_id = 533 )
+  [1m[36mDeveloper Load (0.3ms)[0m  [1mSELECT * FROM `developers` INNER JOIN `developers_games` ON `developers`.id = `developers_games`.developer_id WHERE (`developers_games`.game_id = 533 )[0m
+Rendered games/_day_view.html.erb (43.9ms)
+  [1m[35mPublisher Load (0.3ms)[0m  SELECT * FROM `publishers` INNER JOIN `games_publishers` ON `publishers`.id = `games_publishers`.publisher_id WHERE (`games_publishers`.game_id = 5 )
+  [1m[36mDeveloper Load (0.3ms)[0m  [1mSELECT * FROM `developers` INNER JOIN `developers_games` ON `developers`.id = `developers_games`.developer_id WHERE (`developers_games`.game_id = 5 )[0m
+  [1m[35mPublisher Load (0.3ms)[0m  SELECT * FROM `publishers` INNER JOIN `games_publishers` ON `publishers`.id = `games_publishers`.publisher_id WHERE (`games_publishers`.game_id = 2 )
+  [1m[36mDeveloper Load (0.3ms)[0m  [1mSELECT * FROM `developers` INNER JOIN `developers_games` ON `developers`.id = `developers_games`.developer_id WHERE (`developers_games`.game_id = 2 )[0m
+  [1m[35mPublisher Load (0.3ms)[0m  SELECT * FROM `publishers` INNER JOIN `games_publishers` ON `publishers`.id = `games_publishers`.publisher_id WHERE (`games_publishers`.game_id = 4 )
+  [1m[36mDeveloper Load (0.3ms)[0m  [1mSELECT * FROM `developers` INNER JOIN `developers_games` ON `developers`.id = `developers_games`.developer_id WHERE (`developers_games`.game_id = 4 )[0m
+  [1m[35mPublisher Load (0.3ms)[0m  SELECT * FROM `publishers` INNER JOIN `games_publishers` ON `publishers`.id = `games_publishers`.publisher_id WHERE (`games_publishers`.game_id = 1 )
+  [1m[36mDeveloper Load (0.3ms)[0m  [1mSELECT * FROM `developers` INNER JOIN `developers_games` ON `developers`.id = `developers_games`.developer_id WHERE (`developers_games`.game_id = 1 )[0m
+  [1m[35mPublisher Load (0.3ms)[0m  SELECT * FROM `publishers` INNER JOIN `games_publishers` ON `publishers`.id = `games_publishers`.publisher_id WHERE (`games_publishers`.game_id = 16 )
+  [1m[36mDeveloper Load (0.3ms)[0m  [1mSELECT * FROM `developers` INNER JOIN `developers_games` ON `developers`.id = `developers_games`.developer_id WHERE (`developers_games`.game_id = 16 )[0m
+Rendered games/_day_view.html.erb (72.4ms)
+  [1m[35mPublisher Load (0.5ms)[0m  SELECT * FROM `publishers` INNER JOIN `games_publishers` ON `publishers`.id = `games_publishers`.publisher_id WHERE (`games_publishers`.game_id = 535 )
+  [1m[36mDeveloper Load (0.4ms)[0m  [1mSELECT * FROM `developers` INNER JOIN `developers_games` ON `developers`.id = `developers_games`.developer_id WHERE (`developers_games`.game_id = 535 )[0m
+Rendered games/_day_view.html.erb (532.9ms)
+  [1m[35mPublisher Load (0.4ms)[0m  SELECT * FROM `publishers` INNER JOIN `games_publishers` ON `publishers`.id = `games_publishers`.publisher_id WHERE (`games_publishers`.game_id = 7 )
+  [1m[36mDeveloper Load (0.3ms)[0m  [1mSELECT * FROM `developers` INNER JOIN `developers_games` ON `developers`.id = `developers_games`.developer_id WHERE (`developers_games`.game_id = 7 )[0m
+  [1m[35mPublisher Load (0.4ms)[0m  SELECT * FROM `publishers` INNER JOIN `games_publishers` ON `publishers`.id = `games_publishers`.publisher_id WHERE (`games_publishers`.game_id = 26 )
+  [1m[36mDeveloper Load (0.3ms)[0m  [1mSELECT * FROM `developers` INNER JOIN `developers_games` ON `developers`.id = `developers_games`.developer_id WHERE (`developers_games`.game_id = 26 )[0m
+  [1m[35mPublisher Load (0.3ms)[0m  SELECT * FROM `publishers` INNER JOIN `games_publishers` ON `publishers`.id = `games_publishers`.publisher_id WHERE (`games_publishers`.game_id = 3 )
+  [1m[36mDeveloper Load (0.3ms)[0m  [1mSELECT * FROM `developers` INNER JOIN `developers_games` ON `developers`.id = `developers_games`.developer_id WHERE (`developers_games`.game_id = 3 )[0m
+Rendered games/_day_view.html.erb (50.0ms)
+  [1m[35mPublisher Load (0.3ms)[0m  SELECT * FROM `publishers` INNER JOIN `games_publishers` ON `publishers`.id = `games_publishers`.publisher_id WHERE (`games_publishers`.game_id = 23 )
+  [1m[36mDeveloper Load (0.3ms)[0m  [1mSELECT * FROM `developers` INNER JOIN `developers_games` ON `developers`.id = `developers_games`.developer_id WHERE (`developers_games`.game_id = 23 )[0m
+Rendered games/_day_view.html.erb (17.7ms)
+  [1m[35mPublisher Load (0.3ms)[0m  SELECT * FROM `publishers` INNER JOIN `games_publishers` ON `publishers`.id = `games_publishers`.publisher_id WHERE (`games_publishers`.game_id = 219 )
+  [1m[36mDeveloper Load (0.3ms)[0m  [1mSELECT * FROM `developers` INNER JOIN `developers_games` ON `developers`.id = `developers_games`.developer_id WHERE (`developers_games`.game_id = 219 )[0m
+Rendered games/_day_view.html.erb (17.4ms)
+Rendered games/_month_view.html.erb (747.7ms)
+  [1m[35mPublisher Load (0.3ms)[0m  SELECT * FROM `publishers` INNER JOIN `games_publishers` ON `publishers`.id = `games_publishers`.publisher_id WHERE (`games_publishers`.game_id = 344 )
+  [1m[36mDeveloper Load (0.3ms)[0m  [1mSELECT * FROM `developers` INNER JOIN `developers_games` ON `developers`.id = `developers_games`.developer_id WHERE (`developers_games`.game_id = 344 )[0m
+Rendered games/_day_view.html.erb (18.1ms)
+  [1m[35mPublisher Load (0.3ms)[0m  SELECT * FROM `publishers` INNER JOIN `games_publishers` ON `publishers`.id = `games_publishers`.publisher_id WHERE (`games_publishers`.game_id = 6 )
+  [1m[36mDeveloper Load (0.3ms)[0m  [1mSELECT * FROM `developers` INNER JOIN `developers_games` ON `developers`.id = `developers_games`.developer_id WHERE (`developers_games`.game_id = 6 )[0m
+Rendered games/_day_view.html.erb (17.5ms)
+  [1m[35mPublisher Load (0.3ms)[0m  SELECT * FROM `publishers` INNER JOIN `games_publishers` ON `publishers`.id = `games_publishers`.publisher_id WHERE (`games_publishers`.game_id = 452 )
+  [1m[36mDeveloper Load (0.3ms)[0m  [1mSELECT * FROM `developers` INNER JOIN `developers_games` ON `developers`.id = `developers_games`.developer_id WHERE (`developers_games`.game_id = 452 )[0m
+Rendered games/_day_view.html.erb (17.2ms)
+  [1m[35mPublisher Load (0.3ms)[0m  SELECT * FROM `publishers` INNER JOIN `games_publishers` ON `publishers`.id = `games_publishers`.publisher_id WHERE (`games_publishers`.game_id = 25 )
+  [1m[36mDeveloper Load (0.3ms)[0m  [1mSELECT * FROM `developers` INNER JOIN `developers_games` ON `developers`.id = `developers_games`.developer_id WHERE (`developers_games`.game_id = 25 )[0m
+  [1m[35mPublisher Load (0.3ms)[0m  SELECT * FROM `publishers` INNER JOIN `games_publishers` ON `publishers`.id = `games_publishers`.publisher_id WHERE (`games_publishers`.game_id = 459 )
+  [1m[36mDeveloper Load (0.3ms)[0m  [1mSELECT * FROM `developers` INNER JOIN `developers_games` ON `developers`.id = `developers_games`.developer_id WHERE (`developers_games`.game_id = 459 )[0m
+Rendered games/_day_view.html.erb (33.0ms)
+  [1m[35mPublisher Load (0.3ms)[0m  SELECT * FROM `publishers` INNER JOIN `games_publishers` ON `publishers`.id = `games_publishers`.publisher_id WHERE (`games_publishers`.game_id = 72 )
+  [1m[36mDeveloper Load (0.3ms)[0m  [1mSELECT * FROM `developers` INNER JOIN `developers_games` ON `developers`.id = `developers_games`.developer_id WHERE (`developers_games`.game_id = 72 )[0m
+  [1m[35mPublisher Load (0.3ms)[0m  SELECT * FROM `publishers` INNER JOIN `games_publishers` ON `publishers`.id = `games_publishers`.publisher_id WHERE (`games_publishers`.game_id = 343 )
+  [1m[36mDeveloper Load (0.3ms)[0m  [1mSELECT * FROM `developers` INNER JOIN `developers_games` ON `developers`.id = `developers_games`.developer_id WHERE (`developers_games`.game_id = 343 )[0m
+Rendered games/_day_view.html.erb (33.7ms)
+  [1m[35mPublisher Load (0.3ms)[0m  SELECT * FROM `publishers` INNER JOIN `games_publishers` ON `publishers`.id = `games_publishers`.publisher_id WHERE (`games_publishers`.game_id = 615 )
+  [1m[36mDeveloper Load (0.3ms)[0m  [1mSELECT * FROM `developers` INNER JOIN `developers_games` ON `developers`.id = `developers_games`.developer_id WHERE (`developers_games`.game_id = 615 )[0m
+Rendered games/_day_view.html.erb (17.0ms)
+Rendered games/_month_view.html.erb (150.4ms)
+  [1m[35mPublisher Load (0.3ms)[0m  SELECT * FROM `publishers` INNER JOIN `games_publishers` ON `publishers`.id = `games_publishers`.publisher_id WHERE (`games_publishers`.game_id = 221 )
+  [1m[36mDeveloper Load (0.3ms)[0m  [1mSELECT * FROM `developers` INNER JOIN `developers_games` ON `developers`.id = `developers_games`.developer_id WHERE (`developers_games`.game_id = 221 )[0m
+Rendered games/_day_view.html.erb (16.9ms)
+  [1m[35mPublisher Load (0.3ms)[0m  SELECT * FROM `publishers` INNER JOIN `games_publishers` ON `publishers`.id = `games_publishers`.publisher_id WHERE (`games_publishers`.game_id = 8 )
+  [1m[36mDeveloper Load (0.3ms)[0m  [1mSELECT * FROM `developers` INNER JOIN `developers_games` ON `developers`.id = `developers_games`.developer_id WHERE (`developers_games`.game_id = 8 )[0m
+Rendered games/_day_view.html.erb (16.8ms)
+Rendered games/_month_view.html.erb (38.9ms)
+  [1m[35mPublisher Load (0.3ms)[0m  SELECT * FROM `publishers` INNER JOIN `games_publishers` ON `publishers`.id = `games_publishers`.publisher_id WHERE (`games_publishers`.game_id = 682 )
+  [1m[36mDeveloper Load (0.3ms)[0m  [1mSELECT * FROM `developers` INNER JOIN `developers_games` ON `developers`.id = `developers_games`.developer_id WHERE (`developers_games`.game_id = 682 )[0m
+  [1m[35mPublisher Load (0.3ms)[0m  SELECT * FROM `publishers` INNER JOIN `games_publishers` ON `publishers`.id = `games_publishers`.publisher_id WHERE (`games_publishers`.game_id = 680 )
+  [1m[36mDeveloper Load (0.3ms)[0m  [1mSELECT * FROM `developers` INNER JOIN `developers_games` ON `developers`.id = `developers_games`.developer_id WHERE (`developers_games`.game_id = 680 )[0m
+  [1m[35mPublisher Load (0.3ms)[0m  SELECT * FROM `publishers` INNER JOIN `games_publishers` ON `publishers`.id = `games_publishers`.publisher_id WHERE (`games_publishers`.game_id = 681 )
+  [1m[36mDeveloper Load (0.3ms)[0m  [1mSELECT * FROM `developers` INNER JOIN `developers_games` ON `developers`.id = `developers_games`.developer_id WHERE (`developers_games`.game_id = 681 )[0m
+Rendered games/_day_view.html.erb (40.5ms)
+  [1m[35mPublisher Load (0.3ms)[0m  SELECT * FROM `publishers` INNER JOIN `games_publishers` ON `publishers`.id = `games_publishers`.publisher_id WHERE (`games_publishers`.game_id = 294 )
+  [1m[36mDeveloper Load (0.3ms)[0m  [1mSELECT * FROM `developers` INNER JOIN `developers_games` ON `developers`.id = `developers_games`.developer_id WHERE (`developers_games`.game_id = 294 )[0m
+Rendered games/_day_view.html.erb (16.4ms)
+Rendered games/_month_view.html.erb (62.0ms)
+  [1m[35mPublisher Load (0.3ms)[0m  SELECT * FROM `publishers` INNER JOIN `games_publishers` ON `publishers`.id = `games_publishers`.publisher_id WHERE (`games_publishers`.game_id = 342 )
+  [1m[36mDeveloper Load (0.3ms)[0m  [1mSELECT * FROM `developers` INNER JOIN `developers_games` ON `developers`.id = `developers_games`.developer_id WHERE (`developers_games`.game_id = 342 )[0m
+  [1m[35mPublisher Load (0.3ms)[0m  SELECT * FROM `publishers` INNER JOIN `games_publishers` ON `publishers`.id = `games_publishers`.publisher_id WHERE (`games_publishers`.game_id = 538 )
+  [1m[36mDeveloper Load (0.3ms)[0m  [1mSELECT * FROM `developers` INNER JOIN `developers_games` ON `developers`.id = `developers_games`.developer_id WHERE (`developers_games`.game_id = 538 )[0m
+  [1m[35mPublisher Load (0.3ms)[0m  SELECT * FROM `publishers` INNER JOIN `games_publishers` ON `publishers`.id = `games_publishers`.publisher_id WHERE (`games_publishers`.game_id = 539 )
+  [1m[36mDeveloper Load (0.3ms)[0m  [1mSELECT * FROM `developers` INNER JOIN `developers_games` ON `developers`.id = `developers_games`.developer_id WHERE (`developers_games`.game_id = 539 )[0m
+  [1m[35mPublisher Load (0.3ms)[0m  SELECT * FROM `publishers` INNER JOIN `games_publishers` ON `publishers`.id = `games_publishers`.publisher_id WHERE (`games_publishers`.game_id = 541 )
+  [1m[36mDeveloper Load (0.3ms)[0m  [1mSELECT * FROM `developers` INNER JOIN `developers_games` ON `developers`.id = `developers_games`.developer_id WHERE (`developers_games`.game_id = 541 )[0m
+Rendered games/_day_view.html.erb (57.7ms)
+Rendered games/_month_view.html.erb (60.8ms)
+Rendered games/_year_view.html.erb (1317.8ms)
+  [1m[35mLevel Load (0.2ms)[0m  SELECT `levels`.* FROM `levels` WHERE (`levels`.`id` = 2) LIMIT 1
+Rendered games/index.html.erb within layouts/application (1408.8ms)
+Completed 200 OK in 2103ms (Views: 1406.0ms | ActiveRecord: 14.3ms)
+
+
+Started GET "/recent?lv=1" for 127.0.0.1 at 2010-04-23 13:11:12
+  Processing by GamesController#recent as JS
+  Parameters: {"lv"=>"1"}
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `achievements_games`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `developers_games`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `games_publishers`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `features_games`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `games_genres`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `games_peripherals`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `games_specifications`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `games_types`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `different_markets_games`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `different_platforms_games`
+  [1m[36mGame Load (1.3ms)[0m  [1mSELECT `games`.* FROM `games` ORDER BY created_at desc LIMIT 20[0m
+  [1m[35mPlatform Load (0.1ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 5) LIMIT 1
+  [1m[36mTable Load (0.3ms)[0m  [1mSELECT `tables`.* FROM `tables` WHERE (name = 'games') LIMIT 1[0m
+  [1m[35mModification Load (0.3ms)[0m  SELECT `modifications`.* FROM `modifications` WHERE (new = true and table_id = 1 and modified_id = 682) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tables`.* FROM `tables` WHERE (name = 'games') LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `modifications`.* FROM `modifications` WHERE (new = true and table_id = 1 and modified_id = 682) LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 30) LIMIT 1[0m
+  [1m[35mPlatform Load (0.1ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 28) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tables`.* FROM `tables` WHERE (name = 'games') LIMIT 1[0m
+  [1m[35mModification Load (0.3ms)[0m  SELECT `modifications`.* FROM `modifications` WHERE (new = true and table_id = 1 and modified_id = 681) LIMIT 1
+  [1m[36mPlatform Load (0.1ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tables`.* FROM `tables` WHERE (name = 'games') LIMIT 1
+  [1m[36mModification Load (0.3ms)[0m  [1mSELECT `modifications`.* FROM `modifications` WHERE (new = true and table_id = 1 and modified_id = 680) LIMIT 1[0m
+  [1m[35mPlatform Load (0.1ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 17) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tables`.* FROM `tables` WHERE (name = 'games') LIMIT 1[0m
+  [1m[35mModification Load (0.2ms)[0m  SELECT `modifications`.* FROM `modifications` WHERE (new = true and table_id = 1 and modified_id = 679) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 17) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tables`.* FROM `tables` WHERE (name = 'games') LIMIT 1
+  [1m[36mModification Load (0.2ms)[0m  [1mSELECT `modifications`.* FROM `modifications` WHERE (new = true and table_id = 1 and modified_id = 678) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 17) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tables`.* FROM `tables` WHERE (name = 'games') LIMIT 1[0m
+  [1m[35mModification Load (0.2ms)[0m  SELECT `modifications`.* FROM `modifications` WHERE (new = true and table_id = 1 and modified_id = 677) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 17) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tables`.* FROM `tables` WHERE (name = 'games') LIMIT 1
+  [1m[36mModification Load (0.3ms)[0m  [1mSELECT `modifications`.* FROM `modifications` WHERE (new = true and table_id = 1 and modified_id = 676) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 17) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tables`.* FROM `tables` WHERE (name = 'games') LIMIT 1[0m
+  [1m[35mModification Load (0.2ms)[0m  SELECT `modifications`.* FROM `modifications` WHERE (new = true and table_id = 1 and modified_id = 675) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 17) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tables`.* FROM `tables` WHERE (name = 'games') LIMIT 1
+  [1m[36mModification Load (0.2ms)[0m  [1mSELECT `modifications`.* FROM `modifications` WHERE (new = true and table_id = 1 and modified_id = 674) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 17) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tables`.* FROM `tables` WHERE (name = 'games') LIMIT 1[0m
+  [1m[35mModification Load (0.2ms)[0m  SELECT `modifications`.* FROM `modifications` WHERE (new = true and table_id = 1 and modified_id = 673) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 17) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tables`.* FROM `tables` WHERE (name = 'games') LIMIT 1
+  [1m[36mModification Load (0.2ms)[0m  [1mSELECT `modifications`.* FROM `modifications` WHERE (new = true and table_id = 1 and modified_id = 672) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 17) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tables`.* FROM `tables` WHERE (name = 'games') LIMIT 1[0m
+  [1m[35mModification Load (0.2ms)[0m  SELECT `modifications`.* FROM `modifications` WHERE (new = true and table_id = 1 and modified_id = 671) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 17) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tables`.* FROM `tables` WHERE (name = 'games') LIMIT 1
+  [1m[36mModification Load (0.2ms)[0m  [1mSELECT `modifications`.* FROM `modifications` WHERE (new = true and table_id = 1 and modified_id = 670) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 17) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tables`.* FROM `tables` WHERE (name = 'games') LIMIT 1[0m
+  [1m[35mModification Load (0.2ms)[0m  SELECT `modifications`.* FROM `modifications` WHERE (new = true and table_id = 1 and modified_id = 669) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 17) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tables`.* FROM `tables` WHERE (name = 'games') LIMIT 1
+  [1m[36mModification Load (0.2ms)[0m  [1mSELECT `modifications`.* FROM `modifications` WHERE (new = true and table_id = 1 and modified_id = 668) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 17) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tables`.* FROM `tables` WHERE (name = 'games') LIMIT 1[0m
+  [1m[35mModification Load (0.2ms)[0m  SELECT `modifications`.* FROM `modifications` WHERE (new = true and table_id = 1 and modified_id = 667) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 17) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tables`.* FROM `tables` WHERE (name = 'games') LIMIT 1
+  [1m[36mModification Load (0.2ms)[0m  [1mSELECT `modifications`.* FROM `modifications` WHERE (new = true and table_id = 1 and modified_id = 666) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 17) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tables`.* FROM `tables` WHERE (name = 'games') LIMIT 1[0m
+  [1m[35mModification Load (0.2ms)[0m  SELECT `modifications`.* FROM `modifications` WHERE (new = true and table_id = 1 and modified_id = 665) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 17) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tables`.* FROM `tables` WHERE (name = 'games') LIMIT 1
+  [1m[36mModification Load (0.2ms)[0m  [1mSELECT `modifications`.* FROM `modifications` WHERE (new = true and table_id = 1 and modified_id = 664) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `platforms`.* FROM `platforms` WHERE (`platforms`.`id` = 17) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tables`.* FROM `tables` WHERE (name = 'games') LIMIT 1[0m
+  [1m[35mModification Load (0.2ms)[0m  SELECT `modifications`.* FROM `modifications` WHERE (new = true and table_id = 1 and modified_id = 663) LIMIT 1
+Rendered games/_recent.html.erb (181.3ms)
+Rendered games/pop_up.js.erb (185.9ms)
+Completed 200 OK in 264ms (Views: 192.5ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/close_pop?level=1" for 127.0.0.1 at 2010-04-23 13:11:15
+  Processing by GamesController#close_pop as JS
+  Parameters: {"level"=>"1"}
+Rendered games/close_pop.js.erb (0.6ms)
+Completed 200 OK in 18ms (Views: 17.2ms | ActiveRecord: 0.0ms)

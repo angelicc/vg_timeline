@@ -62,12 +62,12 @@ class Game < ActiveRecord::Base
 
   def added_by
     table = Table.where("name = ?", 'games').first
-    Modification.where("new = 1 and table_id = ? and modified_id = ?", table.id, self.id).first
+    Modification.where("new = true and table_id = ? and modified_id = ?", table.id, self.id).first
   end
 
   def modified_by
     table = Table.where("name = ?", 'games').rirst
-    Modification.where("modified = 1 and table_id = ? and modified_id = ?", table.id, self.id).all
+    Modification.where("modified = true and table_id = ? and modified_id = ?", table.id, self.id).all
   end
 
   def r_d
