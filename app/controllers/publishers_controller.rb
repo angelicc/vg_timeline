@@ -37,6 +37,7 @@ class PublishersController < ApplicationController
   def create
     @publisher = Publisher.new(params[:publisher])
     if @publisher.save
+      create_log_entry('publishers', @publisher.id, "Added publisher #{@publisher.name}.", :new => true)
       add_flash = experience_user(5)
       flash[:notice] = "Publisher succesfully created." + add_flash
       redirect_to year_path
@@ -49,6 +50,7 @@ class PublishersController < ApplicationController
   def update
     @publisher = Publisher.find(params[:id])
     if @publisher.update_attributes(params[:publisher])
+      create_log_entry('publishers', @publisher.id, "Modified publisher #{@publisher.name}.", :mod => true)
       add_flash = experience_user(3)
       flash[:notice] = "Publisher succesfully updated." + add_flash
       redirect_to year_path
@@ -62,6 +64,7 @@ class PublishersController < ApplicationController
     @publisher = Publisher.find(params[:id])
     if @publisher.games.empty?
       if @publisher.destroy
+        create_log_entry('publishers', @publisher.id, "Deleted publisher #{@publisher.name}.", :remove => true)
         flash[:notice] = "Publisher succesfully deleted."
       end
     else

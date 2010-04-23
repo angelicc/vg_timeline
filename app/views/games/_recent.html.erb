@@ -1,0 +1,33 @@
+<h2>Recently Added Games</h2>
+<div id="games_list_cont" class="inner_scroll">
+  <table>
+    <tr>
+      <td>
+        <strong>#</strong>
+      </td>
+      <td>
+        <strong>Title</strong>
+      </td>
+      <td>
+        <strong>Platform</strong>
+      </td>
+      <td>
+        <strong>Release</strong>
+      </td>
+      <td>
+        <strong>Added by</strong>
+      </td>
+    </tr>
+    <% i = 1 %>
+    <% for game in @games %>
+      <tr>
+        <td><%= i %></td>
+        <td><%= game.full_title_limit %></td>
+        <td><%= game.platform.short_name.upcase %></td>
+        <td><%= link_to game.release_date, year_path(game.r_y) %></td>
+        <td><%= if game.added_by then game.added_by.user.username else "No Data" end %></td>
+      </tr>
+      <% i += 1 %>
+    <% end %>
+  </table>
+</div>

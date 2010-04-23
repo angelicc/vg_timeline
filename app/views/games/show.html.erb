@@ -102,7 +102,7 @@
         <%= pop_up "Add Series", '/edit?id=' + @game.id.to_s + '&view=add_series' if user_signed_in? %>
       <% end %>
     </div>
-    <div id="game_scores" class="round">
+    <div id="game_info_scores" class="round">
       <h4>Scores</h4>
       <% scores = @game.scores %>
       <% unless scores.empty? %>
@@ -115,7 +115,7 @@
           <% end %>
         </table>
       <% else %>
-        <%= link_to "Add scores", '#' if user_signed_in?%>
+        <%= pop_up "Add scores", '/edit?id=' + @game.id.to_s + '&view=add_scores' if user_signed_in?%>
       <% end %>
       <br />
       <h4>Awards</h4>

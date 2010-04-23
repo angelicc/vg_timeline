@@ -60,6 +60,16 @@ class Game < ActiveRecord::Base
     end
   end
 
+  def added_by
+    table = Table.where("name = ?", 'games').first
+    Modification.where("new = 1 and table_id = ? and modified_id = ?", table.id, self.id).first
+  end
+
+  def modified_by
+    table = Table.where("name = ?", 'games').rirst
+    Modification.where("modified = 1 and table_id = ? and modified_id = ?", table.id, self.id).all
+  end
+
   def r_d
     release_date.strftime('%d')
   end
@@ -159,6 +169,21 @@ class Game < ActiveRecord::Base
       temp_publishers << Publisher.find_or_create_by_name(name.strip) unless name.blank?
     end
     self.publishers = temp_publishers unless temp_publishers.empty?
+  end
+
+  def press_names
+    prs = []
+    if press
+      for pressx in press
+        prs << pressx.name
+      end
+    end
+    prs.split.join(", ")
+  end
+
+  def press_names=(name)
+    press_nm = Press.find_or_create_by_name(name.strip) unless name.blank?
+    self.press << press_nm unless press.includes?(press_nm)
   end
 
   def make_boxart_path

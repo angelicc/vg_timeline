@@ -22,6 +22,16 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  private
+
+  def create_log_entry(table, id, description, parameters)
+    parameters = { :new => false, :mod => false, :remove => false }.merge(parameters)
+    table = Table.where("name = ?", table).first
+    log = Modification.new(:user => current_user, :table => table, :modified_id => id, :description => description,
+      :new => parameters[:new], :modified => parameters[:mod], :remove => parameters[:remove])
+    log.save
+  end
+
   def experience_user(new_exp)
     current_user.update_attribute('exp', current_user.exp += new_exp)
     if current_user.exp >= current_user.level.exp_next_level and current_user.level.exp_next_level > 0

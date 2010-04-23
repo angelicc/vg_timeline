@@ -55,6 +55,15 @@ class GamesController < ApplicationController
     end
   end
 
+  def recent
+    @level = params[:lv]
+    @view = params[:action]
+    @games = Game.order("created_at desc").limit(20)
+    respond_to do |format|
+      format.js { render 'pop_up' }
+    end
+  end
+
   def order_games_list
     @games = Game.order("#{params[:order]} asc")
     if params[:order] == "platform_id"
@@ -159,16 +168,17 @@ class GamesController < ApplicationController
         @game.types = @game_diff.types
         @game.project_leaders = @game_diff.project_leaders
         @game.different_platforms << @game_diff
-        for game in @game_diff.different_platforms
-          @game.different_platforms << game unless @game.different_platforms.exists?(game) or game == @game
+        for game1 in @game_diff.different_platforms
+          @game.different_platforms << game1 unless @game.different_platforms.exists?(game1) or game1 == @game
         end
       end
       @developers = []; @publishers = []
       if @game.save
+        create_log_entry('games', @game.id, "Added game #{@game.full_title_limit}.", :new => true)
         if @game_diff
           @game_diff.different_platforms << @game
-          for game in @game_diff.different_platforms
-            game.different_platforms << @game unless (game.different_platforms.exists?(@game) or game == @game)
+          for game4 in @game_diff.different_platforms
+            game4.different_platforms << @game unless (game4.different_platforms.exists?(@game) or game4 == @game)
           end
         end
         add_flash = experience_user(10)
@@ -209,17 +219,19 @@ class GamesController < ApplicationController
   def update
     @game = Game.find(params[:id])
     @old = @game
-    styles = %w(thumb mini medium original)
+#    styles = %w(thumb mini medium original)
     if @game.update_attributes(params[:game])
+      create_log_entry('games', @game.id, "Modified game #{@game.full_title_limit}.", :mod => true)
       for game in @game.different_platforms
+        create_log_entry('games', @game.id, "Modified #{@game.full_title_limit}.", :mod => true)
         game.update_attribute('series_id', @game.series_id)
       end
-      for style in styles
-        FileUtils.mkdir "#{Rails.root}/public/images/#{@game.r_y}" unless File.exist?("#{Rails.root}/public/images/#{@game.r_y}")
-        FileUtils.mkdir "#{Rails.root}/public/images/#{@game.r_y}/#{@game.r_m}" unless File.exist?("#{Rails.root}/public/images/#{@game.r_y}/#{@game.r_m}")
-        FileUtils.mkdir "#{Rails.root}/public/images/#{@game.r_y}/#{@game.r_m}/#{style}" unless File.exist?("#{Rails.root}/public/images/#{@game.r_y}/#{@game.r_m}/#{style}")
-        FileUtils.mv "#{Rails.root}/public/images/#{@old.r_y}/#{@old.r_m}/#{style}/#{@old.make_boxart_path}", "#{Rails.root}/public/images/#{@game.r_y}/#{@game.r_m}/#{style}/#{@game.make_boxart_path}" if File.exist?("#{Rails.root}/public/images/#{@old.r_y}/#{@old.r_m}/#{style}/#{@old.make_boxart_path}")
-      end
+#      for style in styles
+#        FileUtils.mkdir "#{Rails.root}/public/images/#{@game.r_y}" unless File.exist?("#{Rails.root}/public/images/#{@game.r_y}")
+#        FileUtils.mkdir "#{Rails.root}/public/images/#{@game.r_y}/#{@game.r_m}" unless File.exist?("#{Rails.root}/public/images/#{@game.r_y}/#{@game.r_m}")
+#        FileUtils.mkdir "#{Rails.root}/public/images/#{@game.r_y}/#{@game.r_m}/#{style}" unless File.exist?("#{Rails.root}/public/images/#{@game.r_y}/#{@game.r_m}/#{style}")
+#        FileUtils.mv "#{Rails.root}/public/images/#{@old.r_y}/#{@old.r_m}/#{style}/#{@old.make_boxart_path}", "#{Rails.root}/public/images/#{@game.r_y}/#{@game.r_m}/#{style}/#{@game.make_boxart_path}" if File.exist?("#{Rails.root}/public/images/#{@old.r_y}/#{@old.r_m}/#{style}/#{@old.make_boxart_path}")
+#      end
       add_flash = experience_user(5)
       flash[:notice] = "Game succesfully updated." + add_flash
       redirect_to game_path(@game)
@@ -350,7 +362,6 @@ class GamesController < ApplicationController
   end
 
   private
-
   # games => array, games to be formatted for the view(can be an array returned by search_games_by_checked_platforms)
   #
   # limit => int, highest number in array to show in one day (starts in 'start' ends in 'limit'), 0 for no limit[default => 0]

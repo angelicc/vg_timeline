@@ -68,7 +68,14 @@
 <%# link_to "View Filters >", "#", :onclick => "Effect.toggle('general_filters', 'slide');" %>
 <%#*</div><br />%>
 <div id="general_filters">
-  <span class="go_up"><%= link_to 'Go Up', "#top_nav" %></span>
+  <span class="general_links"><%= link_to 'Go Up', "#top_nav" %><br />
+  <br />
+  <% link_to "Add Developer", new_developer_path if user_signed_in? %>
+  <%= pop_up "Developers list", developers_path %><br />
+  <% link_to "Add Publisher", new_publisher_path if user_signed_in? %>
+  <%= pop_up "Publishers list", publishers_path %><br />
+  <%= pop_up "Recently Added Games", games_recent_path %><br />
+  <%= pop_up "All Games list", games_list_path %></span>
   <div id="first_filter_cat">
     <ul id="tabcontrol1">
       <li class="current_show_filter" id="platforms_tab"><%= link_to_function('Platforms', "tabselect1($('platforms_tab')); paneselect1('platforms_general_filters')") %></li>

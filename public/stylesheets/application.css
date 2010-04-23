@@ -368,9 +368,10 @@ span.check_top_filter {
     float:right;
 }
 
-span.go_up {
+span.general_links {
     float:right;
     padding-right: 5px;
+    text-align: right;
 }
 
 span.title_top_filter {

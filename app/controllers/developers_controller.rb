@@ -36,6 +36,7 @@ class DevelopersController < ApplicationController
   def create
     @developer = Developer.new(params[:developer])
     if @developer.save
+      create_log_entry('developers', @developer.id, "Added developer #{@developer.name}.", :new => true)
       add_flash = experience_user(5)
       flash[:notice] = "Developer succesfully created." + add_flash
       redirect_to year_path
@@ -48,6 +49,7 @@ class DevelopersController < ApplicationController
   def update
     @developer = Developer.find(params[:id])
     if @developer.update_attributes(params[:developer])
+      create_log_entry('developers', @developer.id, "Modified developer #{@developer.name}.", :mod => true)
       add_flash = experience_user(3)
       flash[:notice] = "Developer succesfully updated." + add_flash
       redirect_to year_path
@@ -61,6 +63,7 @@ class DevelopersController < ApplicationController
     @developer = Developer.find(params[:id])
     if @developer.games.empty?
       if @developer.destroy
+        create_log_entry('developers', @developer.id, "Deleted developer #{@developer.name}.", :remove => true)
         flash[:notice] = "Developer succesfully deleted."
       end
     else
