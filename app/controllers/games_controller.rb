@@ -243,7 +243,7 @@ class GamesController < ApplicationController
         bucket = 'vg-timeline'
         old_file_path = "images/#{old_r_y}/#{old_r_m}/#{style}/#{old_box}"
         new_file_path = "images/#{@game.r_y}/#{@game.r_m}/#{style}/#{@game.make_boxart_path}"
-        if AWS::S3::S3Object.exists? old_file_path, bucket
+        if AWS::S3::S3Object.exists?(old_file_path, bucket) and old_file_path != new_file_path
           AWS::S3::S3Object.copy old_file_path, new_file_path, bucket
           AWS::S3::S3Object.delete old_file_path, bucket
           policy = AWS::S3::S3Object.acl(new_file_path, bucket)
