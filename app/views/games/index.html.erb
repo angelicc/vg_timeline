@@ -1,16 +1,18 @@
-<div id="display_tab">
-  <ul>
-    <li id="current_first_year_view" class="current first"><a>Year View</a></li>
-    <li><a>All-Time</a></li>
-    <li class="last"><a>Other View</a></li>
-  </ul>
+<div>
+  <div id="display_tab">
+    <ul>
+      <li id="current_first_year_view" class="current first"><a>Year View</a></li>
+      <li><a>All-Time</a></li>
+      <li class="last"><a>Other View</a></li>
+    </ul>
+  </div>
+  <%= form_for(@game, :url => { :action => 'search_results' }) do |f| %>
+    <span id="search_box">
+      <%= text_field_with_auto_complete :game, :main_title, { :size => 35 }, { :url => games_path(), :method => :get, :param_name => 'search' } %>
+      <%= f.submit "Search" %>
+    </span>
+  <% end %>
 </div>
-<%= form_for(@game, :url => { :action => 'search_results' }) do |f| %>
-  <span id="search_box">
-    <%= text_field_with_auto_complete :game, :main_title, { :size => 35 }, { :url => games_path(), :method => :get, :param_name => 'search' } %>
-    <%= f.submit "Search" %>
-  </span>
-<% end %>
 <div id="year_display" class="round_bottom">
   <div id="year_text"><%= render 'years' %></div>
   <div id="year_view">

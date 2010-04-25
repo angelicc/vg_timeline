@@ -193,7 +193,7 @@ class Game < ActiveRecord::Base
     box_name = box_name.tr("\'\"", "")
     box_name = box_name.tr('.:;-/\\', " ")
     box_name = box_name.split.join('_')
-    #    self.boxart = "#{box_name}_#{platform.short_name}"
+    box_name = "#{box_name}_#{platform.short_name}"
   end
 
   private

@@ -42,6 +42,7 @@ a:hover, a:visited:hover {
 
 #display_tab {
     padding:0px;
+    width: 50%;
 }
 
 #display_tab a:link, #display_tab a:visited {
@@ -63,6 +64,7 @@ a:hover, a:visited:hover {
 #display_tab li {
     width:125px;
     float:left;
+    height:23px;
     text-align: center;
     border-right:1px solid black;
     border-top:2px solid black;
@@ -98,6 +100,7 @@ a:hover, a:visited:hover {
 
 span#search_box {
     float: right;
+    height: 25px;
     border-right:2px solid black;
     border-top:2px solid black;
     border-left:1px solid black;
@@ -111,6 +114,10 @@ span#search_box {
     -moz-border-radius-topleft: 7px;
     -webkit-border-top-right-radius: 7px;
     -webkit-border-top-left-radius: 7px;
+}
+
+span#search_box input {
+    font-size: 12px;
 }
 
 .round {
