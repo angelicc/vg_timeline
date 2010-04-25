@@ -120,6 +120,14 @@ span#search_box input {
     font-size: 12px;
 }
 
+div.auto_complete {
+    font-size:12px;
+}
+
+div.auto_complete ul li.selected {
+    background-color: #E5E5E5 !important;
+}
+
 .round {
     border-radius: 7px;
     -moz-border-radius: 7px;

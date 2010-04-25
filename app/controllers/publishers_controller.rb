@@ -4,7 +4,7 @@ class PublishersController < ApplicationController
     @level = params[:lv]
     @view = params[:action]
     if params[:search]
-      @publishers = Publisher.where("LOWER(name) LIKE ?", "%#{params[:search].downcase}%")
+      @publishers = Publisher.where("LOWER(name) LIKE ?", "%#{params[:search].downcase}%").limit(10)
     else
       @publishers = Publisher.order("name asc")
     end

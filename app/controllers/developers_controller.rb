@@ -4,7 +4,7 @@ class DevelopersController < ApplicationController
     @level = params[:lv]
     @view = params[:action]
     if params[:search]
-      @developers = Developer.where("LOWER(name) LIKE ?", "%#{params[:search].downcase}%")
+      @developers = Developer.where("LOWER(name) LIKE ?", "%#{params[:search].downcase}%").limit(10)
     else
       @developers = Developer.order("name asc")
     end

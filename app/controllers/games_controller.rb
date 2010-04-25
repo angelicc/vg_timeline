@@ -5,7 +5,7 @@ class GamesController < ApplicationController
 
   def index
     if params[:search]
-      @games = Game.where("LOWER(main_title) LIKE ?", "%#{params[:search].downcase}%")
+      @games = Game.where("LOWER(main_title) LIKE ?", "%#{params[:search].downcase}%").limit(14)
       respond_to do |format|
         format.js
       end
@@ -246,6 +246,9 @@ class GamesController < ApplicationController
         if AWS::S3::S3Object.exists? old_file_path, bucket
           AWS::S3::S3Object.copy old_file_path, new_file_path, bucket
           AWS::S3::S3Object.delete old_file_path, bucket
+          policy = AWS::S3::S3Object.acl(new_file_path, bucket)
+          policy.grants << AWS::S3::ACL::Grant.grant(:public_read)
+          AWS::S3::S3Object.acl(new_file_path, bucket, policy)
         end
       end
       add_flash = experience_user(5)
