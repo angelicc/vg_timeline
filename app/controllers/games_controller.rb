@@ -235,15 +235,15 @@ class GamesController < ApplicationController
         game.update_attribute('series_id', @game.series_id)
       end
       for style in styles
-        FileUtils.mkdir "http://s3.amazonaws.com/vg-timeline/images/#{@game.r_y}" unless File.exist?("#{Rails.root}/public/images/#{@game.r_y}")
-        FileUtils.mkdir "http://s3.amazonaws.com/vg-timeline/images/#{@game.r_y}/#{@game.r_m}" unless File.exist?("#{Rails.root}/public/images/#{@game.r_y}/#{@game.r_m}")
-        FileUtils.mkdir "http://s3.amazonaws.com/vg-timeline/images/#{@game.r_y}/#{@game.r_m}/#{style}" unless File.exist?("#{Rails.root}/public/images/#{@game.r_y}/#{@game.r_m}/#{style}")
+        FileUtils.mkdir "#{Rails.root}/public/images/#{@game.r_y}" unless File.exist?("#{Rails.root}/public/images/#{@game.r_y}")
+        FileUtils.mkdir "#{Rails.root}/public/images/#{@game.r_y}/#{@game.r_m}" unless File.exist?("#{Rails.root}/public/images/#{@game.r_y}/#{@game.r_m}")
+        FileUtils.mkdir "#{Rails.root}/public/images/#{@game.r_y}/#{@game.r_m}/#{style}" unless File.exist?("#{Rails.root}/public/images/#{@game.r_y}/#{@game.r_m}/#{style}")
         puts old_r_y
         puts old_r_m
         puts style
         puts old_box
-        puts "http://s3.amazonaws.com/vg-timeline/public/images/#{old_r_y}/#{old_r_m}/#{style}/#{old_box}"
-        FileUtils.mv "http://s3.amazonaws.com/vg-timeline/images/#{old_r_y}/#{old_r_m}/#{style}/#{old_box}", "#{Rails.root}/public/images/#{@game.r_y}/#{@game.r_m}/#{style}/#{@game.make_boxart_path}" if File.exist?("#{Rails.root}/public/images/#{old_r_y}/#{old_r_m}/#{style}/#{old_box}")
+        puts "#{Rails.root}/public/images/#{old_r_y}/#{old_r_m}/#{style}/#{old_box}"
+        FileUtils.mv "#{Rails.root}/public/images/#{old_r_y}/#{old_r_m}/#{style}/#{old_box}", "#{Rails.root}/public/images/#{@game.r_y}/#{@game.r_m}/#{style}/#{@game.make_boxart_path}" if File.exist?("#{Rails.root}/public/images/#{old_r_y}/#{old_r_m}/#{style}/#{old_box}")
       end
       add_flash = experience_user(5)
       flash[:notice] = "Game succesfully updated." + add_flash
