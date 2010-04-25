@@ -171,21 +171,6 @@ class Game < ActiveRecord::Base
     self.publishers = temp_publishers unless temp_publishers.empty?
   end
 
-  def press_names
-    prs = []
-    if press
-      for pressx in press
-        prs << pressx.name
-      end
-    end
-    prs.split.join(", ")
-  end
-
-  def press_names=(name)
-    press_nm = Press.find_or_create_by_name(name.strip) unless name.blank?
-    self.press << press_nm unless press.includes?(press_nm)
-  end
-
   def make_boxart_path
     name = main_title
     name = "#{main_title} #{sub_title}" if sub_title

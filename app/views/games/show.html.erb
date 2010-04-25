@@ -121,9 +121,8 @@
             </tr>
           <% end %>
         </table>
-      <% else %>
-        <%= pop_up "Add scores", '/edit?id=' + @game.id.to_s + '&view=add_scores' if user_signed_in?%>
       <% end %>
+      <%= pop_up_controller "Add scores", 'new', 'scores', :game_id => @game.id if user_signed_in? %>
       <br />
       <h4>Awards</h4>
       <% awards = @game.awards %>
@@ -136,9 +135,8 @@
             </tr>
           <% end %>
         </table>
-      <% else %>
-        <%= link_to "Add awards", '#' if user_signed_in? %>
       <% end %>
+      <%= pop_up_controller "Add awards", 'new', 'awards', :game_id => @game.id if user_signed_in? %>
     </div>
   </div>
 

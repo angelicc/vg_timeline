@@ -218,7 +218,7 @@ class GamesController < ApplicationController
     @developers = Developer.order("name asc").all
     @publishers = Publisher.order("name asc").all
     respond_to do |format|
-      format.js { render 'pop_up' }
+      format.js { render :action => 'pop_up' }
     end
   end
 

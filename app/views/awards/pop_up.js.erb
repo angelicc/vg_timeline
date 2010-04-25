@@ -1,0 +1,5 @@
+$('lev<%= @level %>').update("");
+$('lev<%= @level %>').insert('<div class="window_close_block"><%= link_to(image_tag("window-close.png", :class => "window_close"), { :controller => 'games', :action => 'close_pop', :level => @level }, :remote => true) %></div>');
+$('lev<%= @level %>').insert('<%= escape_javascript(render @view) %>');
+Effect.Appear('lev<%= @level %>', { duration: 0.3 });
+Effect.Appear('trans<%= @level %>', { duration: 0.3, to: 0.3 });

@@ -14,6 +14,11 @@ module ApplicationHelper
     link_to text, { :action => path.index("?") ? path.slice(0, path.index("?")) : path, :lv => path.index("?") ? "#{lev[:level]}&#{path.slice(path.index("?") + 1, path.length)}" : lev[:level] }, :remote => true
   end
 
+  def pop_up_controller(text, path, controller, lev)
+    lev[:level] = lev[:level] ? leve[:level] : 1
+    link_to text, { :action => path, :controller => controller, :lv => lev[:level], :game => lev[:game_id] }, :remote => true
+  end
+
   def close_button
     link_to(image_tag("window-close.png", :class => "window_close"), { :controller => 'games', :action => 'close_pop', :level => @level }, :remote => true)
   end
