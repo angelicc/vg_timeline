@@ -46,6 +46,11 @@ class GamesController < ApplicationController
     end
   end
 
+  def search_results
+    @game = Game.where("LOWER(main_title) LIKE ?", "%#{params[:game][:main_title].downcase}%").first
+    redirect_to :action => 'show', :id => @game.id
+  end
+
   def list
     @level = params[:lv]
     @view = params[:action]
@@ -76,6 +81,7 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
+    @game.update_attribute('hits', @game.hits += 1)
     @title = @game.full_title_limit
   end
 
@@ -174,7 +180,7 @@ class GamesController < ApplicationController
       end
       @developers = []; @publishers = []
       if @game.save
-        create_log_entry('games', @game.id, "Added game #{@game.full_title_limit}.", :new => true)
+        create_log_entry('games', @game.id, "Added game #{@game.full_title_limit}", :add => true)
         if @game_diff
           @game_diff.different_platforms << @game
           for game4 in @game_diff.different_platforms
@@ -221,9 +227,9 @@ class GamesController < ApplicationController
     @old = @game
 #    styles = %w(thumb mini medium original)
     if @game.update_attributes(params[:game])
-      create_log_entry('games', @game.id, "Modified game #{@game.full_title_limit}.", :mod => true)
+      create_log_entry('games', @game.id, "Modified game #{@game.full_title_limit}", :mod => true)
       for game in @game.different_platforms
-        create_log_entry('games', @game.id, "Modified #{@game.full_title_limit}.", :mod => true)
+        create_log_entry('games', @game.id, "Modified #{@game.full_title_limit}", :mod => true)
         game.update_attribute('series_id', @game.series_id)
       end
 #      for style in styles

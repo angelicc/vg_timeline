@@ -36,7 +36,7 @@ class DevelopersController < ApplicationController
   def create
     @developer = Developer.new(params[:developer])
     if @developer.save
-      create_log_entry('developers', @developer.id, "Added developer #{@developer.name}.", :new => true)
+      create_log_entry('developers', @developer.id, "Added developer #{@developer.name}.", :add => true)
       add_flash = experience_user(5)
       flash[:notice] = "Developer succesfully created." + add_flash
       redirect_to year_path

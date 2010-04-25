@@ -1,65 +1,72 @@
 <div id="game_display" class="round_bottom">
   <div id="left_column">
-    <div id="top_info_container">
-      <div id="boxart_medium_container">
-        <%= box_logo(@game, :medium) %>
-      </div>
-      <div id="basic_info_container">
-        <h3 id="game_show_title"><%= @game.full_title %></h3>
-        <table cellpadding="0">
-          <tr>
-            <td class="label">Platform:</td>
-            <td>
-              <%= link_to @game.platform.name, '#' %>
-            </td>
-          </tr>
-          <tr>
-            <td class="label">Release Date:</td>
-            <td><%= link_to @game.release_date, year_path(@game.r_y) %></td>
-          </tr>
-          <tr>
-            <td class="label">Developed by:</td>
-            <td>
-              <% @game.developers.each do |d| %>
-                <%= link_to(d.name, developer_path(d)) + (d == @game.developers.last ? "" : ", ") %>
-              <% end %>
-            </td>
-          </tr>
-          <tr>
-            <td class="label">Published by:</td>
-            <td>
-              <% @game.publishers.each do |p| %>
-                <%= link_to(p.name, publisher_path(p)) + (p == @game.publishers.last ? "" : ", ") %>
-              <% end %>
-            </td>
-          </tr>
-        </table>
-        <span class="new_game"><%= pop_up "Add Game", new_game_path(:year => @year, :month => @m) if user_signed_in? %></span>
-        <%= pop_up "Edit game", '/edit?id=' + @game.id.to_s if user_signed_in? %>
-      </div>
-      <div id="diff_platforms" class="round">
-        <table>
-          <tr>
-            <td class="subtitle">
-              Also on:
-            </td>
-          </tr>
-          <% unless @game.different_platforms.empty? %>
-            <% for diff_platform in @game.different_platforms %>
-              <tr>
-                <td class="platforms">
-                  <%= link_to diff_platform.platform.name, game_path(diff_platform) %>
-                </td>
-              </tr>
+    <div id="boxart_medium_container">
+      <%= box_logo(@game, :medium) %>
+    </div>
+    <div id="basic_info_container">
+      <h3 id="game_show_title"><%= @game.full_title %></h3>
+      <table cellpadding="0">
+        <tr>
+          <td class="label">Platform:</td>
+          <td>
+            <%= link_to @game.platform.name, '#' %>
+            <% unless @game.different_platforms.empty? %>
+              <div id="diff_platforms" class="round">
+                <table>
+                  <tr>
+                    <td class="subtitle">
+                      Also on:
+                    </td>
+                    <% counter=1 %>
+                    <% for diff_platform in @game.different_platforms %>
+                      <% if counter%4==0 %>
+                      </tr>
+                      <tr>
+                        <td>
+                        </td>
+                        <% counter+=1 %>
+                      <% end %>
+                      <td class ="platforms">
+                        <%= link_to diff_platform.platform.short_name.upcase, game_path(diff_platform) %>
+                      </td>
+                      <% counter+=1 %>
+                    <% end %>
+                  </tr>
+                  <tr>
+                    <td colspan="3">
+                      <%= pop_up "Add to another platform", new_game_path(:id_diff => @game.id) %>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            <% else %>
+              (<%= pop_up "Add to another platform", new_game_path(:id_diff => @game.id) %>)
             <% end %>
-          <% end %>
-          <tr>
-            <td>
-              <%= pop_up "Add to another platform", new_game_path(:id_diff => @game.id) %>
-            </td>
-          </tr>
-        </table>
-      </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="label">Release Date:</td>
+          <td><%= link_to @game.release_date, year_path(@game.r_y) %></td>
+        </tr>
+        <tr>
+          <td class="label">Developed by:</td>
+          <td>
+            <% @game.developers.each do |d| %>
+              <%= link_to(d.name, developer_path(d)) + (d == @game.developers.last ? "" : ", ") %>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td class="label">Published by:</td>
+          <td>
+            <% @game.publishers.each do |p| %>
+              <%= link_to(p.name, publisher_path(p)) + (p == @game.publishers.last ? "" : ", ") %>
+            <% end %>
+          </td>
+        </tr>
+      </table>
+      <span class="new_game"><%= pop_up "Add Game", new_game_path(:year => @year, :month => @m) if user_signed_in? %></span>
+      <%= pop_up "Edit game", '/edit?id=' + @game.id.to_s if user_signed_in? %>
     </div>
     <div id="game_info_description">
       <h4>Description</h4>

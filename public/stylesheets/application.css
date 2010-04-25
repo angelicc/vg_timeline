@@ -69,7 +69,7 @@ a:hover, a:visited:hover {
     border-left:1px solid black;
     background-color:silver;
     position:relative;
-    top:2px;
+    top:7px;
     border-top-left-radius: 7px;
     border-top-right-radius: 7px;
     -moz-border-radius-topright: 7px;
@@ -94,6 +94,23 @@ a:hover, a:visited:hover {
 
 #display_tab a {
     font-weight:bold;
+}
+
+span#search_box {
+    float: right;
+    border-right:2px solid black;
+    border-top:2px solid black;
+    border-left:1px solid black;
+    background-color: #E5E5E5;
+    position:relative;
+    padding: 5px 5px 0px;
+    top:2px;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    -moz-border-radius-topright: 7px;
+    -moz-border-radius-topleft: 7px;
+    -webkit-border-top-right-radius: 7px;
+    -webkit-border-top-left-radius: 7px;
 }
 
 .round {
@@ -298,17 +315,17 @@ div.field {
 }
 
 div#general_filters {
-    border-top-left-radius: 7px;
+    /*border-top-left-radius: 7px;
     border-top-right-radius: 7px;
     -moz-border-radius-topright: 7px;
     -moz-border-radius-topleft: 7px;
     -webkit-border-top-right-radius: 7px;
-    -webkit-border-top-left-radius: 7px;
+    -webkit-border-top-left-radius: 7px;*/
     margin-top: 15px;
-    background-color: #E5E5E5;
+    /*background-color: #E5E5E5;
     border-top: 2px solid black;
     border-left: 2px solid black;
-    border-right: 2px solid black;
+    border-right: 2px solid black;*/
     float:left;
     width: 100%;
 }
@@ -317,10 +334,10 @@ div#platforms_general_filters,
 div#publishers_general_filters,
 div#developers_general_filters {
     font-size: 13px;
-    background-color: silver;
+    background-color: #E7E7E7;
     margin: 5px 5px 5px 0px;
     float:left;
-    max-height: 145px;
+    height: 145px;
     border: 1px solid black;
     padding: 3px 5px 5px;
     width: 20%;
@@ -334,7 +351,7 @@ div#first_filter_cat {
     left: 1px;
 }
 
-div#first_filter_cat a {
+#first_filter_cat a {
     font-size: 16px;
 }
 
@@ -346,18 +363,29 @@ div#first_filter_cat ul {
 }
 
 div#first_filter_cat li {
-    padding:2px 7px 2px 2px;
+    padding:2px 4px;
+}
+
+#developers_tab {
+    border-bottom: 1px solid black;
+}
+
+li.nc_show_filter {
+    background-color: #CACFD7;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
 }
 
 li.current_show_filter {
-    border-bottom:1px solid black;
     border-left:1px solid black;
     border-top:1px solid black;
-    background-color: silver;
+    border-right: 1px solid transparent;
+    background-color: #E7E7E7;
 }
 
 li.current_show_filter a {
-    color: black;
+    color: black !important;
 }
 
 li.current_show_filter a:hover {

@@ -62,7 +62,7 @@ class Game < ActiveRecord::Base
 
   def added_by
     table = Table.where("name = ?", 'games').first
-    Modification.where("new = true and table_id = ? and modified_id = ?", table.id, self.id).first
+    Modification.where("added = true and table_id = ? and modified_id = ?", table.id, self.id).first
   end
 
   def modified_by

@@ -37,7 +37,7 @@ class PublishersController < ApplicationController
   def create
     @publisher = Publisher.new(params[:publisher])
     if @publisher.save
-      create_log_entry('publishers', @publisher.id, "Added publisher #{@publisher.name}.", :new => true)
+      create_log_entry('publishers', @publisher.id, "Added publisher #{@publisher.name}.", :add => true)
       add_flash = experience_user(5)
       flash[:notice] = "Publisher succesfully created." + add_flash
       redirect_to year_path

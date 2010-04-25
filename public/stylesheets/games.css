@@ -452,12 +452,6 @@ div.tooltip_boxart.right {
     clear: both;
 }
 
-#top_info_container {
-    margin-bottom: 5px;
-    float:left;
-    width: 100%;
-}
-
 #right_column {
     width: 15%;
     height: 93%;
@@ -492,9 +486,10 @@ div.tooltip_boxart.right {
 
 #basic_info_container {
     padding: 7px 8px 10px 10px;
-    width: 40%;
+    width: 72%; /*40%;*/
     float: left;
     font-size: 13px;
+    position: relative;
 }
 
 #game_show_title {
@@ -506,24 +501,40 @@ div.tooltip_boxart.right {
 td.label {
     font-weight: bold;
     padding-right: 10px;
+    width: 105px;
+    vertical-align: top;
 }
 
 #diff_platforms {
+    position: absolute;
+    left: 57%;
+    top: 0;
     margin-top: 40px;
-    width: 32%;
-    float: left;
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 40%;
     border: 1px solid gray;
     background-color: #c9ced7;
+    font-size: 10px;
 }
 
 td.subtitle {
     font-weight: 600;
     font-size: 12px;
+    width: 70px;
+}
+
+td.platforms {
+    width: 70px;
+    text-align: center;
 }
 
 /* Description */
 
 #game_info_description {
+    padding: 10px;
+    margin-top: 10px;
+    clear: both;
     padding: 10px 14px 10px 13px;
     text-align: justify;
     width: 97%;

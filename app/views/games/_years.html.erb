@@ -25,9 +25,9 @@
       <% end %>
     <% else %>
       <% if @enter_year %>
-        <span><%= link_to i, { :action => 'other_year', :year => i }, :remote => true, :onclick => "window.location.hash='/#{i}'" %></span>
+        <span><%= link_to i, year_path(i) %></span>
       <% else %>
-        <span id="year_effect" style="display:none"><%= link_to i, { :action => 'other_year', :year => i }, :remote => true, :onclick => "window.location.hash='/#{i}'" %></span>
+        <span id="year_effect" style="display:none"><%= link_to i, year_path(i) %></span>
       <% end %>
     <% end %>
   <% elsif i == @lshown %>
@@ -39,18 +39,19 @@
       <% end %>
     <% else %>
       <% if @enter_year %>
-        <span><%= link_to i, { :action => 'other_year', :year => i }, :remote => true, :onclick => "window.location.hash='/#{i}'" %></span> -
+        <span><%= link_to i, year_path(i) %></span> -
       <% else %>
-        <span id="year_effect2" style="display:none"><%= link_to i, { :action => 'other_year', :year => i }, :remote => true, :onclick => "window.location.hash='/#{i}'" %></span> -
+        <span id="year_effect2" style="display:none"><%= link_to i, year_path(i) %></span> -
       <% end %>
     <% end %>
   <% else %>
     <% if i == @year %>
       <span class="current_year"><%= i %></span> - 
     <% else %>
-      <span><%= link_to i, { :action => 'other_year', :year => i }, :remote => true, :onclick => "window.location.hash='/#{i}'" %> - </span>
+      <span><%= link_to i, year_path(i) %> - </span>
     <% end %>
   <% end %>
+      <%# link_to i, { :action => 'other_year', :year => i }, :remote => true, :onclick => "window.location.hash='/#{i}'" %>
   <% i -= 1 %>
 <% end %>
 <% if first_year == 1975 %>

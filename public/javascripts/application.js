@@ -282,7 +282,7 @@ function tabselect1(tab) {
     if (node.id == tab.id) {
       tab.className='current_show_filter';
     } else {
-      node.className='';
+      node.className='nc_show_filter';
     }
   });
 }
