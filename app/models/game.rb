@@ -27,8 +27,8 @@ class Game < ActiveRecord::Base
   has_many :industry_people, :through => :project_leaders
   has_many :awards
 
-  validates_presence_of :main_title, :release_date
-  has_attached_file :boxart, :storage => :s3, :s3_credentials => "#{RAILS_ROOT}/config/s3.yml", :url => "/images/:release_year/:release_month/:style/:title", :styles => { :medium => "400x400>", :thumb => "120x120>", :mini => "50x50>" }, :path => "/images/:release_year/:release_month/:style/:title"
+  validates :main_title, :release_date, :presence => true
+  has_attached_file :boxart, :storage => :s3, :s3_credentials => "#{Rails.root}/config/s3.yml", :url => "/images/:release_year/:release_month/:style/:title", :styles => { :medium => "400x400>", :thumb => "120x120>", :mini => "50x50>" }, :path => "/images/:release_year/:release_month/:style/:title"
 
   def full_title
     main_title + " " + sub_title

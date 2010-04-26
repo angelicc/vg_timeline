@@ -1,9 +1,5 @@
 module ApplicationHelper
 
-  def avatar(user, size = :mini)
-    image_tag(user.avatar.url(size), :alt => user.username, :class => "avatar")
-  end
-
   def pop_up(text, path, lev = { :level => 1 })
     lev[:level] = 1 if lev[:level].to_i < 1 or lev[:level].to_i > 4
     #    path = "#{path}&lv=#{lev[:level]}"

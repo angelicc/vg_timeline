@@ -4,7 +4,8 @@
       <%= box_logo(@game, :medium) %>
     </div>
     <div id="basic_info_container">
-      <h3 id="game_show_title"><%= @game.full_title %></h3>
+      <h3 class="game_show_title"><%= @game.main_title %></h3>
+      <h2 class="game_show_title"><%= @game.sub_title %></h2>
       <table cellpadding="0">
         <tr>
           <td class="label">Platform:</td>
@@ -17,23 +18,14 @@
                     <td class="subtitle">
                       Also on:
                     </td>
-                    <% counter=1 %>
+                    <td class="platforms">
                     <% for diff_platform in @game.different_platforms %>
-                      <% if counter%4==0 %>
-                      </tr>
-                      <tr>
-                        <td>
-                        </td>
-                        <% counter+=1 %>
+                          <%= link_to(diff_platform.platform.short_name.upcase, game_path(diff_platform)) + (diff_platform == @game.different_platforms.last ? "" : ", ") %>
                       <% end %>
-                      <td class ="platforms">
-                        <%= link_to diff_platform.platform.short_name.upcase, game_path(diff_platform) %>
                       </td>
-                      <% counter+=1 %>
-                    <% end %>
                   </tr>
                   <tr>
-                    <td colspan="3">
+                    <td colspan="2">
                       <%= pop_up "Add to another platform", new_game_path(:id_diff => @game.id) %>
                     </td>
                   </tr>
@@ -50,7 +42,11 @@
         </tr>
         <tr>
           <td class="label">Developed by:</td>
+          <% if @game.different_platforms.empty? %>
           <td>
+          <% else %>
+          <td class="lab_info">
+          <% end %>
             <% @game.developers.each do |d| %>
               <%= link_to(d.name, developer_path(d)) + (d == @game.developers.last ? "" : ", ") %>
             <% end %>
@@ -58,7 +54,11 @@
         </tr>
         <tr>
           <td class="label">Published by:</td>
+          <% if @game.different_platforms.empty? %>
           <td>
+          <% else %>
+          <td class="lab_info">
+          <% end %>
             <% @game.publishers.each do |p| %>
               <%= link_to(p.name, publisher_path(p)) + (p == @game.publishers.last ? "" : ", ") %>
             <% end %>
@@ -82,6 +82,7 @@
       <% unless series.nil? %>
         <% games_in_series = series.games.sort { |a,b| a.release_date <=> b.release_date } %>
         <h4><%= series.name %> series</h4>
+        <%= pop_up "Edit Series", '/edit?id=' + @game.id.to_s + '&view=add_series' if user_signed_in? %>
         <div id="prequel_sequel_cont">
           <div id="prequel">
             <% if @game.prequel %>
@@ -101,7 +102,8 @@
           <% for game in games_in_series %>
             <%= game.r_y %> -
             <span<%= " class=showing" if game == @game %>><%= link_to_unless(game == @game, game.full_title_limit, game_path(game)) %></span>
-            <%= "(#{game.platform.short_name.upcase})" %><br />
+            <%= "(#{game.platform.short_name.upcase})" %>
+            <%= "(unreleased)" if game.release_date > Date.today %><br />
           <% end %>
         </div>
       <% else %>

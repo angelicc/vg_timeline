@@ -17,7 +17,7 @@
   <% for game in @games %>
     <tr>
       <td><%= i %></td>
-      <td><%= game.full_title_limit %></td>
+      <td><%= link_to game.full_title_limit, game_path(game.id) %></td>
       <td><%= game.platform.short_name.upcase %></td>
       <td><%= link_to game.release_date, year_path(game.r_y) %></td>
     </tr>

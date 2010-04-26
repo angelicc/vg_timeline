@@ -9,7 +9,7 @@ function monthSpinner(month, type) {
     if (type == "Show") {
         Element.show('spinner'+month);
     } else {
-        Element.hide('spinner'+month);
+        //Element.hide('spinner'+month);
     }
 }
 
@@ -117,6 +117,8 @@ function yearFilterPlatform(item, limit) {
     limit = checkIfYearShowAll(item.className, limit);
     updateYear(item.className, limit);
 }
+
+
 
 function yearFilterAll(item, limit) {
     if (item.checked == true) {

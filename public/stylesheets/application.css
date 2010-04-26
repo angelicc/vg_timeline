@@ -116,8 +116,16 @@ span#search_box {
     -webkit-border-top-left-radius: 7px;
 }
 
-span#search_box input {
+input {
     font-size: 12px;
+}
+
+input[type=text], select, input[type=file] {
+    border: 1px solid #C3D9FF;
+}
+
+input[type=text]:focus, select:focus, input[type=file]:focus {
+    background: #EEF5FF;
 }
 
 div.auto_complete {
@@ -125,7 +133,8 @@ div.auto_complete {
 }
 
 div.auto_complete ul li.selected {
-    background-color: #E5E5E5 !important;
+    background-color: #DAE4FF !important;
+    cursor: default;
 }
 
 .round {

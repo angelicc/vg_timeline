@@ -7,9 +7,6 @@
   <span class="platforms_month">
     <%= link_to 'Year Filters', "#general_filters" %>
   </span>
-  <span id="spinner<%= @year.to_s %>" class="spinner" style="display:none;">
-    <img alt="Spinner" src="/images/spinner.gif" />
-  </span>
 </div>
 <% @developers_year = []; @publishers_year = [] %>
 <% unless @games.empty? %>
@@ -86,6 +83,7 @@
   </div>
   <div id="platforms_general_filters">
     <span class="title_top_filter"><%= "Current Year" %></span>
+    <span id="spinner<%= @year.to_s %>" class="spinner" style="display:none;"><img alt="Spinner" src="/images/spinner.gif" /></span>
     <span class="check_top_filter"><%= check_box_tag "year_filter_all"+@year.to_s, 1, true, :class => @year.to_s, :onclick => "yearFilterAll(this, 3)" %>All</span>
     <br />
     <% @platforms_year.sort! { |a,b| a.name <=> b.name } %>
@@ -100,13 +98,13 @@
     <br />
     <% @publishers_year.sort! { |a,b| a.name <=> b.name } %>
     <% for publisher in @publishers_year %>
-      <%= check_box_tag 'gpublisher'+publisher.id.to_s, 1, false %>
+      <%= check_box_tag 'gpublisher'+publisher.id.to_s, 1, false, :class => @year.to_s, :onclick => "yearFilterPublisher(this)" %>
       <%= publisher.name %><br />
     <% end %>
   </div>
   <div id="developers_general_filters" style="display:none">
     <span class="title_top_filter"><%= "Current Year" %></span>
-    <span class="check_top_filter"><%= check_box_tag 'gdevelopersall', 1, true  %>All</span>
+    <span class="check_top_filter"><%= check_box_tag 'gdevelopersall', 1, true, :class => @year.to_s, :onclick => "yearFilterDeveloper(this)"  %>All</span>
     <br />
     <% @developers_year.sort! { |a,b| a.name <=> b.name } %>
     <% for developer in @developers_year %>

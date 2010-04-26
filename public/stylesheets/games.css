@@ -492,10 +492,14 @@ div.tooltip_boxart.right {
     position: relative;
 }
 
-#game_show_title {
+.game_show_title {
     margin: 0 0 5px;
     font-size: 1.6em;
     font-weight: normal;
+}
+
+h2.game_show_title {
+    font-size: 1.2em;
 }
 
 td.label {
@@ -505,14 +509,18 @@ td.label {
     vertical-align: top;
 }
 
+td.lab_info {
+    width: 250px;
+}
+
 #diff_platforms {
     position: absolute;
-    left: 57%;
+    left: 59%;
     top: 0;
-    margin-top: 40px;
+    margin-top: 60px;
     margin-bottom: 10px;
     padding: 10px;
-    width: 40%;
+    width: 250px;
     border: 1px solid gray;
     background-color: #c9ced7;
     font-size: 10px;
@@ -520,13 +528,13 @@ td.label {
 
 td.subtitle {
     font-weight: 600;
+    align: top;
     font-size: 12px;
     width: 70px;
 }
 
 td.platforms {
-    width: 70px;
-    text-align: center;
+    width: 150px;
 }
 
 /* Description */
