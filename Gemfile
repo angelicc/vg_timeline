@@ -29,5 +29,5 @@ gem "devise", "1.1.rc1"
 gem "gravtastic", :branch => 'master'
 gem "pg"
 
-gem "paperclip", :git => 'git://github.com/thoughtbot/paperclip.git', :branch => 'rails3'
+gem "paperclip", :git => 'git://github.com/thoughtbot/paperclip.git', :branch => 'dev-v3.0'
 
