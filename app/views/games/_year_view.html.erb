@@ -34,13 +34,32 @@
             <% p_m = (@platforms_month.rindex(@month) + 1) %>
             Only:
             <span class="platforms">
+              <% i = 1; missing_platforms = [] %>
               <% for platform in @platforms_month[p_m] %>
-                <span class="platform">
-                  <%= check_box_tag platform.id, 1, false, :class => @month.to_s, :onclick => "monthFilterPlatform(this, #{@year.to_s}, 3)" %>
-                  <%= platform.name %>
-                </span>
+                <% if i < 5 %>
+                  <span class="platform">
+                    <%= check_box_tag platform.id, 1, false, :class => @month.to_s, :onclick => "monthFilterPlatform(this, #{@year.to_s}, 3)" %>
+                    <%= platform.name %>
+                  </span>
+                  <% i += 1 %>
+                <% else %>
+                  <% missing_platforms << platform %>
+                <% end %>
               <% end %>
             </span>
+            <% if not missing_platforms.empty? %>
+              <span class="more_platforms"><%= link_to_function("More", "showHide(this)", :class => 'more'+@month.to_s, :onmouseover => "showMorePlatforms(this, $('missing_platforms#{@month.to_i}'));") %></span>
+              <span id="missing_platforms<%= @month.to_i.to_s %>" class="missing_platforms" style="display:none">
+                <% i = 0 %>
+                <table><tr>
+                  <% for platform in missing_platforms %>
+                    <td><%= check_box_tag platform.id, 1, false, :class => @month.to_s, :onclick => "monthFilterPlatform(this, #{@year.to_s}, 3)" %>
+                    <%= platform.name %></td>
+                    <% i +=1 %><% if i == 3 %></tr><tr><% i = 0 %><% end %>
+                  <% end %></tr>
+                </table>
+              </span>
+            <% end %>
             <span class="platform_extra">
               <%= check_box_tag "month_filter_all"+@month.to_s, 1, false, :class => @month.to_s, :onclick => "monthFilterAll(this, #{@year.to_s}, 3)"  %>
               <%= "All" %>

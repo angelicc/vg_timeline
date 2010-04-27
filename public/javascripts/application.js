@@ -9,8 +9,8 @@ function monthSpinner(month, type) {
     if (type == "Show") {
         Element.show('spinner'+month);
     } else {
-        //Element.hide('spinner'+month);
-    }
+//Element.hide('spinner'+month);
+}
 }
 
 function uncheckMonthFilterAll(month, unCheck) {
@@ -277,35 +277,58 @@ function tooltipAjax(e, element, id) {
 }
 
 function tabselect1(tab) {
-  var tablist = $('tabcontrol1').getElementsByTagName('li');
-  var nodes = $A(tablist);
+    var tablist = $('tabcontrol1').getElementsByTagName('li');
+    var nodes = $A(tablist);
 
-  nodes.each(function(node){
-    if (node.id == tab.id) {
-      tab.className='current_show_filter';
-    } else {
-      node.className='nc_show_filter';
-    }
-  });
+    nodes.each(function(node){
+        if (node.id == tab.id) {
+            tab.className='current_show_filter';
+        } else {
+            node.className='nc_show_filter';
+        }
+    });
 }
 
 function paneselect1(div) {
-  var hidden_div;
-  var nh_div1; var nh_div2;
-  if(div == 'platforms_general_filters') {
-      nh_div1 = document.getElementById('developers_general_filters');
-      nh_div2 = document.getElementById('publishers_general_filters');
-  } else if(div == 'publishers_general_filters') {
-      nh_div1 = document.getElementById('developers_general_filters');
-      nh_div2 = document.getElementById('platforms_general_filters');
-  } else if(div == 'developers_general_filters') {
-      nh_div1 = document.getElementById('publishers_general_filters');
-      nh_div2 = document.getElementById('platforms_general_filters');
-  } else {
+    var hidden_div;
+    var nh_div1;
+    var nh_div2;
+    if(div == 'platforms_general_filters') {
+        nh_div1 = document.getElementById('developers_general_filters');
+        nh_div2 = document.getElementById('publishers_general_filters');
+    } else if(div == 'publishers_general_filters') {
+        nh_div1 = document.getElementById('developers_general_filters');
+        nh_div2 = document.getElementById('platforms_general_filters');
+    } else if(div == 'developers_general_filters') {
+        nh_div1 = document.getElementById('publishers_general_filters');
+        nh_div2 = document.getElementById('platforms_general_filters');
+    } else {
 
-  }
-  hidden_div = document.getElementById(div);
-  nh_div1.style.display = "none";
-  nh_div2.style.display = "none";
-  hidden_div.style.display = "block";
+    }
+    hidden_div = document.getElementById(div);
+    nh_div1.style.display = "none";
+    nh_div2.style.display = "none";
+    hidden_div.style.display = "block";
+}
+
+function showHide(element) {
+    if(element.innerHTML=='More') {
+        element.update('Hide')
+    } else {
+        element.update('More')
+    }
+}
+
+function showMorePlatforms(elem, content) {
+    new Tip(elem, content, {
+        style: 'custom',
+        fixed: true,
+        showOn: 'click',
+        hideOn: 'click',
+        hook: {
+            tip: 'bottomRight'
+        }, stem: 'bottomRight',
+        offset: { x: 20, y: 0 }
+    });
+    elem.onmouseover=null;
 }

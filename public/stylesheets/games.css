@@ -169,6 +169,12 @@ span.platforms_month {
     margin:0;
 }
 
+span.more_platforms {
+    display: inline-block;
+    text-align: center;
+    width: 35px;
+}
+
 span.platforms {
     border: 1px solid black;
     border-top: none;
@@ -424,6 +430,14 @@ div.tooltip_boxart.right {
 
 #month_view_all {
     padding: 10px;
+}
+
+#games_list_cont {
+    width: 600px;
+}
+
+#games_list_cont td {
+    padding-right: 15px;
 }
 
 /* GAME INFO VIEW */
