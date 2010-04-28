@@ -2,8 +2,4 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-<<<<<<< HEAD
   hello: "Hello world"
-=======
-  hello: "Hello world"
->>>>>>> 1a2077b7618653b1f5191387be40b27de1a3d757

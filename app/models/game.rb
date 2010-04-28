@@ -1,5 +1,4 @@
 class Game < ActiveRecord::Base
-<<<<<<< HEAD
   attr_accessor :boxart_dir
   belongs_to :platform
   belongs_to :game_type
@@ -224,6 +223,4 @@ class Game < ActiveRecord::Base
   def empty_boxart_path
     self.boxart = "empty_boxart"
   end
-=======
->>>>>>> 1a2077b7618653b1f5191387be40b27de1a3d757
 end

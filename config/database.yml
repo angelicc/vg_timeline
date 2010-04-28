@@ -18,11 +18,7 @@ development:
   adapter: mysql
   encoding: utf8
   reconnect: false
-<<<<<<< HEAD
   database: vg_timeline_development
-=======
-  database: vg-timeline_development
->>>>>>> 1a2077b7618653b1f5191387be40b27de1a3d757
   pool: 5
   username: root
   password: 13579-
@@ -35,11 +31,7 @@ test:
   adapter: mysql
   encoding: utf8
   reconnect: false
-<<<<<<< HEAD
   database: vg_timeline_test
-=======
-  database: vg-timeline_test
->>>>>>> 1a2077b7618653b1f5191387be40b27de1a3d757
   pool: 5
   username: root
   password: 13579-
@@ -49,11 +41,7 @@ production:
   adapter: mysql
   encoding: utf8
   reconnect: false
-<<<<<<< HEAD
   database: vg_timeline_production
-=======
-  database: vg-timeline_production
->>>>>>> 1a2077b7618653b1f5191387be40b27de1a3d757
   pool: 5
   username: root
   password: 13579-

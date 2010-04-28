@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 about=Explain the current environment
 db\:abort_if_pending_migrations=Raises an error if there are pending migrations
 db\:charset=Retrieves the charset for the current environment's database
@@ -10,17 +9,6 @@ db\:drop\:all=Drops all the local databases defined in config/database.yml
 db\:fixtures\:identify=Search for a fixture given a LABEL or ID. Specify an alternative path (eg. spec/fixtures) using FIXTURES_PATH=spec/fixtures.
 db\:fixtures\:load=Load fixtures into the current environment's database.  Load specific fixtures using FIXTURES=x,y. Load from subdirectory in test/fixtures using FIXTURES_DIR=z. Specify an alternative path (eg. spec/fixtures) using FIXTURES_PATH=spec/fixtures.
 db\:forward=Pushes the schema to the next version. Specify the number of steps with STEP=n
-=======
-db\:abort_if_pending_migrations=Raises an error if there are pending migrations
-db\:charset=Retrieves the charset for the current environment's database
-db\:collation=Retrieves the collation for the current environment's database
-db\:create=Create the database defined in config/database.yml for the current RAILS_ENV
-db\:create\:all=Create all the local databases defined in config/database.yml
-db\:drop=Drops the database for the current RAILS_ENV
-db\:drop\:all=Drops all the local databases defined in config/database.yml
-db\:fixtures\:identify=Search for a fixture given a LABEL or ID. Specify an alternative path (eg. spec/fixtures) using FIXTURES_PATH=spec/fixtures.
-db\:fixtures\:load=Load fixtures into the current environment's database.  Load specific fixtures using FIXTURES=x,y. Load from subdirectory in test/fixtures using FIXTURES_DIR=z. Specify an alternative path (eg. spec/fixtures) using FIXTURES_PATH=spec/fixtures.
->>>>>>> 1a2077b7618653b1f5191387be40b27de1a3d757
 db\:load_config=
 db\:migrate=Migrate the database through scripts in db/migrate and update db/schema.rb by invoking db:schema:dump. Target specific version with VERSION=x. Turn off output with VERBOSE=false.
 db\:migrate\:down=Runs the "down" for a given migration VERSION.
@@ -55,16 +43,12 @@ doc\:clobber_plugins=Remove plugin documentation
 doc\:clobber_rails=Remove rdoc products
 doc\:guides=Generate Rails guides
 doc\:plugins=Generate documentation for all installed plugins
-<<<<<<< HEAD
 doc\:plugins\:auto_complete=Generate documentation for the auto_complete plugin
 doc\:plugins\:dynamic_form=Generate documentation for the dynamic_form plugin
-=======
->>>>>>> 1a2077b7618653b1f5191387be40b27de1a3d757
 doc\:rails=Build the RDOC HTML Files
 doc\:reapp=Force a rebuild of the RDOC files
 doc\:rerails=Force a rebuild of the RDOC files
 environment=
-<<<<<<< HEAD
 log\:clear=Truncates all *.log files in log/ to zero bytes
 middleware=Prints out your Rack middleware stack
 notes=Enumerate all annotations
@@ -81,39 +65,11 @@ rails\:update\:application_controller=Rename application.rb to application_contr
 rails\:update\:configs=Update config/boot.rb from your current rails install
 rails\:update\:javascripts=Update Prototype javascripts from your current rails install
 rails\:update\:scripts=Adds new scripts to the application script/ directory
-=======
-gems=List the gems that this rails application depends on
-gems\:base=
-gems\:build=Build any native extensions for unpacked gems
-gems\:build\:force=Force the build of all gems
-gems\:install=Installs all required gems.
-gems\:refresh_specs=Regenerate gem specifications in correct format.
-gems\:unpack=Unpacks all required gems into vendor/gems.
-gems\:unpack\:dependencies=Unpacks all required gems and their dependencies into vendor/gems.
-log\:clear=Truncates all *.log files in log/ to zero bytes
-middleware=Prints out your Rack middleware stack
-notes=Enumerate all annotations
-notes\:custom=Enumerate a custom annotation, specify with ANNOTATION=WTFHAX
-notes\:fixme=Enumerate all FIXME annotations
-notes\:optimize=Enumerate all OPTIMIZE annotations
-notes\:todo=Enumerate all TODO annotations
-rails\:freeze\:edge=Lock to latest Edge Rails, for a specific release use RELEASE=1.2.0
-rails\:freeze\:gems=Lock this application to the current gems (by unpacking them into vendor/rails)
-rails\:template=Applies the template supplied by LOCATION=/path/to/template
-rails\:unfreeze=Unlock this application from freeze of gems or edge and return to a fluid use of system gems
-rails\:update=Update both configs, scripts and public/javascripts from Rails
-rails\:update\:application_controller=Rename application.rb to application_controller.rb
-rails\:update\:configs=Update config/boot.rb from your current rails install
-rails\:update\:generate_dispatchers=Generate dispatcher files in RAILS_ROOT/public
-rails\:update\:javascripts=Update your javascripts from your current rails install
-rails\:update\:scripts=Add new scripts to the application script/ directory
->>>>>>> 1a2077b7618653b1f5191387be40b27de1a3d757
 rails_env=
 routes=Print out all defined routes in match order, with names. Target specific controller with CONTROLLER=x.
 secret=Generate a crytographically secure secret key. This is typically used to generate a secret for cookie sessions.
 stats=Report code statistics (KLOCs, etc) from the application
 test=Run all unit, functional and integration tests
-<<<<<<< HEAD
 test\:benchmark=Run tests for benchmarktest:prepare / Benchmark the performance tests
 test\:functionals=Run tests for functionalstest:prepare / Run the functional tests in test/functional
 test\:integration=Run tests for integrationtest:prepare / Run the integration tests in test/integration
@@ -123,16 +79,6 @@ test\:profile=Run tests for profiletest:prepare / Profile the performance tests
 test\:recent=Run tests for recenttest:prepare / Test recent changes
 test\:uncommitted=Run tests for uncommittedtest:prepare / Test changes since last checkin (only Subversion and Git)
 test\:units=Run tests for unitstest:prepare / Run the unit tests in test/unit
-=======
-test\:benchmark=Run tests for {:benchmark=>"db:test:prepare"} / Benchmark the performance tests
-test\:functionals=Run tests for {:functionals=>"db:test:prepare"} / Run the functional tests in test/functional
-test\:integration=Run tests for {:integration=>"db:test:prepare"} / Run the integration tests in test/integration
-test\:plugins=Run tests for {:plugins=>:environment} / Run the plugin tests in vendor/plugins/*/**/test (or specify with PLUGIN=name)
-test\:profile=Run tests for {:profile=>"db:test:prepare"} / Profile the performance tests
-test\:recent=Run tests for {:recent=>"db:test:prepare"} / Test recent changes
-test\:uncommitted=Run tests for {:uncommitted=>"db:test:prepare"} / Test changes since last checkin (only Subversion and Git)
-test\:units=Run tests for {:units=>"db:test:prepare"} / Run the unit tests in test/unit
->>>>>>> 1a2077b7618653b1f5191387be40b27de1a3d757
 time\:zones\:all=Displays names of all time zones recognized by the Rails TimeZone class, grouped by offset. Results can be filtered with optional OFFSET parameter, e.g., OFFSET=-6
 time\:zones\:local=Displays names of time zones recognized by the Rails TimeZone class with the same offset as the system local time
 time\:zones\:us=Displays names of US time zones recognized by the Rails TimeZone class, grouped by offset. Results can be filtered with optional OFFSET parameter, e.g., OFFSET=-6

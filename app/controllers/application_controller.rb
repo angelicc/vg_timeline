@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
@@ -43,15 +42,4 @@ class ApplicationController < ActionController::Base
       " +#{new_exp} Exp. points."
     end
   end
-=======
-# Filters added to this controller apply to all controllers in the application.
-# Likewise, all the methods added will be available for all controllers.
-
-class ApplicationController < ActionController::Base
-  helper :all # include all helpers, all the time
-  protect_from_forgery # See ActionController::RequestForgeryProtection for details
-
-  # Scrub sensitive parameters from your log
-  # filter_parameter_logging :password
->>>>>>> 1a2077b7618653b1f5191387be40b27de1a3d757
 end
