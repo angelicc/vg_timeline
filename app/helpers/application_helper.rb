@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 module ApplicationHelper
 
   def pop_up(text, path, lev = { :level => 1 })
@@ -86,4 +87,8 @@ module ApplicationHelper
   def close_button
     image_tag("window-close.png", :class => "window_close")
   end
+=======
+# Methods added to this helper will be available to all templates in the application.
+module ApplicationHelper
+>>>>>>> 1a2077b7618653b1f5191387be40b27de1a3d757
 end

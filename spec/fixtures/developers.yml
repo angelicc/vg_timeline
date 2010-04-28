@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  country: MyString
+  founded: 2010-02-05
+  former_name_id: 1
+  publisher_id: 1
+
+two:
+  name: MyString
+  country: MyString
+  founded: 2010-02-05
+  former_name_id: 1
+  publisher_id: 1

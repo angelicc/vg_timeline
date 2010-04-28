@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 function monthFilterPlatform(item, year, limit) {
     spinner(item.className, "Show");
     uncheckMonthFilterAll(item.className, true);
@@ -327,3 +328,7 @@ function showMorePlatforms(elem, content) {
     });
     elem.onmouseover=null;
 }
+=======
+// Place your application-specific JavaScript functions and classes here
+// This file is automatically included by javascript_include_tag :defaults
+>>>>>>> 1a2077b7618653b1f5191387be40b27de1a3d757
