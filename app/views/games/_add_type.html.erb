@@ -1,0 +1,11 @@
+<h2>Type</h2>
+
+<%= form_for @game do |f| %>
+  <div class="field">
+    <%= f.label :type_name %>
+    <%= f.select :type_name, @types.collect { |t| [t.name, t.id] } %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Submit" %>
+  </div>
+<% end %>

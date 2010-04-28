@@ -1,4 +1,8 @@
 VgTimeline::Application.routes.draw do |map|
+  get "types/new"
+
+  get "types/create"
+
   get "awards/new"
 
   get "awards/create"

@@ -217,6 +217,8 @@ class GamesController < ApplicationController
     @platforms = Platform.all
     @developers = Developer.order("name asc").all
     @publishers = Publisher.order("name asc").all
+    @multi_modes = MultiplayerMode.all
+    @types = Type.all
     respond_to do |format|
       format.js { render :action => 'pop_up' }
     end
@@ -480,26 +482,54 @@ class GamesController < ApplicationController
     #    limit = parameters[:l]
     limit = "0"
     games = []
-    platform_ids = []
+    platform_ids = []; publisher_ids = []; developer_ids = [];
     parameters.each_pair { |key, value|
       if key.to_i > 0 and value.to_i > 0
         platform_ids << value
+      elsif value[0,1] == 'p'
+        publisher_ids << value.delete('p')
+      elsif value[0,1] == 'd'
+        developer_ids << value.delete('d')
       end
     }
-    platform_query = ""
+    platform_query = ""; publisher_query = ""; developer_query = "";
     unless platform_ids.empty?
       platform_ids = platform_ids.join(",")
       platform_query = " and platform_id in (#{platform_ids})"
     end
+    unless publisher_ids.empty?
+      publisher_ids = publisher_ids.join(",")
+      publisher_query = " and publishers.id in (#{publisher_ids})"
+    end
+    unless developer_ids.empty?
+      developer_ids = developer_ids.join(",")
+      developer_query = " and developers.id in (#{developer_ids})"
+    end
     if parameters[:date]
       if limit == "0"
-        games = Game.where("release_date = ?#{platform_query}", parameters[:date]).order("release_date asc, hits desc, main_title asc").offset(offset)
+        if not publisher_ids.empty? and developer_ids.empty?
+          games = Game.where("release_date = ?#{platform_query} and games.id = games_publishers.game_id and games_publishers.publisher_id = publishers.id#{publisher_query}", parameters[:date]).order("release_date asc, hits desc, main_title asc").includes(:publishers)
+        elsif not developer_ids.empty? and publisher_ids.empty?
+          games = Game.where("release_date = ?#{platform_query} and games.id = developers_games.game_id and developers_games.developer_id = developers.id#{developer_query}", parameters[:date]).order("release_date asc, hits desc, main_title asc").includes(:developers)
+        elsif not publisher_ids.empty? and not developer_ids.empty?
+          games = Game.where("release_date = ?#{platform_query} and games.id = developers_games.game_id and developers_games.developer_id = developers.id#{developer_query} and games.id = games_publishers.game_id and games_publishers.publisher_id = publishers.id#{publisher_query}", parameters[:date]).order("release_date asc, hits desc, main_title asc").includes(:developers, :publishers)
+        else
+          games = Game.where("release_date = ?#{platform_query}", parameters[:date]).order("release_date asc, hits desc, main_title asc").offset(offset)
+        end
       else
         games = Game.where("release_date = ?#{platform_query}", parameters[:date]).order("release_date asc, hits desc, main_title asc").offset(offset).limit(limit)
       end
     else
       if limit == "0"
-        games = Game.where("release_date >= ? and release_date <= ?#{platform_query}", "#{year}-#{starting_month}-#{starting_day}", "#{year}-#{ending_month}-#{ending_day}").order("release_date asc, hits desc, main_title asc").offset(offset)
+        if not publisher_ids.empty? and developer_ids.empty?
+          games = Game.where("release_date >= ? and release_date <= ?#{platform_query} and games.id = games_publishers.game_id and games_publishers.publisher_id = publishers.id#{publisher_query}", "#{year}-#{starting_month}-#{starting_day}", "#{year}-#{ending_month}-#{ending_day}").order("release_date asc, hits desc, main_title asc").includes(:publishers)
+        elsif not developer_ids.empty? and publisher_ids.empty?
+          games = Game.where("release_date >= ? and release_date <= ?#{platform_query} and games.id = developers_games.game_id and developers_games.developer_id = developers.id#{developer_query}", "#{year}-#{starting_month}-#{starting_day}", "#{year}-#{ending_month}-#{ending_day}").order("release_date asc, hits desc, main_title asc").includes(:developers)
+        elsif not publisher_ids.empty? and not developer_ids.empty?
+          games = Game.where("release_date >= ? and release_date <= ?#{platform_query} and games.id = developers_games.game_id and developers_games.developer_id = developers.id#{developer_query} and games.id = games_publishers.game_id and games_publishers.publisher_id = publishers.id#{publisher_query}", "#{year}-#{starting_month}-#{starting_day}", "#{year}-#{ending_month}-#{ending_day}").order("release_date asc, hits desc, main_title asc").includes(:developers, :publishers)
+        else
+          games = Game.where("release_date >= ? and release_date <= ?#{platform_query}", "#{year}-#{starting_month}-#{starting_day}", "#{year}-#{ending_month}-#{ending_day}").order("release_date asc, hits desc, main_title asc").offset(offset)
+        end
       else
         games = Game.where("release_date >= ? and release_date <= ?#{platform_query}", "#{year}-#{starting_month}-#{starting_day}", "#{year}-#{ending_month}-#{ending_day}").order("release_date asc, hits desc, main_title asc").offset(offset).limit(limit)
       end

@@ -19,10 +19,10 @@
                       Also on:
                     </td>
                     <td class="platforms">
-                    <% for diff_platform in @game.different_platforms %>
-                          <%= link_to(diff_platform.platform.short_name.upcase, game_path(diff_platform)) + (diff_platform == @game.different_platforms.last ? "" : ", ") %>
+                      <% for diff_platform in @game.different_platforms %>
+                        <%= link_to(diff_platform.platform.short_name.upcase, game_path(diff_platform)) + (diff_platform == @game.different_platforms.last ? "" : ", ") %>
                       <% end %>
-                      </td>
+                    </td>
                   </tr>
                   <tr>
                     <td colspan="2">
@@ -43,10 +43,10 @@
         <tr>
           <td class="label">Developed by:</td>
           <% if @game.different_platforms.empty? %>
-          <td>
-          <% else %>
-          <td class="lab_info">
-          <% end %>
+            <td>
+            <% else %>
+            <td class="lab_info">
+            <% end %>
             <% @game.developers.each do |d| %>
               <%= link_to(d.name, developer_path(d)) + (d == @game.developers.last ? "" : ", ") %>
             <% end %>
@@ -55,10 +55,10 @@
         <tr>
           <td class="label">Published by:</td>
           <% if @game.different_platforms.empty? %>
-          <td>
-          <% else %>
-          <td class="lab_info">
-          <% end %>
+            <td>
+            <% else %>
+            <td class="lab_info">
+            <% end %>
             <% @game.publishers.each do |p| %>
               <%= link_to(p.name, publisher_path(p)) + (p == @game.publishers.last ? "" : ", ") %>
             <% end %>
@@ -148,9 +148,10 @@
     <% end %>
     <% unless @game.types.empty? %>
       <% for type in @game.types %>
-        <%= type.name %>
-      <% end %>
+        <%= type.name %><%= ", " unless type == @game.types.last %>
+      <% end %><br />
     <% end %>
+    <%= pop_up "Add type", '/edit?id=' + @game.id.to_s + '&view=add_type' if user_signed_in? %><br />
     <% unless @game.genres.empty? %>
       Genre(s):
       <% for genre in @game.genres %>
@@ -161,19 +162,31 @@
       Local:<br />
       <%= @game.local_players %> Player(s)<br />
       <% if @game.local_multi_modes %>
-        <%= "Co-op<br />" if @game.local_multi_modes.coop %>
-        <%= "Vs<br />" if @game.local_multi_modes.vs %>
+        <% if @game.local_multi_modes.coop %>
+          Co-op<br />
+        <% end %>
+        <% if @game.local_multi_modes.vs %>
+          Vs<br />
+        <% end %>
       <% end %>
     <% end %>
     <% if @game.online_players %>
-      <br />
       Online:<br />
-      <%= @game.online_players %> Players<br />
+      <% if @game.online_players > 0 %>
+        <%= @game.online_players %> Players<br />
+      <% else %>
+        This game has no online play.<br />
+      <% end %>
       <% if @game.online_multi_modes %>
-        <%= "Co-op<br />" if @game.online_multi_modes.coop %>
-        <%= "Vs<br />" if @game.online_multi_modes.vs %>
+        <% if @game.online_multi_modes.coop %>
+          Co-op<br />
+        <% end %>
+        <% if @game.online_multi_modes.vs %>
+          Vs<br />
+        <% end %>
       <% end %>
     <% end %>
+    <%= pop_up "online/local players", '/edit?id=' + @game.id.to_s + '&view=add_players' if user_signed_in? %><br />
     <%= @game.achievements %>
     <% unless @game.project_leaders.empty? %>
       Key People:<br />

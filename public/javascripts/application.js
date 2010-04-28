@@ -1,13 +1,13 @@
 function monthFilterPlatform(item, year, limit) {
-    monthSpinner(item.className, "Show");
+    spinner(item.className, "Show");
     uncheckMonthFilterAll(item.className, true);
     limit = checkIfMonthShowAll(item.className, limit);
     updateMonth(item.className, year, limit);
 }
 
-function monthSpinner(month, type) {
+function spinner(cls, type) {
     if (type == "Show") {
-        Element.show('spinner'+month);
+        Element.show('spinner'+cls);
     } else {
 //Element.hide('spinner'+month);
 }
@@ -111,32 +111,28 @@ function yearShowAll(item, limit) {
     }
 }
 
-function yearFilterPlatform(item, limit) {
-    monthSpinner(item.className, "Show");
-    uncheckYearFilterAll(item.className, true);
-    limit = checkIfYearShowAll(item.className, limit);
-    updateYear(item.className, limit);
+function yearFilter(item, cls, allId) {
+    spinner(item.className, "Show");
+    $(allId).checked = false;
+    updateYear(cls);
 }
 
-
-
-function yearFilterAll(item, limit) {
+function yearFilterAll(item, cls) {
     if (item.checked == true) {
-        monthSpinner(item.className, "Show");
-        uncheckFiltersPlatforms(item.className);
-        limit = checkIfYearShowAll(item.className, limit);
+        spinner(item.className, "Show");
+        uncheckYearFilters(item);
         item.checked = true;
-        updateYear(item.className, limit);
+        updateYear(cls);
     } else {
         item.checked = true;
     }
 }
 
-function uncheckYearFiltersPlatforms(year) {
-    var desc = $$('.'+year);
-    desc.each(function(item) {
-        if (item.checked == true) {
-            item.checked = false;
+function uncheckYearFilters(item) {
+    var filters = $$('.'+item.className);
+    filters.each(function(filter) {
+        if (filter.checked == true && filter != item) {
+            filter.checked = false;
         }
     });
 }
@@ -148,22 +144,21 @@ function uncheckYearFilterAll(year, unCheck) {
     }
 }
 
-function updateYear(year, limit) {
+function updateYear(cls) {
     new Ajax.Request('/update_year',
     {
         method: "post",
-        parameters: getCheckedYear(year, limit)
+        parameters: getCheckedYear(cls)
     });
 }
 
-function getCheckedYear(year, limit) {
-    var desc = $$('.'+year);
-    var yearFilterAll = $('year_filter_all'+year)
-    var params = "y=" + year + "&l=" + limit;
+function getCheckedYear(cls) {
+    var filters = $$('.'+cls).concat($$('.p'+cls)).concat($$('.d'+cls));
+    var params = "y=" + cls + "&l=3";
     var i = 1;
-    desc.each(function(item) {
-        if (item.checked == true && item != yearFilterAll) {
-            params = params + "&" + i + "=" + item.id;
+    filters.each(function(filter) {
+        if (filter.checked == true) {
+            params = params + "&" + i + "=" + filter.id;
             i = i + 1;
         }
     })
@@ -172,12 +167,12 @@ function getCheckedYear(year, limit) {
 }
 
 function getCheckedPlatformsYear(year) {
-    var desc = $$('.'+year);
+    var filters = $$('.'+year);
     params = "";
     var i = 1;
-    desc.each(function(item) {
-        if (item.checked == true) {
-            params += "&" + i + "=" + item.id;
+    filters.each(function(filter) {
+        if (filter.checked == true) {
+            params += "&" + i + "=" + filter.id;
             i = i + 1;
         }
     })
@@ -190,11 +185,11 @@ function getCheckedMonths() {
     var check = false;
     var months = ["01","02","03","04","05","06","07","08","09","10","11","12"];
     while (m < 12) {
-        var desc = $$('.'+months[m]);
+        var filters = $$('.'+months[m]);
         var monthShowAll = $('month_show_all'+months[m]);
-        if (desc != "") {
-            desc.each(function(item) {
-                if (item.checked == true && item != monthShowAll) {
+        if (filters != "") {
+            filters.each(function(filter) {
+                if (filter.checked == true && filter != monthShowAll) {
                     check = true;
                     throw $break;
                 }
@@ -328,7 +323,7 @@ function showMorePlatforms(elem, content) {
         hook: {
             tip: 'bottomRight'
         }, stem: 'bottomRight',
-        offset: { x: 20, y: 0 }
+        offset: {x: 20, y: 0}
     });
     elem.onmouseover=null;
 }

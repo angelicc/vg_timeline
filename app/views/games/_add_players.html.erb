@@ -1,0 +1,43 @@
+<h2>Players</h2>
+
+<%= form_for @game do |f| %>
+  <div class="field">
+    <%= f.label :local_players %>
+    <%= f.text_field :local_players, :size => 3 %>
+  </div>
+  <div class="field">
+    <%= f.label :local_multi_modes_id, "Local Multiplayer" %>
+    <%= f.select :local_multi_modes_id,
+      @multi_modes.collect { |m|
+      und = (m.coop and m.vs) ? " & " : ""
+      coop = m.coop ? 'Co-op' : ''
+      vs = m.vs ? 'Vs' : ''
+      if not m.coop and not m.vs
+        ["None", m.id]
+      else
+        [coop + und + vs, m.id]
+      end
+    } %>
+  </div>
+  <div class="field">
+    <%= f.label :online_players %>
+    <%= f.text_field :online_players, :size => 3 %>
+  </div>
+  <div class="field">
+    <%= f.label :online_multi_modes_id, "Online Multiplayer" %>
+    <%= f.select :online_multi_modes_id,
+      @multi_modes.collect { |m|
+      und = (m.coop and m.vs) ? " & " : ""
+      coop = m.coop ? 'Co-op' : ''
+      vs = m.vs ? 'Vs' : ''
+      if not m.coop and not m.vs
+        ["None", m.id]
+      else
+        [coop + und + vs, m.id]
+      end
+    } %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Submit" %>
+  </div>
+<% end %>

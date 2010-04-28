@@ -123,6 +123,22 @@ class Game < ActiveRecord::Base
     self.series = Series.find_or_create_by_name(name) unless name.blank?
   end
 
+  def type_name
+    types.first.name if types.first
+  end
+
+  def type_name=(id)
+    type = Type.find(id)
+    self.types << type unless types.exists?(type)
+  end
+
+  def local_multi_modes_types
+    coop = local_multi_modes.coop ? "Co-op" : ""
+    vs = local_multi_modes.vs ? "Vs" : ""
+    also = local_multi_modes.coop and local_multi_modes.vs ? " & " : ""
+    coop + also + vs
+  end
+
   #  def different_platforms
   #    different_platforms
   #  end

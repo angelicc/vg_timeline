@@ -100,34 +100,39 @@
       <li class="nc_show_filter" id="developers_tab"><%= link_to_function('Developers', "tabselect1($('developers_tab')); paneselect1('developers_general_filters')") %></li>
     </ul>
   </div>
+
   <div id="platforms_general_filters">
     <span class="title_top_filter"><%= "Current Year" %></span>
     <span id="spinner<%= @year.to_s %>" class="spinner" style="display:none;"><img alt="Spinner" src="/images/spinner.gif" /></span>
-    <span class="check_top_filter"><%= check_box_tag "year_filter_all"+@year.to_s, 1, true, :class => @year.to_s, :onclick => "yearFilterAll(this, 3)" %>All</span>
+    <span class="check_top_filter"><%= check_box_tag "y_plat_all", 1, true, :class => @year.to_s, :onclick => "yearFilterAll(this, #{@year})" %>All</span>
     <br />
     <% @platforms_year.sort! { |a,b| a.name <=> b.name } %>
     <% for platform in @platforms_year %>
-      <%= check_box_tag platform.id, 1, false, :class => @year.to_s, :onclick => "yearFilterPlatform(this, 3)" %>
+      <%= check_box_tag platform.id, 1, false, :class => @year.to_s, :onclick => "yearFilter(this, #{@year}, 'y_plat_all')" %>
       <%= platform.name %><br />
     <% end %>
   </div>
+
   <div id="publishers_general_filters" style="display:none">
     <span class="title_top_filter"><%= "Current Year" %></span>
-    <span class="check_top_filter"><%= check_box_tag 'gpublishersall', 1, true  %>All</span>
+    <span id="spinner<%= 'p'+@year.to_s %>" class="spinner" style="display:none;"><img alt="Spinner" src="/images/spinner.gif" /></span>
+    <span class="check_top_filter"><%= check_box_tag 'y_pub_all', 1, true, :class => 'p'+@year.to_s, :onclick => "yearFilterAll(this, #{@year})" %>All</span>
     <br />
     <% @publishers_year.sort! { |a,b| a.name <=> b.name } %>
     <% for publisher in @publishers_year %>
-      <%= check_box_tag 'gpublisher'+publisher.id.to_s, 1, false, :class => @year.to_s, :onclick => "yearFilterPublisher(this)" %>
+      <%= check_box_tag 'p'+publisher.id.to_s, 1, false, :class => 'p'+@year.to_s, :onclick => "yearFilter(this, #{@year}, 'y_pub_all')" %>
       <%= publisher.name %><br />
     <% end %>
   </div>
+  
   <div id="developers_general_filters" style="display:none">
     <span class="title_top_filter"><%= "Current Year" %></span>
-    <span class="check_top_filter"><%= check_box_tag 'gdevelopersall', 1, true, :class => @year.to_s, :onclick => "yearFilterDeveloper(this)"  %>All</span>
+    <span id="spinner<%= 'd'+@year.to_s %>" class="spinner" style="display:none;"><img alt="Spinner" src="/images/spinner.gif" /></span>
+    <span class="check_top_filter"><%= check_box_tag 'y_dev_all', 1, true, :class => 'd'+@year.to_s, :onclick => "yearFilterAll(this, #{@year})" %>All</span>
     <br />
     <% @developers_year.sort! { |a,b| a.name <=> b.name } %>
     <% for developer in @developers_year %>
-      <%= check_box_tag 'gdeveloper'+developer.id.to_s, 1, false %>
+      <%= check_box_tag 'd'+developer.id.to_s, 1, false, :class => 'd'+@year.to_s,:onclick => "yearFilter(this, #{@year}, 'y_dev_all')" %>
       <%= developer.name %><br />
     <% end %>
   </div>
