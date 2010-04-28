@@ -1,6 +1,5 @@
 <<<<<<< HEAD
 .bundle
-.git
 db/*.sqlite3
 log/*.log
 tmp/**/*
